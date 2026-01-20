@@ -19,7 +19,8 @@
         <img src="assets/images/intro.png" alt="Исторический таймлайн" class="hero-image">
       </section>
 
-      <section class="index-content">
+      <!-- RU версия текста главной -->
+      <section class="index-content" data-lang="ru">
         <h1>Добро пожаловать в исторический таймлайн</h1>
 
         <p>
@@ -34,20 +35,54 @@
         </p>
 
         <ul>
-          <li>Листай эпохи через меню слева (на ПК) или внизу страницы (на телефоне).</li>
-          <li>Сравнивай, что происходило в мире и в Молдове в одни и те же века.</li>
-          <li>Переходи по перекрёстным ссылкам внутри статей, как по мини-википедии.</li>
+          <li>листай эпохи через меню слева (на ПК) или внизу страницы (на телефоне);</li>
+          <li>сравнивай, что происходило в мире и в Молдове в одни и те же века;</li>
+          <li>переходи по перекрёстным ссылкам внутри статей, как по мини-википедии.</li>
         </ul>
 
         <p>
           История здесь работает как настенная карта мира: таймлайн можно держать открытым во время уроков,
-          подготовки к экзаменам или просто из любопытства - переходя от <em>Месопотамии</em> к <em>Римской империи</em>,
-          от <em>Молдавского княжества</em> к современности.
+          подготовки к экзамам или просто из любопытства - переходя от <em>Месопотамии</em> к
+          <em>Римской империи</em>, от <em>Молдавского княжества</em> к современности.
         </p>
 
         <p>
           Если какая-то тема особенно заинтересует, в статьях есть перекрёстные ссылки на соседние события и эпохи -
           по ним удобно "проваливаться глубже" и собирать свою картину истории.
+        </p>
+      </section>
+
+      <!-- RO версия текста главной -->
+      <section class="index-content" data-lang="ro">
+        <h1>Bine ai venit în cronologia istorică</h1>
+
+        <p>
+          Acesta este un fel de mini‑Wikipedie despre istoria <strong>lumii</strong> și a <strong>Moldovei</strong>,
+          aranjată într-o singură linie a timpului. Evenimentele din istoria mondială și din istoria țării noastre
+          sunt prezentate alăturat, ca să fie mai ușor de înțeles
+          <em>ce s-a întâmplat în același timp</em> în diferite regiuni ale lumii.
+        </p>
+
+        <p>
+          Site-ul este gândit pentru elevi, adolescenți și pentru oricine vrea să-și pună ordine în cunoștințele de istorie
+          fără manuale groase. Textele sunt scurte, clare și fără comentarii politice – doar fapte, date și explicații atente.
+        </p>
+
+        <ul>
+          <li>navighează prin epoci din meniul din stânga (pe PC) sau de jos (pe telefon);</li>
+          <li>compară ce se întâmpla în lume și în Moldova în aceleași secole;</li>
+          <li>folosește legăturile interne dintre articole ca într-o mini‑enciclopedie.</li>
+        </ul>
+
+        <p>
+          Istoria funcționează aici ca o hartă de perete: poți lăsa cronologia deschisă în timp ce înveți,
+          te pregătești de examene sau pur și simplu îți hrănești curiozitatea – trecând de la
+          <em>Mesopotamia</em> la <em>Imperiul Roman</em>, de la <em>Principatul Moldovei</em> la epoca modernă.
+        </p>
+
+        <p>
+          Dacă un subiect îți stârnește interesul, articolele conțin trimiteri către evenimente și epoci înrudite –
+          astfel poți „săpa mai adânc” și să-ți construiești propria imagine asupra istoriei.
         </p>
       </section>
     </article>
@@ -56,17 +91,16 @@
   <div id="footer"></div>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    fetch("partials/header.html").then(r => r.text()).then(t => {
-      const h = document.getElementById("header");
-      if (h) h.innerHTML = t;
-      document.dispatchEvent(new Event("timeline:headerLoaded"));
-    });
-    fetch("partials/footer.html").then(r => r.text()).then(t => {
-      const f = document.getElementById("footer");
-      if (f) f.innerHTML = t;
-    });
-  });
+  (function(){
+    function inject(id, url){
+      fetch(url).then(function(r){return r.text();}).then(function(t){
+        var el = document.getElementById(id);
+        if(el) el.innerHTML = t;
+      });
+    }
+    inject("header","partials/header.html");
+    inject("footer","partials/footer.html");
+  })();
   </script>
 </body>
 </html>

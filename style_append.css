@@ -1,20 +1,77 @@
-/* --- Added: shared header/footer + intro image sizing --- */
+/* Language-based visibility */
+html.lang-ru [data-lang="ro"] { display: none !important; }
+html.lang-ro [data-lang="ru"] { display: none !important; }
 
-.site-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
-.lang-switcher{display:flex;gap:8px;align-items:center;}
-.lang-switcher button{border:1px solid rgba(255,255,255,0.25);background:transparent;color:inherit;padding:8px 10px;border-radius:10px;cursor:pointer;font-weight:700;letter-spacing:0.3px;}
-.lang-switcher button.active{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.35);}
+/* Header / footer / hero image tweaks (if not already present) */
+.site-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+}
 
-.site-footer{margin-top:24px;padding:24px 16px;background:linear-gradient(180deg, rgba(13,20,34,0.98) 0%, rgba(9,14,24,0.98) 100%);color:rgba(255,255,255,0.86);border-top:1px solid rgba(255,255,255,0.08);}
-.site-footer .footer-inner{max-width:1100px;margin:0 auto;text-align:center;}
-.site-footer .footer-title{font-weight:800;font-size:16px;margin-bottom:6px;}
-.site-footer .footer-subtitle{font-size:13px;opacity:0.9;margin-bottom:10px;}
-.site-footer .footer-note{font-size:12px;opacity:0.75;}
+.lang-switcher{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
 
-/* Intro image (index) */
-.hero-image{width:100%;max-height:220px;object-fit:cover;border-radius:18px;display:block;}
+.lang-switcher button{
+  border:1px solid rgba(255,255,255,0.25);
+  background:transparent;
+  color:inherit;
+  padding:8px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+  letter-spacing:0.3px;
+}
 
-.index-content{max-width:980px;}
+.lang-switcher button.active{
+  background:rgba(255,255,255,0.14);
+  border-color:rgba(255,255,255,0.35);
+}
 
-html.lang-ru [data-lang="ro"]{ display:none !important; }
-html.lang-ro [data-lang="ru"]{ display:none !important; }
+.site-footer{
+  margin-top:24px;
+  padding:24px 16px;
+  background:linear-gradient(180deg, rgba(13,20,34,0.98) 0%, rgba(9,14,24,0.98) 100%);
+  color:rgba(255,255,255,0.86);
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.site-footer .footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.site-footer .footer-title{
+  font-weight:800;
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.site-footer .footer-subtitle{
+  font-size:13px;
+  opacity:0.9;
+  margin-bottom:10px;
+}
+
+.site-footer .footer-note{
+  font-size:12px;
+  opacity:0.75;
+}
+
+.hero-image{
+  width:100%;
+  max-height:320px;
+  object-fit:cover;
+  border-radius:18px;
+  display:block;
+}
+
+.index-content{
+  max-width:980px;
+  margin-top:1.75rem;
+}

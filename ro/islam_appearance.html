@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Apariția islamului</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
+  <script defer src="../lang.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+      <header class="article-header">
+        <h1>Apariția islamului</h1>
+        <div class="article-dates">secolele VII–VIII</div>
+        <p class="article-annotation">
+          Nașterea unei noi religii monoteiste în Peninsula Arabică și extinderea rapidă a califatului arab.
+        </p>
+      </header>
+
+      <section class="article-body">
+        <p><strong>Islamul</strong> apare la începutul <strong>secolului al VII-lea</strong> în
+        <strong>Peninsula Arabică</strong>. Aici trăiau triburi nomade și orașe comerciale precum
+        <strong>Mecca</strong> și <strong>Yathrib (Medina)</strong>, iar viața religioasă combina politeismul
+        cu influențe iudaice și creștine.</p>
+
+        <p>Potrivit tradiției musulmane, predicatorul <strong>Mahomed</strong> începe să primească revelații
+        care vor fi păstrate în cartea sfântă a islamului, <strong>Coranul</strong>. Mesajul central este credința
+        într-un <em>singur Dumnezeu</em> și ideea că omul trebuie să-și organizeze viața după voia Lui. Noul mesaj
+        atrage adepți, dar provoacă și nemulțumirea unei părți din elitele Meccăi.</p>
+
+        <p>În anul 622 are loc evenimentul considerat începutul erei islamice:
+        <strong>Hijra</strong> - mutarea lui Mahomed și a susținătorilor săi din Mecca la Yathrib, oraș numit apoi
+        <strong>Medina</strong>, „orașul Profetului”. Aici se formează prima comunitate islamică -
+        <strong>umma</strong>, în care puterea religioasă și politică sunt strâns legate.</p>
+
+        <p>Treptat se conturează principalele practici ale islamului: rugăciunile zilnice, ajutorul pentru cei săraci,
+        postul în luna Ramadan, pelerinajul la Mecca. Aceste ritualuri nu sunt doar gesturi religioase, ci și un mod
+        de a crea solidaritate între oameni din triburi și regiuni diferite.</p>
+
+        <p>După moartea lui Mahomed, conducerea trece la califi. În câteva decenii, armatele și negustorii arabi
+        răspândesc islamul de la <strong>Spania</strong> și Africa de Nord până în <strong>Persia</strong> și părți
+        ale Asiei Centrale. Apare un stat puternic - <em>califatul</em>, un nou centru politic și cultural al lumii,
+        care coexistă cu <a href="roman_empire.html">Imperiul Roman (Bizantin)</a> și cu regatele formate după
+        <a href="great_migration_again.html">Marea migrație a popoarelor</a>.</p>
+
+        <p>Influența directă a islamului asupra spațiului viitoarei Moldove va apărea mult mai târziu, prin extinderea
+        Imperiului Otoman și prin schimburile comerciale din zona Mării Negre. Totuși, încă din Evul Mediu timpuriu,
+        lumea islamică devine un vecin important al Europei, ceea ce se va vedea mai târziu și în
+        <a href="crusades.html">Cruciade</a>.</p>
+
+        <p>Astăzi urmele islamului timpuriu pot fi văzute în moschei celebre, de exemplu în
+        <strong>Istanbul</strong> sau <strong>Cordoba</strong>. Dacă vei ajunge acolo, arhitectura și decorul lor
+        te vor ajuta să înțelegi mai bine cât de puternică și rafinată a fost civilizația născută în deșerturile Arabiei.</p>
+      </section>
+
+      <section class="article-summary">
+        <p>
+          Islamul a apărut în secolul al VII-lea în Peninsula Arabică și, prin extinderea califatului,
+          a devenit rapid unul dintre marile centre religioase și politice ale Evului Mediu.
+        </p>
+      </section>
+
+      <section class="article-tags">
+        <span>Taguri:</span>
+        <a href="islam_appearance.html">Apariția islamului</a>
+        <a href="great_migration_again.html">Marea migrație a popoarelor (în lume)</a>
+        <a href="roman_empire.html">Imperiul Roman</a>
+        <a href="crusades.html">Cruciadele</a>
+      </section>
+    </article>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+  (function(){
+    function inject(id, url) {
+      fetch(url).then(function(r){return r.text();}).then(function(t) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = t;
+      });
+    }
+    inject("header", "../partials/header.html");
+    inject("footer", "../partials/footer.html");
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Creștinarea Rusiei</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
+  <script defer src="../lang.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+      <header class="article-header">
+        <h1>Creștinarea Rusiei</h1>
+        <div class="article-dates">anul 988</div>
+        <p class="article-annotation">
+          Adoptarea creștinismului de către cneazul Vladimir și locuitorii Rusiei kievene și intrarea lumii est-slave în Europa creștină.
+        </p>
+      </header>
+
+      <section class="article-body">
+        <p><strong>Creștinarea Rusiei</strong> este legată în mod tradițional de <strong>anul 988</strong>, când
+        cneazul <strong>Vladimir</strong> primește botezul și începe răspândirea creștinismului în rândul supușilor săi.
+        La acea dată, <em>Rusia kieveană</em> era deja o formațiune politică importantă, cu capitala la Kiev și cu
+        legături comerciale active pe drumul „de la varegi la greci”.</p>
+
+        <p>Înainte de creștinare, populația slavă de est practica o religie politeistă, legată de natură și de ritmurile
+        vieții de zi cu zi. Cronicile povestesc cum Vladimir ar fi „testat” mai multe religii: credințe păgâne, islam,
+        iudaism și diferite forme de creștinism. Istoricii văd în acest episod mai ales un mijloc literar, dar el
+        reflectă realitatea unei regiuni aflate între mai multe centre culturale.</p>
+
+        <p>Alegerea finală a fost creștinismul de rit bizantin. Vladimir încheie o alianță cu
+        <a href="roman_empire.html">Imperiul Roman (Bizantin)</a>, se căsătorește cu sora împăratului și primește
+        botezul. Apoi, potrivit cronicilor, locuitorii Kievului sunt aduși la râul Nipru, unde are loc botezul în masă.
+        Imaginea acestui eveniment simbolizează intrarea Rusiei în lumea creștină.</p>
+
+        <p>Consecințele au fost profunde. În spațiul est-slav se răspândește <strong>scrierea slavonă</strong>, se
+        ridică primele biserici și mănăstiri de piatră, se dezvoltă cultura cărții. Rusia intră într-o „familie”
+        de popoare ortodoxe împreună cu bulgarii, sârbii și alții, fapt care va influența mai târziu și istoria
+        teritoriilor de la nord de Dunăre, inclusiv a Moldovei.</p>
+
+        <p>Teritoriile pe care se va forma mai târziu Principatul Moldovei se aflau în secolul al X-lea în sfera de
+        influență a Bizanțului și a Primului Țarat Bulgar. Prin ele treceau drumuri comerciale și influențe religioase.
+        De aceea, creștinarea Rusiei nu este doar un episod local, ci parte a unei istorii mai largi a răspândirii
+        creștinismului în Europa de Est, legată și de
+        <a href="church_split.html">Marea Schismă a Bisericii</a>, care va despărți Occidentul de Orient.</p>
+
+        <p>Astăzi, picturile murale și icoanele din biserici istorice păstrează memoria acelor timpuri. Dacă vei vizita,
+        de exemplu, catedrala Sfânta Sofia din Kiev sau vechile catedrale din Novgorod ori Vladimir, mozaicurile și
+        frescele lor îți vor arăta cum arăta lumea în care au intrat slavii de est după adoptarea creștinismului.</p>
+
+        <p>Creștinarea nu s-a încheiat însă într-o singură zi. Credințele vechi au continuat mult timp, iar normele
+        creștine au fost acceptate diferit de la o regiune la alta. Totuși, anul 988 rămâne un reper simbolic, de la
+        care se vorbește despre istoria creștină a Rusiei și despre rolul ei în lumea ortodoxă a Europei de Est.</p>
+      </section>
+
+      <section class="article-summary">
+        <p>
+          Creștinarea Rusiei sub cneazul Vladimir a legat lumea est-slavă de tradiția bizantină
+          și a influențat evoluția întregului spațiu ortodox din Europa de Est.
+        </p>
+      </section>
+
+      <section class="article-tags">
+        <span>Taguri:</span>
+        <a href="rus_christianization.html">Creștinarea Rusiei</a>
+        <a href="islam_appearance.html">Apariția islamului</a>
+        <a href="church_split.html">Marea Schismă a Bisericii</a>
+        <a href="great_migration_again.html">Marea migrație a popoarelor (în lume)</a>
+      </section>
+    </article>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+  (function(){
+    function inject(id, url) {
+      fetch(url).then(function(r){return r.text();}).then(function(t) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = t;
+      });
+    }
+    inject("header", "../partials/header.html");
+    inject("footer", "../partials/footer.html");
+  })();
+  </script>
+</body>
+</html>

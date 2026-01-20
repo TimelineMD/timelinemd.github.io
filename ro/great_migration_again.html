@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Marea migrație a popoarelor (în lume)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
+  <script defer src="../lang.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+      <header class="article-header">
+        <h1>Marea migrație a popoarelor (în lume)</h1>
+        <div class="article-dates">secolele IV–VIII</div>
+        <p class="article-annotation">
+          Valuri de migrații care au traversat Europa, au accelerat căderea Imperiului Roman de Apus și au dat naștere regatelor medievale.
+        </p>
+      </header>
+
+      <section class="article-body">
+        <p><strong>Marea migrație a popoarelor</strong> este numele dat unui lanț de mișcări de populație care
+        a cuprins Europa în <strong>secolele IV–VIII</strong>. Zeci de triburi s-au pus în mișcare, vechile frontiere
+        au devenit instabile, iar lumea antică a fost înlocuită treptat de Europa timpurie medievală.</p>
+
+        <p>Istoricii vorbesc despre mai multe cauze ale acestor migrații:</p>
+
+        <ul>
+          <li><strong>Presiunea nomazilor</strong> dinspre est, în special a hunilor.</li>
+          <li><strong>Schimbări climatice</strong> și crize de hrană, care obligau comunitățile să caute zone mai fertile.</li>
+          <li><strong>Creșterea populației</strong> și lipsa resurselor în teritoriile ocupate anterior.</li>
+          <li><strong>Slăbirea Imperiului Roman</strong>, care nu mai putea apăra eficient frontierele.</li>
+        </ul>
+
+        <p>Apariția <strong>hunilor</strong> în Europa de Est a declanșat un efect de domino. Sub presiunea lor s-au
+        deplasat <strong>goții</strong>, <strong>vandalilor</strong>, <strong>alanilor</strong>, iar mai târziu
+        <strong>longobarzii</strong> și alte triburi. Unele au trecut Dunărea și Rinul și s-au stabilit pe teritoriul
+        Imperiului, altele au mers mai departe spre vest sau sud.</p>
+
+        <p>Pe ruinele Imperiului Roman de Apus apar noi regate: al vizigoților în Hispania, al ostrogoților și apoi
+        al longobarzilor în Italia, al francilor în Galia. Căderea ultimului împărat roman de Apus în 476 este adesea
+        văzută ca sfârșitul Imperiului Roman de Apus, deși în Răsărit
+        <a href="roman_empire.html">Imperiul Roman (Bizantin)</a> va continua să existe încă multe secole.</p>
+
+        <p>Regiunile din Europa Centrală și de Est, inclusiv zona unde se va forma mai târziu Moldova, au devenit un fel
+        de coridor între stepă și lumea dunăreano-balcanică. Prin aceste teritorii au trecut goți, gepizi, avari și
+        alte grupuri. Într-un articol separat analizăm cum a arătat acest proces la nivel local
+        (vezi <a href="great_migration.html">Marea migrație a popoarelor în spațiul viitoarei Moldove</a>) și cum a
+        pregătit terenul pentru <a href="slavs_settlement.html">așezarea slavilor</a>.</p>
+
+        <p>În același timp se schimbă și harta religioasă. În Apus se consolidează creștinismul latin, în Răsărit
+        rămâne puternic Constantinopolul, iar în secolul al VII-lea apare în sud-est o nouă religie –
+        <a href="islam_appearance.html">islamul</a>. Europa devine astfel un spațiu cu mai multe centre de putere,
+        cu popoare și credințe diferite.</p>
+
+        <p>Dacă ajungi cândva în Italia, merită să vezi, de exemplu, mozaicurile din Ravenna sau ruinele din Roma:
+        multe dintre aceste monumente au fost martore atât ale ultimelor decenii ale Imperiului, cât și ale primelor
+        regate „barbare” născute în epoca Marii migrații a popoarelor.</p>
+      </section>
+
+      <section class="article-summary">
+        <p>
+          Marea migrație a popoarelor a transformat Europa antică într-o Europă a regatelor medievale
+          și a influențat și spațiul în care se va forma mai târziu Moldova.
+        </p>
+      </section>
+
+      <section class="article-tags">
+        <span>Taguri:</span>
+        <a href="great_migration_again.html">Marea migrație a popoarelor (în lume)</a>
+        <a href="roman_empire.html">Imperiul Roman</a>
+        <a href="great_migration.html">Marea migrație a popoarelor (spațiul Moldovei)</a>
+        <a href="slavs_settlement.html">Așezarea slavilor</a>
+        <a href="islam_appearance.html">Apariția islamului</a>
+      </section>
+    </article>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+  (function(){
+    function inject(id, url) {
+      fetch(url).then(function(r){return r.text();}).then(function(t) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = t;
+      });
+    }
+    inject("header", "../partials/header.html");
+    inject("footer", "../partials/footer.html");
+  })();
+  </script>
+</body>
+</html>

@@ -5,6 +5,7 @@
   <title>Mesopotamia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
   <script defer src="../lang.js"></script>
 </head>
 <body>
@@ -16,81 +17,34 @@
       <header class="article-header">
         <h1>Mesopotamia</h1>
         <div class="article-dates">mileniile IV–I î.Hr.</div>
-        <p class="article-annotation">
-          Regiunea dintre Tigru și Eufrat, unde au apărut unele dintre primele civilizații urbane și scrierea cuneiformă.
-        </p>
+        <p class="article-annotation">Regiunea dintre Tigru și Eufrat, unde au apărut unele dintre primele civilizații urbane și scrierea cuneiformă.</p>
       </header>
 
       <section class="article-body">
-<p>
-  <strong>Mesopotamia</strong> este regiunea dintre râurile <strong>Tigru</strong> și <strong>Eufrat</strong>,
-  pe teritoriul Irakului de astăzi. Nu întâmplător este numită „țara dintre râuri”: aici au apărut unele dintre primele
-  civilizații urbane ale omenirii, despre care vorbim în secțiunea
-  <a href="first_civilizations.html"><em>„Primele civilizații”</em></a>.
-</p>
-
-<p>
-  Încă din mileniile IV–III î.Hr. în Mesopotamia apar orașe-stat precum <strong>Uruk</strong>, <strong>Ur</strong>,
-  mai târziu <strong>Babilon</strong>. Oamenii construiesc temple-zigurate, sapă canale de irigație și dezvoltă
-  o administrație complexă. Fără îngrijirea constantă a canalelor, recoltele ar fi fost distruse, de aceea puterea
-  regelui și a preoților se bazează pe controlul apei și al pământului.
-</p>
-
-<p>
-  În Mesopotamia a apărut una dintre primele forme de scriere — <strong>scrierea cuneiformă</strong>. Semnele erau
-  imprimate pe tăblițe de lut cu ajutorul unei trestii ascuțite. La început se notau mai ales date despre stocuri:
-  câte cereale, câte oi, cui aparține bunul. Treptat, scrierea cuneiformă este folosită pentru <em>legi, mituri și
-  texte literare</em>, cum ar fi epopeea lui Ghilgameș.
-</p>
-
-<p>
-  Unul dintre cele mai cunoscute monumente ale civilizației mesopotamiene este codul de legi al regelui
-  <strong>Hammurabi</strong>. Pe o stelă inscripționată cu cuneiforme sunt enumerate reguli și pedepse pentru furt,
-  violență sau nerespectarea acordurilor. Este un exemplu timpuriu al ideii că legea este scrisă și se aplică tuturor
-  supușilor, nu depinde doar de voința conducătorului.
-</p>
-
-<p>
-  Mesopotamia a fost și un spațiu al competiției politice: diferite orașe și regate luptau pentru putere. Totuși,
-  multe elemente ale culturii — scrierea cuneiformă, tradițiile religioase, formele de guvernare — au fost preluate de
-  alte regiuni, influențând inclusiv <a href="ancient_egypt.html">Egiptul Antic</a> și
-  <a href="ancient_china.html">China Antică</a>. Din acest motiv, Mesopotamia este considerată una dintre
-  „leagănele civilizației”.
-</p>
+<p><strong>Mesopotamia</strong> ...</p>
       </section>
 
       <section class="article-summary">
-        <p>
-          Mesopotamia este considerată un „leagăn al civilizației”: aici au apărut orașe, scrierea cuneiformă,
-          legi scrise și structuri politice complexe care au influențat alte culturi antice.
-        </p>
+        <p>Regiunea dintre Tigru și Eufrat, unde au apărut unele dintre primele civilizații urbane și scrierea cuneiformă.</p>
       </section>
 
       <section class="article-tags">
-        <span>Taguri:</span>
-        <a href="mesopotamia.html">Mesopotamia</a>
-        <a href="first_civilizations.html">Primele civilizații</a>
-        <a href="ancient_egypt.html">Egiptul Antic</a>
-        <a href="ancient_china.html">China Antică</a>
+        <span>Taguri:</span> <a href="mesopotamia.html">Mesopotamia</a> <a href="first_civilizations.html">Primele civilizații</a> <a href="ancient_egypt.html">Egiptul Antic</a> <a href="ancient_china.html">China Antică</a>
       </section>
     </article>
   </main>
 
   <div id="footer"></div>
-<script>
+  <script>
 document.addEventListener("DOMContentLoaded", function() {
-  fetch("../partials/header.html")
-    .then(function(r) { return r.text(); })
-    .then(function(t) {
-      var h = document.getElementById("header");
-      if (h) h.innerHTML = t;
-    });
-  fetch("../partials/footer.html")
-    .then(function(r) { return r.text(); })
-    .then(function(t) {
-      var f = document.getElementById("footer");
-      if (f) f.innerHTML = t;
-    });
+  fetch("../partials/header.html").then(r => r.text()).then(t => {
+    const h = document.getElementById("header");
+    if (h) h.innerHTML = t;
+  });
+  fetch("../partials/footer.html").then(r => r.text()).then(t => {
+    const f = document.getElementById("footer");
+    if (f) f.innerHTML = t;
+  });
 });
 </script>
 

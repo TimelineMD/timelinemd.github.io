@@ -5,6 +5,7 @@
   <title>Месопотамия</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
   <script defer src="../lang.js"></script>
 </head>
 <body>
@@ -16,79 +17,34 @@
       <header class="article-header">
         <h1>Месопотамия</h1>
         <div class="article-dates">IV–I тыс. до н.э.</div>
-        <p class="article-annotation">
-          Регион между Тигром и Евфратом, где возникли одни из первых городских цивилизаций и система клинописи.
-        </p>
+        <p class="article-annotation">Регион между Тигром и Евфратом, где возникли одни из первых городских цивилизаций и система клинописи.</p>
       </header>
 
       <section class="article-body">
-<p>
-  <strong>Месопотамия</strong> — это исторический регион между реками <strong>Тигр</strong> и <strong>Евфрат</strong>,
-  на территории современного Ирака и части Сирии. Недаром её называют «страной между реками»:
-  именно здесь возникли одни из первых городских цивилизаций человечества, о которых мы говорим в разделе
-  <a href="first_civilizations.html"><em>«Первые цивилизации»</em></a>.
-</p>
-
-<p>
-  Уже в IV–III тысячелетии до н.э. в Месопотамии появляются города-государства:
-  <strong>Урук</strong>, <strong>Ур</strong>, позже <strong>Вавилон</strong>. Люди строят храмы-зиккураты,
-  проводят каналы для орошения полей, создают сложную систему управления. Без регулярного ухода за каналами урожай бы
-  просто погиб, поэтому здесь рано формируется сильная власть — жрецы и цари контролируют землю и воду.
-</p>
-
-<p>
-  В Месопотамии возникла одна из первых систем письма — <strong>клинопись</strong>. Символы выдавливали на глиняных табличках
-  тростниковой палочкой. Сначала это были учётные записи: сколько зерна, сколько овец, кому что принадлежит. Со временем
-  клинопись начинают использовать для <em>законов, мифов и литературы</em>, например для эпоса о Гильгамеше.
-</p>
-
-<p>
-  Одним из известных памятников месопотамской цивилизации стал свод законов царя <strong>Хаммурапи</strong>.
-  На стеле с надписью клинописью перечислены правила жизни общества: наказания за кражу, причинение вреда,
-  нарушение договоров. Это один из ранних примеров идеи, что законы записаны и обязательны для всех подданных,
-  а не зависят только от настроения правителя.
-</p>
-
-<p>
-  Важной особенностью Месопотамии было её политическое разнообразие: разные города и царства постоянно боролись за
-  власть. На смену одним державам приходили другие, но многие элементы культуры — клинопись, религиозные представления,
-  традиции управления — передавались дальше и влияли на соседние регионы, включая <a href="ancient_egypt.html">Древний Египет</a>
-  и <a href="ancient_china.html">Древний Китай</a>. Поэтому Месопотамию часто называют одной из «колыбелей цивилизации».
-</p>
+<p><strong>Месопотамия</strong> ...</p>
       </section>
 
       <section class="article-summary">
-        <p>
-          Месопотамия стала одной из первых «колыбелей цивилизации»: здесь появились города, клинопись, сложные законы
-          и системы управления, которые повлияли на развитие других древних культур.
-        </p>
+        <p>Регион между Тигром и Евфратом, где возникли одни из первых городских цивилизаций и система клинописи.</p>
       </section>
 
       <section class="article-tags">
-        <span>Теги:</span>
-        <a href="mesopotamia.html">Месопотамия</a>
-        <a href="first_civilizations.html">Первые цивилизации</a>
-        <a href="ancient_egypt.html">Древний Египет</a>
-        <a href="ancient_china.html">Древний Китай</a>
+        <span>Теги:</span> <a href="mesopotamia.html">Месопотамия</a> <a href="first_civilizations.html">Первые цивилизации</a> <a href="ancient_egypt.html">Древний Египет</a> <a href="ancient_china.html">Древний Китай</a>
       </section>
     </article>
   </main>
 
   <div id="footer"></div>
-<script>
+  <script>
 document.addEventListener("DOMContentLoaded", function() {
-  fetch("../partials/header.html")
-    .then(function(r) { return r.text(); })
-    .then(function(t) {
-      var h = document.getElementById("header");
-      if (h) h.innerHTML = t;
-    });
-  fetch("../partials/footer.html")
-    .then(function(r) { return r.text(); })
-    .then(function(t) {
-      var f = document.getElementById("footer");
-      if (f) f.innerHTML = t;
-    });
+  fetch("../partials/header.html").then(r => r.text()).then(t => {
+    const h = document.getElementById("header");
+    if (h) h.innerHTML = t;
+  });
+  fetch("../partials/footer.html").then(r => r.text()).then(t => {
+    const f = document.getElementById("footer");
+    if (f) f.innerHTML = t;
+  });
 });
 </script>
 

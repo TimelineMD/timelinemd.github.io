@@ -295,13 +295,40 @@
     }
 
 
-// Делегирование клика по переключателю языка - работает даже если кнопки подгружаются через fetch()
+// Global click delegation for language switcher: works even if header is injected via fetch()
 document.addEventListener("click", function(e) {
-    var btn = e.target.closest && e.target.closest("[data-set-lang]");
+    var btn = e.target && e.target.closest ? e.target.closest("[data-set-lang]") : null;
     if (!btn) return;
-    var lang = btn.dataset.setLang;
-    if (lang === "ru" || lang === "ro") {
-        applyLanguage(lang);
+    var lang = btn.dataset ? btn.dataset.setLang : null;
+    if (lang !== "ru" && lang !== "ro") return;
+
+    // Apply UI language (TOC, placeholders, active state)
+    applyLanguage(lang);
+
+    // For article pages, also switch between /ru/... and /ro/... versions
+    try {
+        var path = window.location.pathname || "";
+        var context = getContext();
+
+        if (context === "ruPage" || context === "roPage") {
+            var fromPrefix = (context === "ruPage") ? "/ru/" : "/ro/";
+            var toPrefix   = (context === "ruPage") ? "/ro/" : "/ru/";
+
+            // Only redirect if user really chooses another language
+            if ((context === "ruPage" && lang === "ro") ||
+                (context === "roPage" && lang === "ru")) {
+
+                var idx = path.indexOf(fromPrefix);
+                if (idx !== -1) {
+                    var rest = path.substring(idx + fromPrefix.length);
+                    var newPath = toPrefix + rest;
+                    window.location.pathname = newPath;
+                }
+            }
+        }
+        // For root/index we do not redirect yet, to avoid 404 if ro/index.html is missing.
+    } catch (e) {
+        // ignore errors silently
     }
 });
 

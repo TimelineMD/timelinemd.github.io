@@ -13,40 +13,81 @@
 
   <main class="article-layout">
     <nav class="toc" id="toc"></nav>
+
     <article class="article-main">
       <header class="article-header">
         <h1>Месопотамия</h1>
         <div class="article-dates">IV–I тыс. до н.э.</div>
-        <p class="article-annotation">Регион между Тигром и Евфратом, где возникли одни из первых городских цивилизаций и система клинописи.</p>
+        <p class="article-annotation">Регион между Тигром и Евфратом, где появились города, клинопись и ранние законы.</p>
       </header>
 
       <section class="article-body">
-<p><strong>Месопотамия</strong> ...</p>
+        <p>
+          <strong>Месопотамия</strong> - это «страна между реками» <strong>Тигр</strong> и <strong>Евфрат</strong> (примерно территория современного Ирака).
+          Здесь, в жарком климате, вода была главным богатством: кто контролировал каналы и плотины, тот контролировал урожай.
+          Поэтому Месопотамия стала одной из главных тем раздела <a href="first_civilizations.html"><em>«Первые цивилизации»</em></a>.
+        </p>
+
+        <p>
+          Уже в IV-III тысячелетиях до н.э. появляются города-государства: <strong>Урук</strong>, <strong>Ур</strong>, <strong>Лагаш</strong>.
+          Это были не просто поселения, а сложные «организмы» с храмами, рынками, ремесленниками, чиновниками и армией.
+          Центральным зданием часто становился <em>зиккурат</em> - ступенчатый храм, видимый издалека. Вокруг храмов формировались склады,
+          мастерские и управление: кто-то должен был учитывать зерно, распределять воду и следить за работами.
+        </p>
+
+        <p>
+          Для учёта и управления здесь появилась одна из первых систем письма - <strong>клинопись</strong>.
+          Сначала это были простые записи на глиняных табличках: сколько мешков зерна привезли, сколько овец выдали.
+          Но очень быстро письмо стало инструментом культуры: им записывали <em>мифы, молитвы, договоры</em> и даже литературу.
+          Самый известный пример - эпос о Гильгамеше, где звучат темы дружбы, власти и поиска бессмертия.
+        </p>
+
+        <p>
+          Со временем в регионе возникали крупные государства. Особенно знаменит <strong>Вавилон</strong> и его правитель <strong>Хаммурапи</strong>
+          (XVIII век до н.э.). Ему приписывают свод правил - «законы Хаммурапи». Важно не то, что эти законы были идеальными,
+          а то, что общество делало шаг к идее: <strong>правила можно записать</strong> и публично объявить. Это меняло жизнь: договоры
+          становились более предсказуемыми, а конфликты - менее «случайными».
+        </p>
+
+        <p>
+          Месопотамия постоянно соперничала сама с собой: города и царства сменяли друг друга, а войны за землю и воду были обычным делом.
+          Но именно через эту конкуренцию развивались технологии, торговля и управление. Идеи Месопотамии влияли на соседей:
+          в том числе на <a href="ancient_egypt.html">Древний Египет</a> и <a href="ancient_china.html">Древний Китай</a>.
+          Поэтому её называют одной из «колыбелей цивилизации».
+        </p>
       </section>
 
       <section class="article-summary">
-        <p>Регион между Тигром и Евфратом, где возникли одни из первых городских цивилизаций и система клинописи.</p>
+        <p>
+          Месопотамия - один из первых регионов, где люди научились жить в городах: строить каналы, управлять хозяйством,
+          записывать информацию клинописью и закреплять правила законами.
+        </p>
       </section>
 
       <section class="article-tags">
-        <span>Теги:</span> <a href="mesopotamia.html">Месопотамия</a> <a href="first_civilizations.html">Первые цивилизации</a> <a href="ancient_egypt.html">Древний Египет</a> <a href="ancient_china.html">Древний Китай</a>
+        <span>Теги:</span>
+        <a href="first_civilizations.html">Первые цивилизации</a>
+        <a href="mesopotamia.html">Месопотамия</a>
+        <a href="ancient_egypt.html">Древний Египет</a>
+        <a href="ancient_china.html">Древний Китай</a>
       </section>
     </article>
   </main>
 
   <div id="footer"></div>
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-  fetch("../partials/header.html").then(r => r.text()).then(t => {
-    const h = document.getElementById("header");
-    if (h) h.innerHTML = t;
-  });
-  fetch("../partials/footer.html").then(r => r.text()).then(t => {
-    const f = document.getElementById("footer");
-    if (f) f.innerHTML = t;
-  });
-});
-</script>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch("../partials/header.html").then(r => r.text()).then(t => {
+      const h = document.getElementById("header");
+      if (h) h.innerHTML = t;
+      document.dispatchEvent(new Event("timeline:headerLoaded"));
+    });
+    fetch("../partials/footer.html").then(r => r.text()).then(t => {
+      const f = document.getElementById("footer");
+      if (f) f.innerHTML = t;
+    });
+  });
+  </script>
 </body>
 </html>

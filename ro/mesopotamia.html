@@ -13,40 +13,79 @@
 
   <main class="article-layout">
     <nav class="toc" id="toc"></nav>
+
     <article class="article-main">
       <header class="article-header">
         <h1>Mesopotamia</h1>
-        <div class="article-dates">mileniile IV–I î.Hr.</div>
-        <p class="article-annotation">Regiunea dintre Tigru și Eufrat, unde au apărut unele dintre primele civilizații urbane și scrierea cuneiformă.</p>
+        <div class="article-dates">mileniile IV-I î.Hr.</div>
+        <p class="article-annotation">Regiunea dintre Tigru și Eufrat, unde apar orașele, scrierea cuneiformă și primele legi scrise.</p>
       </header>
 
       <section class="article-body">
-<p><strong>Mesopotamia</strong> ...</p>
+        <p>
+          <strong>Mesopotamia</strong> înseamnă, literalmente, „țara dintre râuri” - <strong>Tigru</strong> și <strong>Eufrat</strong> (aproximativ pe teritoriul Irakului de azi).
+          Într-un climat cald, apa era cheia supraviețuirii: cine controla canalele și digurile controla recoltele. De aceea Mesopotamia este una dintre temele centrale din
+          <a href="first_civilizations.html"><em>„Primele civilizații”</em></a>.
+        </p>
+
+        <p>
+          Încă din mileniile IV-III î.Hr. apar orașe-stat precum <strong>Uruk</strong>, <strong>Ur</strong> și <strong>Lagash</strong>.
+          Nu erau doar așezări, ci comunități complexe cu temple, piețe, meșteșugari, funcționari și armată.
+          În centru se ridica adesea un <em>zigurat</em> - templu în trepte, vizibil de la distanță. În jurul templelor se organizau depozite și administrația:
+          cineva trebuia să noteze stocurile, să distribuie apa și să coordoneze lucrările.
+        </p>
+
+        <p>
+          Pentru evidență și control apare una dintre primele forme de scriere - <strong>scrierea cuneiformă</strong>.
+          La început erau note simple pe tăblițe de lut: câte saci de grâu au venit, câte animale s-au dat.
+          Dar scrierea devine repede un instrument cultural: sunt consemnate <em>mituri, rugăciuni, contracte</em> și chiar literatură.
+          Cel mai cunoscut exemplu este epopeea lui Ghilgameș, despre prietenie, putere și căutarea nemuririi.
+        </p>
+
+        <p>
+          În timp apar state mai mari. Cel mai faimos este <strong>Babilonul</strong> și conducătorul său <strong>Hammurabi</strong> (sec. XVIII î.Hr.).
+          De numele lui se leagă un cod de reguli, numit adesea „legile lui Hammurabi”. Important nu este că erau perfecte, ci ideea: <strong>regulile pot fi scrise</strong>
+          și făcute publice. Astfel, înțelegerile devin mai previzibile, iar conflictele mai puțin arbitrare.
+        </p>
+
+        <p>
+          Mesopotamia a fost mereu un spațiu al rivalității: orașele și regatele se schimbau, iar luptele pentru pământ și apă erau frecvente.
+          Totuși, această competiție a împins înainte tehnologia, comerțul și formele de guvernare.
+          Influența Mesopotamiei se vede și la vecini - inclusiv în <a href="ancient_egypt.html">Egiptul Antic</a> și <a href="ancient_china.html">China Antică</a>.
+          De aceea, regiunea este considerată unul dintre „leagănele civilizației”.
+        </p>
       </section>
 
       <section class="article-summary">
-        <p>Regiunea dintre Tigru și Eufrat, unde au apărut unele dintre primele civilizații urbane și scrierea cuneiformă.</p>
+        <p>
+          Mesopotamia este un exemplu timpuriu de viață urbană: orașe, irigații, scriere cuneiformă și prime încercări de a fixa legea în texte.
+        </p>
       </section>
 
       <section class="article-tags">
-        <span>Taguri:</span> <a href="mesopotamia.html">Mesopotamia</a> <a href="first_civilizations.html">Primele civilizații</a> <a href="ancient_egypt.html">Egiptul Antic</a> <a href="ancient_china.html">China Antică</a>
+        <span>Taguri:</span>
+        <a href="first_civilizations.html">Primele civilizații</a>
+        <a href="mesopotamia.html">Mesopotamia</a>
+        <a href="ancient_egypt.html">Egiptul Antic</a>
+        <a href="ancient_china.html">China Antică</a>
       </section>
     </article>
   </main>
 
   <div id="footer"></div>
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-  fetch("../partials/header.html").then(r => r.text()).then(t => {
-    const h = document.getElementById("header");
-    if (h) h.innerHTML = t;
-  });
-  fetch("../partials/footer.html").then(r => r.text()).then(t => {
-    const f = document.getElementById("footer");
-    if (f) f.innerHTML = t;
-  });
-});
-</script>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch("../partials/header.html").then(r => r.text()).then(t => {
+      const h = document.getElementById("header");
+      if (h) h.innerHTML = t;
+      document.dispatchEvent(new Event("timeline:headerLoaded"));
+    });
+    fetch("../partials/footer.html").then(r => r.text()).then(t => {
+      const f = document.getElementById("footer");
+      if (f) f.innerHTML = t;
+    });
+  });
+  </script>
 </body>
 </html>

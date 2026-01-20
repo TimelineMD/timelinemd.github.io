@@ -5,7 +5,6 @@
   <title>Исторический таймлайн Молдовы и мира</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <!-- Append this to your style.css, or temporarily include it as a second stylesheet: -->
   <link rel="stylesheet" href="style_append.css">
   <script defer src="lang.js"></script>
 </head>
@@ -55,18 +54,19 @@
   </main>
 
   <div id="footer"></div>
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-  fetch("partials/header.html").then(r => r.text()).then(t => {
-    const h = document.getElementById("header");
-    if (h) h.innerHTML = t;
-  });
-  fetch("partials/footer.html").then(r => r.text()).then(t => {
-    const f = document.getElementById("footer");
-    if (f) f.innerHTML = t;
-  });
-});
-</script>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch("partials/header.html").then(r => r.text()).then(t => {
+      const h = document.getElementById("header");
+      if (h) h.innerHTML = t;
+      document.dispatchEvent(new Event("timeline:headerLoaded"));
+    });
+    fetch("partials/footer.html").then(r => r.text()).then(t => {
+      const f = document.getElementById("footer");
+      if (f) f.innerHTML = t;
+    });
+  });
+  </script>
 </body>
 </html>

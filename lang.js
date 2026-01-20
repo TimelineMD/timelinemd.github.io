@@ -263,10 +263,17 @@
 
         applyLanguage(initial);
 
-        document.querySelectorAll("[data-set-lang]").forEach(btn => {
-            btn.addEventListener("click", () => {
-                applyLanguage(btn.dataset.setLang);
-            });
+        // Store current language so late-injected UI (header) can sync active state
+        document.documentElement.dataset.currentLang = initial;
+
+        // Event delegation: works even if header buttons are injected after DOMContentLoaded
+        document.addEventListener("click", (e) => {
+            const btn = e.target && e.target.closest ? e.target.closest("[data-set-lang]") : null;
+            if (!btn) return;
+            const next = btn.dataset.setLang;
+            if (next !== "ru" && next !== "ro") return;
+            applyLanguage(next);
+            document.documentElement.dataset.currentLang = next;
         });
     }
 
@@ -291,9 +298,15 @@
 
                 section.style.display = (query === "" || sectionHasMatch) ? "" : "none";
             });
-        });
     }
 
+
+    // When header is injected via fetch, re-apply the current language to sync button state
+    document.addEventListener("timeline:headerLoaded", () => {
+        const cur = document.documentElement.dataset.currentLang
+            || (document.documentElement.classList.contains("lang-ro") ? "ro" : "ru");
+        applyLanguage(cur);
+    });
     document.addEventListener("DOMContentLoaded", () => {
         renderTOC();
         initLanguage();

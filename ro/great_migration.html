@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Marea migrație a popoarelor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
+  <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+  <nav class="toc" id="toc"></nav>
+
+  <article class="article-main">
+    <header class="article-header">
+      <h1>Marea migrație a popoarelor</h1>
+      <div class="article-dates">Secolele IV–VIII</div>
+      <p class="article-annotation">
+        Deplasări masive de triburi care au schimbat Europa și au dus la apariția slavilor pe teritoriul Moldovei.
+      </p>
+    </header>
+
+    <section class="article-body">
+      <p><strong>Marea migrație a popoarelor</strong> a fost unul dintre cele mai importante procese ale
+      începutului Evului Mediu, desfășurat între <strong>secolele IV–VIII</strong>.
+      În această perioadă, numeroase triburi s-au deplasat pe distanțe mari,
+      modificând profund structura politică a Europei.</p>
+
+      <p>Cauzele migrațiilor au fost multiple: <em>presiunea popoarelor nomade</em>,
+      schimbările climatice, creșterea populației și căutarea unor teritorii mai sigure.
+      Declanșatorul principal a fost apariția <strong>hunilor</strong> în Europa de Est.</p>
+
+      <p>Sub presiunea hunilor, triburi precum <strong>goții</strong>, <strong>alanii</strong> și
+      <strong>vandalii</strong> au început să se deplaseze spre vest și sud.
+      Aceste mișcări au slăbit Imperiul Roman și au accelerat procesele care au urmat
+      <a href="roman_withdrawal.html">retragerii romanilor din Dacia</a>.</p>
+
+      <p>Pe teritoriul actualei Republici Moldova nu au existat structuri statale stabile.
+      Regiunea a fost traversată sau locuită temporar de diverse grupuri:
+      goți, gepizi, alani și, mai târziu, avari.
+      Așezările erau adesea provizorii, iar populația se retrăgea în zone mai protejate.</p>
+
+      <p>În secolele VI–VII, <strong>avarii</strong> au creat un puternic kaganat în Europa Centrală,
+      influențând rutele comerciale și politice din spațiul dintre Prut și Nistru.</p>
+
+      <p>Finalul Marii Migrații este marcat de <strong>pătrunderea slavilor</strong>.
+      Începând cu secolul VI, triburile slave se stabilesc treptat în Europa de Est,
+      practicând agricultura și formând comunități durabile.
+      Această etapă deschide un nou capitol al istoriei regionale —
+      <a href="slavs_settlement.html">așezarea slavilor</a>.</p>
+    </section>
+
+    <section class="article-summary">
+      <p>
+        Marea migrație a popoarelor a transformat Europa și a pregătit teritoriul Moldovei
+        pentru stabilirea comunităților slave.
+      </p>
+    </section>
+
+    <section class="article-tags">
+      <span>Taguri:</span>
+      <a href="great_migration.html">Marea migrație a popoarelor</a>
+      <a href="slavs_settlement.html">Așezarea slavilor</a>
+      <a href="roman_withdrawal.html">Retragerea romană din Dacia</a>
+    </section>
+  </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function(){
+  function inject(id, url){
+    fetch(url).then(r=>r.text()).then(t=>{
+      const el=document.getElementById(id);
+      if(el) el.innerHTML=t;
+    });
+  }
+  inject("header","../partials/header.html");
+  inject("footer","../partials/footer.html");
+})();
+</script>
+</body>
+</html>

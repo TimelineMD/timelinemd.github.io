@@ -1,10 +1,91 @@
-<!DOCTYPE html><html lang="ro"><head><meta charset="UTF-8"><title>Cruciadele</title>
-<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../style_append.css">
-<script defer src="../lang.js"></script></head><body><div id="header"></div>
-<main class="article-layout"><nav class="toc" id="toc"></nav><article class="article-main">
-<header class="article-header"><h1>Cruciadele</h1><div class="article-dates">---</div>
-<p class="article-annotation">Scurtă introducere.</p></header>
-<section class="article-body"><p>Text...</p></section>
-<section class="article-summary"><p>Rezumat.</p></section>
-<section class="article-tags"><span>Taguri:</span><a href="crusades.html">Cruciadele</a></section>
-</article></main><div id="footer"></div></body></html>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Cruciadele</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
+  <script defer src="../lang.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+      <header class="article-header">
+        <h1>Cruciadele</h1>
+        <div class="article-dates">secolele XI–XIII</div>
+        <p class="article-annotation">
+          Expedițiile militare ale cavalerilor din Europa spre Orient, care au schimbat harta politică și comercială a regiunii.
+        </p>
+      </header>
+
+      <section class="article-body">
+        <figure class="article-image-right">
+          <img src="../assets/images/crusades.jpg" alt="Cavaleri cruciați în fața unei fortărețe" style="max-width:50%;height:auto;">
+        </figure>
+
+        <p><strong>Cruciadele</strong> au fost o serie de expediții militare ale cavalerilor europeni în
+        <strong>secolele XI–XIII</strong>. Scopul declarat era eliberarea <strong>Ierusalimului</strong> și a altor locuri
+        sfinte de sub controlul musulman, dar în realitate cruciadele au devenit rapid un instrument de politică, comerț
+        și extindere a influenței.</p>
+
+        <p>Prima cruciadă a fost legată de apelul împăratului bizantin către papa de la Roma pentru ajutor împotriva
+        selgiucizilor. După <a href="church_split.html">Marea Schismă a Bisericii</a>, aceasta a fost una dintre rarele
+        momente de colaborare între Apus și Răsărit. În 1099, cruciații cuceresc Ierusalimul și creează
+        <em>state cruciate</em> pe țărmul de est al Mării Mediterane.</p>
+
+        <p>În următoarele două secole au urmat alte cruciade. Unele încercau să apere posesiunile existente, altele să
+        recucerească fortărețe pierdute. De cealaltă parte, lumea islamică se mobiliza în jurul unor conducători precum
+        Saladin, iar confruntarea dintre <a href="islam_appearance.html">lumea islamică</a> și cea creștină devenea
+        una dintre temele centrale ale epocii.</p>
+
+        <p>Cruciadele au schimbat profund Europa. Comerțul maritim a crescut, orașe-republici ca
+        <strong>Veneția</strong> și <strong>Genova</strong> s-au îmbogățit, iar europenii au cunoscut noi bunuri,
+        idei și tehnologii. În același timp, intoleranța religioasă a crescut, ceea ce se va reflecta mai târziu și în
+        activitatea <a href="inquisition.html">Inchiziției</a>.</p>
+
+        <p>Pentru regiunile din jurul Mării Negre, inclusiv spațiul viitoarei Moldove, cruciadele au însemnat o
+        intensificare a contactelor cu Bizanțul, cu hanatele din stepă și cu negustorii apuseni. Drumurile comerciale
+        și diplomatice care traversau aceste teritorii vor rămâne importante și în secolele următoare.</p>
+
+        <p>Dacă vei vizita orașul Acra (Akko) din Israelul de azi, vei găsi încă ziduri și tuneluri construite de cruciați.
+        Acolo este ușor să-ți imaginezi corăbiile și cavalerii care plecau într-o nouă expediție „pentru eliberarea
+        locurilor sfinte”.</p>
+      </section>
+
+      <section class="article-summary">
+        <p>
+          Cruciadele au fost un moment de întâlnire și conflict între Orient și Occident, au influențat comerțul,
+          politica și cultura și și-au pus amprenta și asupra regiunilor aflate departe de Ierusalim, inclusiv asupra spațiului moldovenesc.
+        </p>
+      </section>
+
+      <section class="article-tags">
+        <span>Taguri:</span>
+        <a href="crusades.html">Cruciadele</a>
+        <a href="church_split.html">Marea Schismă a Bisericii</a>
+        <a href="islam_appearance.html">Apariția islamului</a>
+        <a href="inquisition.html">Inchiziția</a>
+      </section>
+    </article>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+  (function(){
+    function inject(id, url) {
+      fetch(url).then(function(r){return r.text();}).then(function(t) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = t;
+      });
+    }
+    inject("header", "../partials/header.html");
+    inject("footer", "../partials/footer.html");
+  })();
+  </script>
+</body>
+</html>

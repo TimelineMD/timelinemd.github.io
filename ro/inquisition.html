@@ -1,10 +1,90 @@
-<!DOCTYPE html><html lang="ro"><head><meta charset="UTF-8"><title>Inchiziția</title>
-<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../style_append.css">
-<script defer src="../lang.js"></script></head><body><div id="header"></div>
-<main class="article-layout"><nav class="toc" id="toc"></nav><article class="article-main">
-<header class="article-header"><h1>Inchiziția</h1><div class="article-dates">---</div>
-<p class="article-annotation">Scurtă introducere.</p></header>
-<section class="article-body"><p>Text...</p></section>
-<section class="article-summary"><p>Rezumat.</p></section>
-<section class="article-tags"><span>Taguri:</span><a href="inquisition.html">Inchiziția</a></section>
-</article></main><div id="footer"></div></body></html>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Inchiziția</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
+  <script defer src="../lang.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+      <header class="article-header">
+        <h1>Inchiziția</h1>
+        <div class="article-dates">secolele XIII–XVII</div>
+        <p class="article-annotation">
+          Cum au încercat tribunalele bisericești să controleze credința și de ce au rămas în memoria colectivă.
+        </p>
+      </header>
+
+      <section class="article-body">
+        <figure class="article-image-right">
+          <img src="../assets/images/inquisition.jpg" alt="Scenă de proces în epoca Inchiziției" style="max-width:50%;height:auto;">
+        </figure>
+
+        <p><strong>Inchiziția</strong> apare în <strong>secolul al XIII-lea</strong> ca instituție a Bisericii Catolice
+        menită să lupte împotriva ereziilor, adică a învățăturilor considerate periculoase pentru unitatea credinței.
+        Sarcina ei era să investigheze cazurile suspecte și să aplice pedepse conform dreptului canonic.</p>
+
+        <p>Primele tribunale de inchiziție au fost active în sudul Franței și în nordul Italiei, acolo unde mișcări
+        precum catarismul câștigaseră popularitate. Teoretic, Inchiziția trebuia să înlocuiască violența mulțimii cu
+        un <em>proces</em> mai organizat: se adunau mărturii, se scriau protocoale, se ofereau forme de penitență.
+        Din perspectiva de azi, metodele de interogatoriu și pedepsele par însă foarte dure.</p>
+
+        <p>Mai târziu, <strong>Inchiziția spaniolă</strong> a devenit celebră (sau mai degrabă temută). Ea colabora
+        strâns cu monarhia și se ocupa nu doar de erezii, ci și de controlul social și politic. În epoca
+        <a href="renaissance.html">Renașterii</a> și ulterior, Inchiziția a jucat un rol important în cenzurarea
+        cărților și a ideilor noi.</p>
+
+        <p>În spațiul unde se va forma mai târziu Moldova, Inchiziția nu a avut instituții proprii. Aici domina
+        tradiția ortodoxă bizantină, cu alte forme de control religios. Totuși, prin legăturile cu Polonia, Ungaria
+        și misionarii catolici, deciziile Romei se simțeau indirect și în această regiune.</p>
+
+        <p>Este important să înțelegem că Inchiziția nu a fost peste tot la fel. În unele locuri domina frica și
+        violența, în altele accentul era pus mai mult pe avertismente și pedepse simbolice. Imaginea focurilor și
+        a instrumentelor de tortură, răspândită de filme și legende, acoperă o realitate mai complexă, legată de
+        lupta pentru putere și influență.</p>
+
+        <p>Dacă vei vizita muzee de istorie medievală la Florența, Toledo sau în alte orașe europene, vei găsi adesea
+        expoziții dedicate Inchiziției. Documentele, scrisorile și obiectele expuse arată o lume mai nuanțată decât
+        clișeele culturii pop.</p>
+      </section>
+
+      <section class="article-summary">
+        <p>
+          Inchiziția a fost o încercare a Bisericii Catolice de a controla credința și societatea, lăsând în urmă o
+          moștenire controversată care continuă să fie discutată și astăzi.
+        </p>
+      </section>
+
+      <section class="article-tags">
+        <span>Taguri:</span>
+        <a href="inquisition.html">Inchiziția</a>
+        <a href="church_split.html">Marea Schismă a Bisericii</a>
+        <a href="crusades.html">Cruciadele</a>
+        <a href="renaissance.html">Epoca Renașterii</a>
+      </section>
+    </article>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+  (function(){
+    function inject(id, url) {
+      fetch(url).then(function(r){return r.text();}).then(function(t) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = t;
+      });
+    }
+    inject("header", "../partials/header.html");
+    inject("footer", "../partials/footer.html");
+  })();
+  </script>
+</body>
+</html>

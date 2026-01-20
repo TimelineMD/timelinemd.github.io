@@ -1,10 +1,86 @@
-<!DOCTYPE html><html lang="ro"><head><meta charset="UTF-8"><title>Marea Schismă a Bisericii</title>
-<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../style_append.css">
-<script defer src="../lang.js"></script></head><body><div id="header"></div>
-<main class="article-layout"><nav class="toc" id="toc"></nav><article class="article-main">
-<header class="article-header"><h1>Marea Schismă a Bisericii</h1><div class="article-dates">---</div>
-<p class="article-annotation">Scurtă introducere.</p></header>
-<section class="article-body"><p>Text...</p></section>
-<section class="article-summary"><p>Rezumat.</p></section>
-<section class="article-tags"><span>Taguri:</span><a href="church_split.html">Marea Schismă a Bisericii</a></section>
-</article></main><div id="footer"></div></body></html>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Marea Schismă a Bisericii</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style_append.css">
+  <script defer src="../lang.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+      <header class="article-header">
+        <h1>Marea Schismă a Bisericii</h1>
+        <div class="article-dates">anul 1054</div>
+        <p class="article-annotation">
+          De ce lumea creștină s-a împărțit în Apus catolic și Răsărit ortodox și cum a influențat acest lucru regiunea.
+        </p>
+      </header>
+
+      <section class="article-body">
+        <p><strong>Marea Schismă</strong> din <strong>1054</strong> marchează momentul în care relațiile dintre Roma și
+        Constantinopol s-au rupt oficial. Lumea creștină s-a împărțit în <strong>Biserica Catolică</strong>, condusă de
+        papa de la Roma, și <strong>Biserica Ortodoxă</strong>, cu centrul la Constantinopol. În realitate, diferențele
+        dintre cele două tradiții se acumulaseră cu mult timp înainte.</p>
+
+        <p>În Apus, slujbele se oficiau în <strong>latină</strong>, iar autoritatea papei devenea tot mai puternică.
+        În Răsărit, limba principală era <strong>greaca</strong>, iar Biserica era organizată în mai mulți patriarhati,
+        care colaborau între ei și cu <a href="roman_empire.html">împăratul bizantin</a>. Stilurile de viață, cultura
+        și modul de a privi politica erau adesea diferite.</p>
+
+        <p>Au existat și neînțelegeri teologice, de exemplu în jurul formulei <em>„Filioque”</em> din Crez. Dar la fel
+        de importante erau interesele politice și economice: noi state din Europa Centrală și de Nord intrau în sfera
+        Romei, în timp ce Bizanțul încerca să-și păstreze influența în Balcani și în zona Mării Negre.</p>
+
+        <p>În 1054, legații papei și patriarhul de Constantinopol își aruncă unul altuia <strong>anateme</strong> —
+        excomunicări reciproce. Pentru oamenii simpli nu s-a schimbat totul peste noapte, dar pentru conducătorii
+        bisericii acesta a fost un punct fără întoarcere. Încercări de reconciliere au existat, însă neîncrederea
+        s-a adâncit.</p>
+
+        <p>Pentru spațiul în care se va forma mai târziu Principatul Moldovei, Marea Schismă a avut o consecință
+        importantă: regiunea s-a apropiat de tradiția <strong>ortodoxă bizantină</strong>, rămânând însă la granița cu
+        lumea catolică din Europa Centrală. Această poziție „la mijloc” se va simți și în epoca
+        <a href="crusades.html">Cruciadelor</a>, și în relațiile cu Polonia, Ungaria sau alte state vecine.</p>
+
+        <p>Dacă vei ajunge în <strong>Istanbul</strong>, merită să vizitezi catedrala Sfânta Sofia. Clădirea a fost
+        martoră atât gloriei creștinismului răsăritean, cât și schimbărilor aduse de cucerirea otomană și arată cât de
+        puternic pot influența politica și religia istoria unui oraș.</p>
+      </section>
+
+      <section class="article-summary">
+        <p>
+          Marea Schismă din 1054 a împărțit lumea creștină în Apus catolic și Răsărit ortodox și a determinat pentru
+          multe secole configurația religioasă a Europei și a regiunilor vecine, inclusiv a viitoarei Moldove.
+        </p>
+      </section>
+
+      <section class="article-tags">
+        <span>Taguri:</span>
+        <a href="church_split.html">Marea Schismă a Bisericii</a>
+        <a href="crusades.html">Cruciadele</a>
+        <a href="rus_christianization.html">Creștinarea Rusiei</a>
+      </section>
+    </article>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+  (function(){
+    function inject(id, url) {
+      fetch(url).then(function(r){return r.text();}).then(function(t) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = t;
+      });
+    }
+    inject("header", "../partials/header.html");
+    inject("footer", "../partials/footer.html");
+  })();
+  </script>
+</body>
+</html>

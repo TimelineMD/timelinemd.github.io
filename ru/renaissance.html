@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Эпоха Ренессанса</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Эпоха Ренессанса</h1>
+<div class="article-dates">XIV–XVI вв.</div>
+<p class="article-annotation">Возрождение искусства, науки и культуры в Европе.</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right">
+<img src="../assets/images/renaissance.jpg" alt="">
+</figure>
+
+<p><strong>Эпоха Ренессанса</strong> (<strong>XIV–XVI вв.</strong>) стала временем культурного подъёма Европы. Художники, учёные и архитекторы стремились заново открыть идеи античности и создать новое понимание человека и мира. Именно тогда появились шедевры, которые мы сегодня изучаем в музеях и учебниках.</p>
+
+<p>Ренессанс начался в итальянских городах — Флоренции, Венеции, Милане. Среди его героев — <strong>Леонардо да Винчи</strong>, <strong>Рафаэль</strong>, <strong>Микеланджело</strong> и <strong>Донателло</strong>. Забавно, что именно по их именам позже назвали популярных черепашек-ниндзя, и это неплохой способ запомнить мастеров эпохи.</p>
+
+<p>Флоренция стала сердцем Ренессанса благодаря богатым меценатам, таким как семья Медичи. Здесь создавались картины, скульптуры, научные проекты. В городе находятся галерея Уффици, купол Брунеллески, статуя Давида и множество улиц, которые почти не изменились со времён XV века.</p>
+
+<p>Ренессанс изменил не только искусство. Развивались математика, анатомия, инженерия, картография. Эти идеи позже повлияли на эпоху Великих географических открытий и становление научного метода. Для восточноевропейских земель Ренессанс стал окном в европейскую культуру благодаря торговым и дипломатическим связям.</p>
+
+<p>Если когда-нибудь окажешься в Италии, <em>обязательно побывай во Флоренции</em>. Это город-музей под открытым небом: каждый камень напоминает о времени, когда рождалась современная Европа. Именно здесь лучше всего почувствовать атмосферу Эпохи Ренессанса.</p>
+
+</section>
+<section class="article-summary">
+<p>Ренессанс стал эпохой великих открытий в искусстве, науке и культуре, изменившей представление Европы о человеке.</p>
+</section>
+<section class="article-tags">
+<span>Теги:</span>
+<a href="renaissance.html">Эпоха Ренессанса</a> <a href="inquisition.html">Инквизиция</a> <a href="crusades.html">Крестовые походы</a>
+</section>
+</article>
+</main>
+<div id="footer"></div>
+<script>
+(function(){
+  function inject(id,url){fetch(url).then(r=>r.text()).then(t=>{document.getElementById(id).innerHTML=t})}
+  inject("header","../partials/header.html");
+  inject("footer","../partials/footer.html");
+})();
+</script>
+</body>
+</html>

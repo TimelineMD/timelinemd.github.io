@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Epoca Renașterii</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Epoca Renașterii</h1>
+<div class="article-dates">Secolele XIV–XVI</div>
+<p class="article-annotation">Perioada în care arta, știința și gândirea europeană au cunoscut o adevărată renaștere.</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right">
+  <img src="../assets/images/renaissance.jpg" alt="">
+</figure>
+<p><strong>Epoca Renașterii</strong> (<strong>secolele XIV–XVI</strong>) a fost o perioadă de mare înflorire culturală în Europa. Artiști, savanți și arhitecți au redescoperit ideile lumii antice și au încercat să le îmbine cu o viziune nouă asupra omului și a naturii. Multe dintre operele create atunci sunt considerate și astăzi capodopere.</p>
+
+<p>Renașterea a început în orașele italiene, mai ales la Florența, Veneția și Roma. Nume precum <strong>Leonardo da Vinci</strong>, <strong>Raffaello</strong>, <strong>Michelangelo</strong> și <strong>Donatello</strong> au marcat epoca prin picturi, sculpturi și proiecte de inginerie. Interesant este că, mult mai târziu, după acești artiști au fost numite și celebrele „Țestoase Ninja” – un detaliu simpatic care ajută să le ții minte numele.</p>
+
+<p>Florența devine un adevărat laborator al Renașterii datorită familiilor de mecenați, cum ar fi Medici. În oraș se construiesc palate, biserici și piețe, iar artiștii lucrează pentru spații publice, nu doar pentru curți regale. Aici găsești Galeria Uffizi, Domul cu impresionantul său cupolă și statuia lui David, opere care arată ce înseamnă „renaștere” în piatră și culoare.</p>
+
+<p>Dar Renașterea nu înseamnă numai artă. Se dezvoltă matematica, anatomia, cartografia, tehnicile de tipar. Ideile noi se răspândesc prin cărți și universități. Multe descoperiri geografice și științifice ale epocii moderne au rădăcini în această perioadă, chiar dacă uneori intrau în tensiune cu instituții precum <a href="inquisition.html">Inchiziția</a>.</p>
+
+<p>Dacă vei ajunge vreodată în Italia, <em>merită neapărat să vizitezi Florența</em>. Orașul seamănă cu un muzeu în aer liber: străzi înguste, clădiri vechi de secole și opere de artă la fiecare colț. Este unul dintre cele mai bune locuri pentru a simți cum arăta lumea în momentul în care Europa „se trezea” din Evul Mediu și intra într-o nouă epocă.</p>
+</section>
+<section class="article-summary">
+<p>Epoca Renașterii a schimbat felul în care europenii priveau arta, știința și locul omului în lume.</p>
+</section>
+<section class="article-tags">
+<span>Taguri:</span>
+<a href="renaissance.html">Epoca Renașterii</a> <a href="inquisition.html">Inchiziția</a> <a href="crusades.html">Cruciadele</a>
+</section>
+</article>
+</main>
+<div id="footer"></div>
+<script>
+(function(){
+  function inject(id, url) {
+    fetch(url).then(function(r){return r.text();}).then(function(t) {
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = t;
+    });
+  }
+  inject("header", "../partials/header.html");
+  inject("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

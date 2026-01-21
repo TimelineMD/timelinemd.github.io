@@ -75,3 +75,41 @@ html.lang-ro [data-lang="ru"] { display: none !important; }
   max-width:980px;
   margin-top:1.75rem;
 }
+
+/* Общие стили для изображения */
+.article-image-right {
+    margin-bottom: 15px;
+}
+
+.article-image-right img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px; /* скругление углов */
+}
+
+/* ПК (широкий экран): картинка справа с обтеканием */
+@media (min-width: 900px) {
+    .article-image-right {
+        float: right;
+        max-width: 50%;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Мобильная версия — картинка сверху, на всю ширину */
+@media (max-width: 899px) {
+    .article-image-right {
+        float: none;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .article-image-right img {
+        width: 100%;
+    }
+}
+
+}

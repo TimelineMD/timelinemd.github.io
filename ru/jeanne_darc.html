@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Жанна д’Арк</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Жанна д’Арк</h1>
+<div class="article-dates">XV век</div>
+<p class="article-annotation">История Орлеанской Девы и её влияния на Францию.</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right">
+<img src="../assets/images/jeanne_darc.jpg" alt="">
+</figure>
+
+<p><strong>Жанна д’Арк</strong> — одна из самых ярких фигур Средневековья. Она родилась в простой крестьянской семье и в юности заявила, что слышит «голоса», побуждавшие её помочь Франции во время <strong>Столетней войны</strong>. В то время большая часть северной Франции была под контролем англичан, и французская корона находилась под угрозой.</p>
+
+<p>В 1429 году Жанна прибыла ко двору дофина Карла и убедила его доверить ей войско. Молодая девушка, не имевшая военного опыта, стала символом сопротивления. Она вдохновила войска, и французам удалось снять осаду Орлеана, что стало переломным моментом войны.</p>
+
+<p>Позже Жанна сопровождала Карла VII к коронации в Реймсе — событию огромной политической важности. Но уже в 1430 году её захватили бургундцы и передали англичанам. Суд, организованный их сторонниками, обвинил Жанну в колдовстве и ереси. Приговор был жесток: в 1431 году её казнили на костре в Руане.</p>
+
+<p>Через несколько десятилетий церковь признала суд неправедным и реабилитировала Жанну. В 1920 году она была канонизирована. Образ Жанны стал символом смелости и самопожертвования, а её подвиг вошёл в число главных легенд Франции.</p>
+
+<p>Если окажешься в Руане или Орлеане, ты найдёшь множество памятников и музеев, посвящённых её судьбе. А в изучении Средневековой Европы имя Жанны всегда связывают с теми же эпохами, что привели к <a href="crusades.html">Крестовым походам</a> и формированию новых государств.</p>
+
+</section>
+<section class="article-summary">
+<p>Жанна д’Арк стала символом национального сопротивления Франции и оставила глубокий след в истории Европы.</p>
+</section>
+<section class="article-tags">
+<span>Теги:</span>
+<a href="jeanne_darc.html">Жанна д’Арк</a> <a href="crusades.html">Крестовые походы</a>
+</section>
+</article>
+</main>
+<div id="footer"></div>
+<script>
+(function(){
+  function inject(id,url){fetch(url).then(r=>r.text()).then(t=>{document.getElementById(id).innerHTML=t})}
+  inject("header","../partials/header.html");
+  inject("footer","../partials/footer.html");
+})();
+</script>
+</body>
+</html>

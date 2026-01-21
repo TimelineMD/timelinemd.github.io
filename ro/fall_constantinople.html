@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Căderea Constantinopolului</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Căderea Constantinopolului</h1>
+<div class="article-dates">1453</div>
+<p class="article-annotation">Cum a ajuns „Orașul orașelor” să fie cucerit de otomani și ce a însemnat acest lucru pentru Europa.</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right">
+  <img src="../assets/images/fall_constantinople.jpg" alt="">
+</figure>
+<p><strong>Căderea Constantinopolului</strong> în <strong>1453</strong> este un moment-cheie în istoria lumii. Orașul, capitală a <a href="byzantium.html">Imperiului Bizantin</a>, fusese timp de secole un centru al comerțului, culturii și religiei. Dar puterea Bizanțului scădea, în timp ce Imperiul Otoman, condus de <strong>Mehmed al II-lea Cuceritorul</strong>, se întărea.</p>
+
+<p>În primăvara anului 1453, otomanii încep un mare asediu al orașului. Folosesc tunuri uriașe, tehnici noi de asalt și o armată numeroasă. Apărătorii, conduși de ultimul împărat bizantin, Constantin al XI-lea, sunt mult mai puțini la număr, dar rezistă cu disperare. Ajutorul promis de unele state din Apus este limitat și ajunge prea târziu.</p>
+
+<p>La 29 mai 1453, zidurile Constantinopolului sunt străpunse. Orașul este cucerit, iar tradiția spune că împăratul moare luptând. După victoria otomană, Constantinopolul devine capitala noului imperiu și treptat primește numele pe care îl cunoaștem azi: <strong>Istanbul</strong>.</p>
+
+<p>Consecințele sunt uriașe. O parte dintre cărturarii bizantini pleacă spre Italia și alte regiuni ale Europei, ducând cu ei manuscrise și cunoștințe din Antichitate. Acest transfer de idei contribuie la dezvoltarea <a href="renaissance.html">Epocii Renașterii</a>. În același timp, controlul otoman asupra strâmtorilor schimbă rutele comerciale, iar statele europene încep să caute drumuri maritime noi spre India și Asia.</p>
+
+<p>Pentru regiunile din jurul Mării Negre și pentru spațiul în care se va forma mai târziu Moldova, întărirea otomană însemna o nouă realitate politică. Domnii locali trebuiau să-și adapteze politica externă, să negocieze tributuri și alianțe, trăind la granița dintre lumea creștină și cea islamică.</p>
+</section>
+<section class="article-summary">
+<p>Căderea Constantinopolului în 1453 a pus capăt Bizanțului și a schimbat echilibrul de putere în Europa și în jurul Mării Negre.</p>
+</section>
+<section class="article-tags">
+<span>Taguri:</span>
+<a href="fall_constantinople.html">Căderea Constantinopolului</a> <a href="renaissance.html">Epoca Renașterii</a>
+</section>
+</article>
+</main>
+<div id="footer"></div>
+<script>
+(function(){
+  function inject(id, url) {
+    fetch(url).then(function(r){return r.text();}).then(function(t) {
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = t;
+    });
+  }
+  inject("header", "../partials/header.html");
+  inject("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

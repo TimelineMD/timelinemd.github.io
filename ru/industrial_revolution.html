@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Промышленная революция</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Промышленная революция</h1>
+<div class="article-dates">XVIII–XIX вв.</div>
+<p class="article-annotation">Переход к машинному производству</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right"><img src="../assets/images/industrial_revolution.jpg" alt=""></figure>
+
+<p><strong>Промышленная революция</strong> XVIII–XIX веков изменила мир быстрее, чем любая эпоха до неё. Ручной труд заменили машины, а фабрики превратились в сердца новых городов. Началось всё в Англии, где появились механические ткацкие станки, паровые машины Уатта и новые способы выплавки железа.</p>
+<p>Транспорт тоже изменился: появились железные дороги, пароходы, массовое производство деталей. Люди начали мигрировать в города в поисках работы. Но были и проблемы: тяжёлые условия труда, работа детей, загрязнение воздуха.</p>
+<p><strong>Последствия:</strong></p>
+<ul>
+<li>рост производства и удешевление товаров;</li>
+<li>появление рабочего класса и профсоюзов;</li>
+<li>формирование мирового рынка;</li>
+<li>ускорение научно-технического прогресса.</li>
+</ul>
+
+</section>
+<section class="article-summary"><p>Промышленная революция изменила экономику, общество и повседневную жизнь людей по всему миру.</p></section>
+<section class="article-tags"><span>Теги:</span><a href="industrial_revolution.html">Промышленная революция</a></section>
+</article>
+</main>
+<div id="footer"></div>
+<script>(function(){
+ const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+ inj("header","../partials/header.html"); inj("footer","../partials/footer.html");
+})();</script>
+</body>
+</html>

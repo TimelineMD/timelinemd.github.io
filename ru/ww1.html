@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Первая мировая война</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Первая мировая война</h1>
+<div class="article-dates">1914–1918</div>
+<p class="article-annotation">Крупнейший конфликт начала XX века.</p>
+</header>
+
+<section class="article-body">
+<figure class="article-image-right">
+<img src="../assets/images/ww1.jpg" alt="">
+</figure>
+
+<p><strong>Первая мировая война</strong> (1914–1918) стала крупнейшим конфликтом начала XX века. В ней участвовали десятки стран, а погибло около <strong>10 миллионов солдат</strong> и более <strong>10 миллионов мирных жителей</strong>. Мир разделился на два главных блока:</p>
+
+<ul>
+<li><strong>Антанта</strong>: Франция, Британия, Россия, позже Италия, США и другие;</li>
+<li><strong>Тройственный союз</strong>: Германия, Австро‑Венгрия, Османская империя, Болгария.</li>
+</ul>
+
+<p>Война началась после убийства наследника австро‑венгерского престола Франца Фердинанда в Сараеве. Германия наступала на Францию через Бельгию, Россия воевала в Восточной Пруссии, а на Балканах армия Сербии сдерживала австрийцев.</p>
+
+<p>Появились новые виды оружия: танки, тяжелая артиллерия, химические атаки. Битва на Сомме, Верден, Восточный фронт — эти названия стали символами позиционной войны, окопов и миллионов жертв.</p>
+
+<p>В 1917 году Россия выбыла из войны после революции, а вступление США усилило Антанту. Германия капитулировала в 1918 году, что привело к распаду империй и радикальному изменению карты Европы.</p>
+
+</section>
+
+<section class="article-summary">
+<p>Первая мировая война изменила Европу и привела к распаду крупных империй.</p>
+</section>
+
+<section class="article-tags">
+<span>Теги:</span> <a href="ww1.html">Первая мировая война</a>
+</section>
+
+</article>
+</main>
+<div id="footer"></div>
+<script>
+(function(){
+ const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+ inj("header","../partials/header.html");
+ inj("footer","../partials/footer.html");
+})();
+</script>
+</body>
+</html>

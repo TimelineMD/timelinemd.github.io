@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Revoluția Franceză</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
+
+<article class="article-main">
+
+<header class="article-header">
+<h1>Revoluția Franceză</h1>
+<div class="article-dates">1789–1799</div>
+<p class="article-annotation">Prăbușirea vechiului regim și apariția drepturilor cetățenești moderne.</p>
+</header>
+
+<section class="article-body">
+
+<figure class="article-image-right">
+<img src="../assets/images/french_revolution_painting.jpg" alt="">
+<figcaption><em>„Libertatea conducând poporul” (1830), Eugène Delacroix. Luvru, Paris.</em></figcaption>
+</figure>
+
+<p><strong>Revoluția Franceză</strong> este unul dintre momentele esențiale care au schimbat Europa. La sfârșitul secolului al XVIII-lea, Franța era afectată de datorii uriașe, criză alimentară și un sistem injust în care nobilimea și clerul aveau privilegii, iar majoritatea populației — <strong>starea a treia</strong> — plătea taxe și avea puține drepturi.</p>
+
+<p>În 1789, regele Ludovic al XVI-lea a convocat <strong>Stările Generale</strong>. Dar reprezentanții stării a treia au refuzat sistemul vechi de vot și s-au autoproclamat <strong>Adunarea Națională</strong>, afirmând că ei reprezintă națiunea.</p>
+
+<p>Tensiunea a explodat. La 14 iulie 1789, parizienii au atacat <strong>Bastilia</strong> — o veche închisoare, simbol al abuzului monarhic, chiar dacă era aproape goală. Căderea Bastiliei a transmis un mesaj clar: „Poporul nu se mai teme”.</p>
+
+<p>Au urmat schimbări rapide. Revoluționarii au abolit dările feudale și au adoptat <strong>Declarația Drepturilor Omului și Cetățeanului</strong>, care promova trei principii fundamentale: <strong>Libertate, egalitate, fraternitate</strong>. Aceste valori au devenit simbolul Franței moderne.</p>
+
+<p>Totuși, Revoluția a avut și perioade dramatice. Frica de trădare și războaiele externe au dus la radicalizare. În timpul <strong>Teroarei iacobine</strong>, guvernul revoluționar a folosit execuții masive împotriva dușmanilor reali sau presupusi. Regele Ludovic al XVI-lea a fost executat în 1793.</p>
+
+<p>În ciuda violenței, Revoluția Franceză a pus capăt monarhiei absolute și a introdus ideea că cetățenii au drepturi și pot participa la guvernare. Ecoul acestor idei s-a răspândit în întreaga Europă.</p>
+
+</section>
+
+<section class="article-summary">
+<p>Revoluția Franceză a distrus vechiul sistem și a adus lumii idealurile de libertate, egalitate și fraternitate.</p>
+</section>
+
+<section class="article-tags">
+<span>Taguri:</span>
+<a href="french_revolution.html">Revoluția Franceză</a>
+</section>
+
+</article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function(){
+  const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
+})();
+</script>
+
+</body>
+</html>

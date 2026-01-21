@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Primul Război Mondial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Primul Război Mondial</h1>
+<div class="article-dates">1914–1918</div>
+<p class="article-annotation">Un conflict uriaș care a schimbat istoria Europei.</p>
+</header>
+
+<section class="article-body">
+<figure class="article-image-right">
+<img src="../assets/images/ww1.jpg" alt="">
+</figure>
+
+<p><strong>Primul Război Mondial</strong> (1914–1918) a fost unul dintre cele mai devastatoare conflicte ale secolului XX. Aproximativ <strong>10 milioane de soldați</strong> și peste <strong>10 milioane de civili</strong> au murit. Lumea s-a împărțit în două blocuri principale:</p>
+
+<ul>
+<li><strong>Antanta</strong>: Franța, Marea Britanie, Rusia, apoi Italia, SUA și altele;</li>
+<li><strong>Puterile Centrale</strong>: Germania, Austro-Ungaria, Imperiul Otoman, Bulgaria.</li>
+</ul>
+
+<p>Războiul a început după asasinarea arhiducelui Franz Ferdinand la Sarajevo. Germania a atacat Franța prin Belgia, Rusia a intrat pe frontul de est, iar Serbia rezista împotriva austro‑ungarilor.</p>
+
+<p>Au apărut arme noi: tancuri, artilerie grea, gaz toxic. Bătălia de pe Somme, Verdun și luptele de pe Frontul de Est au devenit simboluri ale războiului de tranșee și ale pierderilor uriașe.</p>
+
+<p>În 1917, Rusia a ieșit din război după revoluție, iar intrarea SUA a schimbat balanța în favoarea Antantei. Germania a capitulat în 1918, iar imperiile Europei Centrale s-au prăbușit.</p>
+
+</section>
+
+<section class="article-summary">
+<p>Primul Război Mondial a schimbat definitiv harta politică a Europei.</p>
+</section>
+
+<section class="article-tags">
+<span>Taguri:</span> <a href="ww1.html">Primul Război Mondial</a>
+</section>
+
+</article>
+</main>
+<div id="footer"></div>
+<script>
+(function(){
+ const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+ inj("header","../partials/header.html");
+ inj("footer","../partials/footer.html");
+})();
+</script>
+</body>
+</html>

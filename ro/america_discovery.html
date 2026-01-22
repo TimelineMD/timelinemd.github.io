@@ -12,44 +12,51 @@
 <div id="header"></div>
 <main class="article-layout">
 <nav class="toc" id="toc"></nav>
+
 <article class="article-main">
 <header class="article-header">
 <h1>Descoperirea Americii</h1>
 <div class="article-dates">1492</div>
-<p class="article-annotation">Expediția lui Columb care a schimbat cursul istoriei mondiale.</p>
+<p class="article-annotation">Călătoria lui Cristofor Columb a deschis pentru europeni drumul spre continentul american și a marcat începutul unei noi etape în istoria lumii.</p>
 </header>
+
 <section class="article-body">
 <figure class="article-image-right">
-<img src="../assets/images/america_discovery.jpg" alt="">
+<img src="../assets/images/america_discovery.jpg" alt="Descoperirea Americii">
 </figure>
 
-<p><strong>Descoperirea Americii</strong> în anul 1492 este unul dintre cele mai importante momente din istoria lumii. Europa sfârșitului de secol XV trecea prin transformări majore: Imperiul Otoman controla strâmtorile, Bizanțul căzuse, iar statele europene căutau rute comerciale noi spre Asia. Exploratorii visau să găsească un drum mai scurt spre India, deoarece transportul mărfurilor era costisitor și riscant.</p>
 
-<p>Cristofor Columb, un navigator din Genova, credea că, navigând spre vest, poate ajunge în Asia. Deși planul său a fost respins de mai multe curți regale, Spania decide în cele din urmă să-i finanțeze expediția. Flota sa era formată din trei corăbii: <em>„Niña”</em>, <em>„Pinta”</em> și <em>„Santa María”</em>.</p>
-
-<p>La 12 octombrie 1492, marinarii văd pământ. Columb este convins că a ajuns în apropierea Indiei, motiv pentru care îi numește pe localnici „indieni”. În realitate, era vorba despre insulele Bahamas, parte a unui continent necunoscut pentru europeni. Descoperirea nu a fost o „întâlnire cu Asia”, ci începutul unui contact între două lumi care nu se știau una de alta.</p>
-
-<p>Consecințele descoperirii au fost enorme:</p>
-<ul>
-<li>Europa a aflat că există două continente noi;</li>
-<li>a început colonizarea Americii;</li>
-<li>s-au format rute comerciale transatlantice;</li>
-<li>schimburi masive de plante, animale și tehnologii au transformat economia globală;</li>
-<li>populațiile indigene au fost puternic afectate de boli și conflicte.</li>
-</ul>
-
-<p>Astăzi, descoperirea Americii este privită ca începutul globalizării. Evenimentul a schimbat nu doar economia, ci și cultura, știința și hărțile lumii.</p>
+<p><strong>Descoperirea Americii</strong> este legată, în mod tradițional, de călătoria lui Cristofor Columb din 1492. Navigatorul genovez a pornit în slujba coroanei spaniole, sperând să ajungă în Asia pe un drum mai scurt, „prin vest”. În loc să atingă țărmurile Asiei, a ajuns însă în insulele din Caraibe, deschizând pentru europeni un continent de care nu avuseseră cunoștință directă.</p>
+<p>Pentru popoarele europene, aceasta a fost începutul unei epoci de explorări, colonizări și schimburi intense de plante, animale, mărfuri și idei între Lumea Veche și Lumea Nouă. Pentru populațiile indigene, însă, a însemnat epidemii, cuceriri violente și pierderea unei mari părți din teritorii și din modul de viață tradițional.</p>
+<p>Mulți istorici consideră anul 1492 o graniță simbolică între Evul Mediu și o nouă eră în istoria Europei, legată de schimbările descrise și în articolul despre <a href="renaissance.html">Epoca Renașterii</a>. De atunci, hărțile lumii au început să se schimbe rapid, iar orizontul european s-a lărgit mult dincolo de Mediterană.</p>
+<p>Descoperirea Americii a schimbat și economia: aurul și argintul aduse din colonii au alimentat comerțul, iar noile culturi, precum porumbul, cartoful sau roșiile, au ajuns treptat pe mesele europenilor. Din acest motiv, anul 1492 apare adesea în manuale nu doar ca „descoperire” geografică, ci ca început al unei lumi globale, în care continentele sunt tot mai strâns legate între ele.</p>
 
 </section>
+
 <section class="article-summary">
-<p>Descoperirea Americii a deschis o nouă etapă globală, conectând definitiv Lumea Veche cu Lumea Nouă.</p>
+<p>Călătoria lui Columb din 1492 a deschis pentru europeni Lumea Nouă și este considerată de mulți istorici o graniță simbolică între Evul Mediu și o nouă eră în istoria lumii.</p>
 </section>
+
 <section class="article-tags">
-<span>Taguri:</span>
-<a href="america_discovery.html">Descoperirea Americii</a>
+<span>Etichete:</span>
+<a href="america_discovery.html">Descoperirea Americii</a> <a href="renaissance.html">Epoca Renașterii</a> 
 </section>
+
 </article>
 </main>
+
 <div id="footer"></div>
+
+<script>
+(function(){
+  const inj = (id, url) => fetch(url).then(r => r.text()).then(t => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = t;
+  });
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
+})();
+</script>
+
 </body>
 </html>

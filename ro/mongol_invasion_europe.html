@@ -12,43 +12,51 @@
 <div id="header"></div>
 <main class="article-layout">
 <nav class="toc" id="toc"></nav>
+
 <article class="article-main">
 <header class="article-header">
 <h1>Invazia mongolă în Europa</h1>
 <div class="article-dates">Sec. XIII</div>
-<p class="article-annotation">Campaniile mongole care au remodelat politica Europei de Est.</p>
+<p class="article-annotation">Cum au ajuns armatele mongole în Europa și ce urmări a avut acest șoc militar pentru țările din Est și din centru.</p>
 </header>
+
 <section class="article-body">
 <figure class="article-image-right">
-<img src="../assets/images/mongol_invasion_europe.jpg" alt="">
+<img src="../assets/images/mongol_invasion_europe.jpg" alt="Invazia mongolă în Europa">
 </figure>
 
-<p><strong>Invazia mongolă</strong> din secolul al XIII-lea a reprezentat una dintre cele mai mari expansiuni militare ale Evului Mediu. După unificarea triburilor mongole sub conducerea lui Ginghis Han, armatele stepelor au cucerit teritorii vaste din Asia și au avansat rapid spre Europa de Est.</p>
 
-<p>Între 1236 și 1242, armatele conduse de Batu Han au pătruns în Rusia Kieveană, Polonia și Ungaria. Mobilitatea lor impresionantă, folosirea cavaleriei ușoare și tactica atacurilor rapide au surprins multe state europene. Orașe întregi au fost incendiate, iar structurile politice locale au fost zdruncinate.</p>
-
-<p>Regiunile din jurul Mării Negre au resimțit puternic efectele invaziei. Hoarda de Aur, ramura occidentală a imperiului mongol, a devenit o putere dominantă, influențând politica și economia principatelor din zonă, inclusiv spațiul ce va deveni mai târziu Moldova.</p>
-
-<p>Consecințele invaziei:</p>
-<ul>
-<li>distrugerea centrelor urbane și depopularea unor regiuni;</li>
-<li>schimbări în rutele comerciale dintre Orient și Europa;</li>
-<li>dependență politică față de Hoarda de Aur pentru unele state;</li>
-<li>formarea unor alianțe noi și reașezări teritoriale.</li>
-</ul>
-
-<p>Deși expansiunea mongolă în Europa s-a oprit în cele din urmă, influența lor a continuat timp de secole prin structurile Hoardei de Aur, comerțul regional și relațiile diplomatice.</p>
+<p><strong>Invazia mongolă în Europa</strong> are loc în secolul al XIII-lea, când armatele conduse de Batu Han, nepotul lui Ginghis Han, pătrund dinspre stepele asiatice în spațiul rusesc și apoi mai departe spre centrul continentului. Orașe și principate din Rusia Kieveană sunt atacate și distruse, iar unele bătălii, precum cele de la Legnica sau Mohi, intră în manuale ca exemple de confruntări dramatice între cavaleria europeană și armatele mongole.</p>
+<p>Mongolii au folosit tactici flexibile, recunoaștere rapidă și o cavalerie excelent organizată. Mulți adversari îi subestimau, considerându-i doar „năvălitori din stepă”, dar disciplina lor militară și viteza de deplasare i-au transformat într-o forță greu de oprit.</p>
+<p>După primele campanii, o parte importantă din Europa de Est a intrat sub controlul sau influența Hoardei de Aur. <a href="golden_horde_influence.html">Influența Hoardei de Aur</a> se va simți timp de secole asupra principatelor rusești și asupra regiunilor de la nordul Mării Negre, inclusiv în zone aflate mai târziu în vecinătatea Moldovei. Plăți de tribut, expediții de pedepsire și jocuri politice complexe au marcat istoria acestor teritorii.</p>
+<p>În Europa Centrală, retragerea mongolilor a lăsat în urmă orașe distruse și populații decimate, dar și o lecție dură despre necesitatea unor fortificații mai bune și a unei organizări militare mai eficiente. Invazia mongolă a arătat cât de interconectate erau deja regiunile continentului: deciziile luate în stepele Asiei puteau schimba viața oamenilor de la mii de kilometri distanță.</p>
 
 </section>
+
 <section class="article-summary">
-<p>Invazia mongolă a transformat echilibrul politic al Europei de Est și a influențat evoluția statelor din regiune.</p>
+<p>Invazia mongolă din secolul al XIII-lea a zguduit Europa de Est și Centrală și a deschis o perioadă în care influența Hoardei de Aur a marcat pentru mult timp istoria regiunii.</p>
 </section>
+
 <section class="article-tags">
-<span>Taguri:</span>
-<a href="mongol_invasion_europe.html">Invazia mongolă</a>
+<span>Etichete:</span>
+<a href="mongol_invasion_europe.html">Invazia mongolă în Europa</a> <a href="golden_horde_influence.html">Influența Hoardei de Aur</a> 
 </section>
+
 </article>
 </main>
+
 <div id="footer"></div>
+
+<script>
+(function(){
+  const inj = (id, url) => fetch(url).then(r => r.text()).then(t => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = t;
+  });
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
+})();
+</script>
+
 </body>
 </html>

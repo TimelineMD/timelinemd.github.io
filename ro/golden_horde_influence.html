@@ -12,44 +12,52 @@
 <div id="header"></div>
 <main class="article-layout">
 <nav class="toc" id="toc"></nav>
+
 <article class="article-main">
 <header class="article-header">
 <h1>Influența Hoardei de Aur</h1>
 <div class="article-dates">Sec. XIII–XV</div>
-<p class="article-annotation">Influența stepei</p>
+<p class="article-annotation">Cum s-a manifestat puterea Hoardei de Aur în Europa de Est și pe teritoriul viitoarei Moldove și de ce Orheiul Vechi este atât de important pentru această epocă.</p>
 </header>
+
 <section class="article-body">
 <figure class="article-image-right">
-<img src="../assets/images/golden_horde_influence.jpg" alt="">
+<img src="../assets/images/golden_horde_influence.jpg" alt="Influența Hoardei de Aur">
 </figure>
 
-<p><strong>Influența Hoardei de Aur</strong> asupra Europei de Est în secolele XIII–XV a fost profundă. După invazia mongolă și formarea Ulusului lui Joci, regiunea a intrat într-o nouă structură politică. Statele vecine trebuiau să țină cont de puterea stepei, iar Hoarda de Aur a devenit o forță dominantă între Volga, Nipru și Marea Neagră.</p>
 
-<p>Ținuturile aflate la nord și est de viitoarea Moldovă au resimțit direct autoritatea mongolă: tribut, obligații militare și contacte diplomatice regulate. Totuși, influența Hoardei se extindea mult mai departe, datorită rutelor comerciale care uneau Europa cu Asia. Aceste rute au stimulat schimburile economice și culturale.</p>
-
-<p>Politica Hoardei era adesea flexibilă: conducătorii locali erau menținuți în funcție, cu condiția loialității față de han. Această metodă reducea rezistența și permitea controlul unor teritorii vaste. Chiar și după slăbirea Hoardei, moștenirea politică și economică a rămas vizibilă.</p>
-
-<p>Consecințe importante:</p>
-<ul>
-<li>apariția unor noi rute comerciale între Europa și Orient;</li>
-<li>adaptarea tacticilor militare ale statelor vecine;</li>
-<li>consolidarea diplomației și intensificarea misiunilor politice;</li>
-<li>schimbări economice și fiscale în regiune.</li>
-</ul>
-
-<p>Deși teritoriul Moldovei nu a fost parte a Hoardei, poziția principatului s-a format sub influența acestei puteri. Comerțul, apărarea și politica externă au fost marcate de apropierea de stepa pontică.</p>
+<p><strong>Hoarda de Aur</strong> a apărut în secolul al XIII-lea ca unul dintre statele moștenitoare ale imperiului mongol. Teritoriile sale se întindeau de la zona Volgăi și stepele nord-pontice până în vecinătatea principatelor est-europene. Pentru multe regiuni din Europa de Est aceasta a însemnat nu doar campanii militare, ci și o influență politică și economică de durată.</p>
+<p>Principatele rusești și teritoriile de la nordul Mării Negre plăteau tribut Hoardei, trimiteau soli și primeau din partea hanilor dreptul de a domni. Prin drumurile de stepă treceau caravane comerciale care legau Europa de Orient. Chiar și acolo unde Hoarda nu administra direct, conducătorii locali erau nevoiți să țină cont de interesele ei.</p>
+<p>În spațiul de azi al Moldovei, influența Hoardei s-a simțit mai ales în secolul al XIV-lea. Cercetările arheologice arată că în zona <strong>Orheiului Vechi</strong> a existat un important oraș tătaro-mongol al Hoardei de Aur, centru administrativ și comercial regional. Aici se aflau fortificații, cartiere de meșteșugari și rute de caravane care legau stepa de ținuturile dunărene și pontice. Mai târziu, când Hoarda s-a slăbit, aceste locuri au intrat treptat în sfera de influență a conducătorilor locali și a statelor vecine, dar urmele perioadei hoardei au rămas în straturile arheologice și în toponimie.</p>
+<p>Influența Hoardei s-a simțit și în politică. Odată cu slăbirea ei, în regiune intră în joc noi puteri: Lituania, Polonia, <a href="moldavian_principality_foundation.html">Principatul Moldovei în formare</a>, dar și Imperiul Otoman. Mulți conducători au încercat fie să folosească alianța cu hanul, fie, dimpotrivă, să își apere autonomia, sprijinindu-se pe rivalii Hoardei.</p>
+<p>Chiar și după destrămare, memoria Hoardei de Aur a continuat să existe în legende, în tradiții juridice și în sistemele de strângere a dărilor. Pentru istoria Moldovei este important să înțelegem că înainte de consolidarea principatului, aceste pământuri au făcut parte din lumea mai largă a imperiilor de stepă, iar Orheiul Vechi este unul dintre locurile unde acest lucru poate fi „citit” direct în pământ.</p>
 
 </section>
-<section class="article-summary"><p>Hoarda de Aur a influențat comerțul, politica și structurile militare ale regiunii.</p></section>
-<section class="article-tags"><span>Taguri:</span><a href="golden_horde_influence.html">Influența Hoardei de Aur</a></section>
+
+<section class="article-summary">
+<p>Hoarda de Aur a integrat pentru câteva secole spațiul Europei de Est și al viitoarei Moldove în lumea sa politică și comercială, iar Orheiul Vechi a fost un centru regional important al acestei influențe.</p>
+</section>
+
+<section class="article-tags">
+<span>Etichete:</span>
+<a href="golden_horde_influence.html">Influența Hoardei de Aur</a> <a href="mongol_invasion_europe.html">Invazia mongolă în Europa</a> <a href="moldavian_principality_foundation.html">Întemeierea Principatului Moldovei</a> 
+</section>
+
 </article>
 </main>
+
 <div id="footer"></div>
+
 <script>
 (function(){
- const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
- inj("header","../partials/header.html"); inj("footer","../partials/footer.html");
+  const inj = (id, url) => fetch(url).then(r => r.text()).then(t => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = t;
+  });
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
 })();
 </script>
+
 </body>
 </html>

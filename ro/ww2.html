@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Al Doilea Război Mondial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Al Doilea Război Mondial</h1>
+            <div class="article-dates">1939 - 1945</div>
+            <p class="article-annotation">
+                Cel mai distrugător conflict din istorie: alianțe, pierderi uriașe, Holocaustul și înfrângerea nazismului.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/ww2.jpg" alt="Al Doilea Război Mondial">
+            </figure>
+
+            <p><strong>Al Doilea Război Mondial</strong> a costat viața a aproximativ <strong>70 - 80 de milioane de oameni</strong>, 
+                militari și civili la un loc. Uniunea Sovietică a pierdut în jur de <strong>27 de milioane</strong> de cetățeni, una dintre 
+                cele mai mari tragedii ale secolului XX.</p>
+
+            <p>Lumea s-a împărțit în două tabere principale.</p>
+
+            <ul>
+                <li><strong>Aliații</strong>: Marea Britanie, Franța, apoi URSS (din 1941), Statele Unite (din 1941), China și alte state.</li>
+                <li><strong>Puteriile Axei</strong>: Germania nazistă, Italia fascistă, Japonia imperială și aliații lor.</li>
+            </ul>
+
+            <p>Războiul a început la <strong>1 septembrie 1939</strong>, când Germania a atacat Polonia. La scurt timp, Marea Britanie și 
+                Franța au declarat război Germaniei. În anii următori, mare parte din Europa a fost ocupată: Franța, Țările de Jos, 
+                Belgia, Norvegia, Balcanii.</p>
+
+            <p>În 1941, Hitler a lansat operațiunea Barbarossa împotriva URSS. Frontul de est a devenit cel mai mare câmp de luptă al 
+                războiului: asediul Leningradului, apărarea Moscovei, bătălia de la Stalingrad, Kursk. Aici armata germană a suferit 
+                pierderi uriașe.</p>
+
+            <p>Regimul nazist a comis crime în masă. <strong>Holocaustul</strong> a fost un genocid planificat împotriva evreilor europeni: 
+                aproximativ <strong>6 milioane de evrei</strong> au fost uciși în ghetouri, lagăre de exterminare și prin execuții. Au fost 
+                persecutați și alte grupuri: romi, persoane cu dizabilități, opozanți politici. După război, aceste crime au fost judecate 
+                la Nürnberg, iar Germania de după 1945 a recunoscut responsabilitatea pentru Holocaust, transformând memoria lui într-o 
+                parte importantă a identității sale democratice.</p>
+
+            <p>În Pacific, Japonia purta un război de cucerire în China și în colonii. Atacul de la Pearl Harbor din decembrie 1941 a dus la 
+                intrarea SUA în război. A urmat un lung șir de bătălii pe insule.</p>
+
+            <p>În 1944, Aliații au debarcat în Normandia, deschizând al doilea front în Europa, în timp ce armata sovietică înainta din est. 
+                În aprilie 1945, Hitler s-a sinucis la Berlin, iar Germania a capitulat la începutul lunii mai.</p>
+
+            <p>Războiul s-a încheiat definitiv în august - septembrie 1945, când SUA au lansat bombe atomice asupra orașelor Hiroshima și 
+                Nagasaki (<a href="hiroshima.html">vezi articolul despre Hiroshima</a>), iar Japonia a capitulat.</p>
+
+            <p>Al Doilea Război Mondial a schimbat radical lumea: a dus la crearea ONU, la dispariția marilor imperii coloniale și la începutul 
+                <a href="cold_war.html">Războiului Rece</a> dintre URSS și SUA.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Al Doilea Război Mondial a fost o tragedie globală, cu zeci de milioane de victime și cu Holocaustul ca simbol extrem al 
+                violenței de stat.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="ww2.html">Al Doilea Război Mondial</a>
+            <a href="ww1.html">Primul Război Mondial</a>
+            <a href="hiroshima.html">Hiroshima</a>
+            <a href="cold_war.html">Războiul Rece</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

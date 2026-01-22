@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Prăbușirea URSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Prăbușirea URSS</h1>
+            <div class="article-dates">sfârșitul anilor 1980 – 1991</div>
+            <p class="article-annotation">
+                Cum s-a destrămat cel mai mare stat socialist din lume și au apărut republici independente, inclusiv Republica Moldova.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/ussr_collapse.jpg" alt="Prăbușirea URSS">
+            </figure>
+
+            <p><strong>Prăbușirea URSS</strong> nu a fost un singur eveniment, ci rezultatul unei crize profunde. Până în anii 1980, 
+                economia <a href="ussr_creation.html">Uniunii Sovietice</a> era epuizată de cursa înarmărilor și de cheltuielile 
+                <a href="cold_war.html">Războiului Rece</a>. Magazinele erau goale, tehnologia rămânea în urmă, iar nemulțumirea populației creștea.</p>
+
+            <p>Odată cu venirea la putere a lui Mihail Gorbaciov au apărut două cuvinte-cheie: <em>perestroika</em> (reformă economică) și 
+                <em>glasnost</em> (deschidere, libertate de exprimare). Presa a început să discute deschis despre represiuni, greșeli politice, 
+                accidente industriale. Oamenii vedeau pentru prima dată o parte a adevărului ascuns zeci de ani.</p>
+
+            <p>În republicile unionale au prins putere mișcările naționale. În statele baltice, în Caucaz, dar și în RSS Moldovenească, 
+                tot mai mulți oameni cereau recunoașterea limbii proprii și mai multă autonomie. Cu timpul, aceste revendicări s-au transformat 
+                în cereri de independență. La Chișinău, acest proces a dus la 
+                <a href="moldova_independence.html">Independența Republicii Moldova</a>.</p>
+
+            <p>În august 1991, o parte a conducerii de la Moscova a încercat să oprească schimbările printr-o lovitură de stat (puci). 
+                Tentativa a eșuat, dar autoritatea centrului a fost grav afectată. La scurt timp, liderii Rusiei, Ucrainei și Belarusului 
+                au semnat acordurile de la Belaveja, care consfințeau sfârșitul URSS și crearea CSI.</p>
+
+            <p>La sfârșitul anului 1991, Uniunea Sovietică a încetat oficial să existe. Pe harta politică au apărut cincisprezece state 
+                independente. Pentru unii oameni, aceasta a însemnat speranță pentru libertate și democrație; pentru alții – pierderea 
+                unei lumi cunoscute și începutul unei perioade economice foarte dificile.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Prăbușirea URSS a închis capitolul istoriei sovietice și a deschis o etapă nouă pentru țările Europei de Est, Caucazului, 
+                Asiei Centrale și pentru Republica Moldova.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="ussr_collapse.html">Prăbușirea URSS</a>
+            <a href="ussr_creation.html">Formarea URSS</a>
+            <a href="moldova_independence.html">Independența Republicii Moldova</a>
+            <a href="cold_war.html">Războiul Rece</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Basarabia în componența României</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Basarabia în componența României</h1>
+            <div class="article-dates">1918 – 1940, 1941 – 1944</div>
+            <p class="article-annotation">
+                Cum teritoriul dintre Prut și Nistru a ajuns în componența României după Primul Război Mondial și pentru scurt timp în timpul celui de-al Doilea.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/bessarabia_romania.jpg" alt="Basarabia în componența României">
+            </figure>
+
+            <p><strong>Basarabia</strong> este regiunea istorică dintre Prut și Nistru, adică aproape întreg teritoriul actualei Republici Moldova,
+               fără malul stâng al Nistrului (Transnistria). Până în secolul al XX-lea, această zonă a făcut parte din
+               <a href="bessarabia_russian_empire.html">Imperiul Rus</a>.</p>
+
+            <p>În timpul <a href="ww1.html">Primului Război Mondial</a>, Imperiul Rus s-a prăbușit. În 1917 a izbucnit
+               <a href="russian_revolution.html">Revoluția din Rusia</a>, iar bolșevicii au preluat puterea. Pentru a păstra controlul politic,
+               ei au semnat <strong>Pacea de la Brest-Litovsk</strong> cu Germania și aliații ei – un tratat foarte dur, prin care Rusia renunța
+               la Polonia, Finlanda, statele baltice, părți din Belarus și Ucraina și își pierdea influența și asupra Basarabiei,
+               unde a intrat armata română.</p>
+
+            <p>La Chișinău a fost convocat <em>Sfatul Țării</em>, o adunare reprezentativă locală. În contextul haosului din fosta Rusie și al prezenței
+               trupelor române, majoritatea deputaților a votat unirea Basarabiei cu România. Astfel, partea estică a Moldovei istorice a intrat
+               în componența Regatului României în perioada interbelică.</p>
+
+            <p>Basarabia era în mare parte rurală, cu o economie agrară și o infrastructură modestă. Autoritățile de la București au extins aici
+               legile și administrația românească, au dezvoltat rețeaua de școli și instituții, însă diferențele sociale și economice față de alte
+               provincii ale țării au rămas vizibile.</p>
+
+            <p>Succesiunea schimbărilor de stat poate fi rezumată astfel:</p>
+
+            <ul>
+                <li><strong>1918</strong> – Basarabia votează unirea cu România.</li>
+                <li><strong>1940</strong> – în urma ultimatumului sovietic, România cedează Basarabia și nordul Bucovinei URSS.</li>
+                <li><strong>1941–1944</strong> – în timpul <a href="ww2.html">Al Doilea Război Mondial</a>, Basarabia revine temporar sub administrație românească.</li>
+                <li><strong>1944</strong> – Armata Roșie reia controlul, iar teritoriul este inclus definitiv în sfera sovietică.</li>
+            </ul>
+
+            <p>Toate aceste episoade vor pregăti etapa următoare – integrarea Basarabiei în
+               <a href="bessarabia_ussr.html">Uniunea Sovietică</a> și formarea RSS Moldovenești.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>După prăbușirea Imperiului Rus, Basarabia a devenit parte a României, aflându-se apoi în centrul disputelor dintre București și Moscova
+               și schimbându-și de mai multe ori statutul în prima jumătate a secolului XX.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="bessarabia_romania.html">Basarabia în componența României</a>
+            <a href="bessarabia_russian_empire.html">Basarabia în componența Imperiului Rus</a>
+            <a href="bessarabia_ussr.html">Basarabia în componența URSS</a>
+            <a href="moldova_independence.html">Independența Republicii Moldova</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

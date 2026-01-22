@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Высадка человека на Луну</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Высадка человека на Луну</h1>
+            <div class="article-dates">1969 год</div>
+            <p class="article-annotation">
+                Как миссия «Аполлон-11» стала вершиной космической гонки и первым шагом человека по поверхности Луны.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/moon_landing.jpg" alt="Высадка человека на Луну">
+            </figure>
+
+            <p><strong>Луна</strong> – это естественный спутник Земли, небесное тело, которое люди наблюдают с древности. Долгое время 
+                высадка на Луну казалась фантастикой. Но после полёта Гагарина и успехов советской космонавтики США поставили цель 
+                обогнать СССР и первыми высадить человека на лунную поверхность.</p>
+
+            <p>Программа <strong>«Аполлон»</strong> стала ответом США в <a href="cold_war.html">холодной войне</a>. Для этого строились 
+                гигантские ракеты «Сатурн V», создавались лунные модули, тренировки экипажей проходили годами. В июле 1969 года 
+                корабль <strong>«Аполлон-11»</strong> стартовал к Луне с экипажем Нила Армстронга, База Олдрина и Майкла Коллинза.</p>
+
+            <p>20 июля 1969 года лунный модуль сел в районе Моря Спокойствия. Нил Армстронг первым спустился по лестнице и произнёс 
+                свою знаменитую фразу: «Маленький шаг для человека, но гигантский скачок для человечества». Следом к нему присоединился 
+                Баз Олдрин. Космонавты установили флаг США, собрали образцы грунта и установили научные приборы.</p>
+
+            <p>За «Аполлоном-11» последовали другие миссии. Люди шесть раз высаживались на Луну, изучали её рельеф, камни, 
+                особенности поверхности. Собранные образцы до сих пор исследуются учёными.</p>
+
+            <p>Высадка на Луну показала, что человечество способно решать задачи невероятной сложности, если объединяет знания, 
+                науку и ресурсы. Кадры с лунной поверхности облетели весь мир и вдохновили новое поколение инженеров и исследователей.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Высадка человека на Луну стала кульминацией космической гонки и доказала, что мечты о далёких мирах могут стать реальностью.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Теги:</span>
+            <a href="moon_landing.html">Высадка человека на Луну</a>
+            <a href="spaceflight.html">Полёт человека в космос</a>
+            <a href="cold_war.html">Холодная война</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

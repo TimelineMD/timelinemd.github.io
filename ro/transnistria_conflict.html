@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Conflictul din Transnistria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Conflictul din Transnistria</h1>
+            <div class="article-dates">1990 – 1992</div>
+            <p class="article-annotation">
+                Cauzele tensiunilor dintre Chișinău și malul stâng al Nistrului și cum s-a ajuns la confruntările armate din 1992.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/transnistria_conflict.jpg" alt="Conflictul din Transnistria">
+            </figure>
+
+            <p><strong>Conflictul din Transnistria</strong> este una dintre cele mai dificile epoci din istoria Republicii Moldova
+               de după <a href="moldova_independence.html">independență</a>. El s-a format pe fundalul destrămării
+               <a href="ussr_collapse.html">URSS</a> și al schimbărilor politice rapide.</p>
+
+            <p>În anii ’80, în RSS Moldovenească a apărut o puternică mișcare de renaștere națională: limba de stat,
+               alfabetul latin, redeschiderea subiectului istoric despre <a href="bessarabia_ussr.html">Basarabia în URSS</a>.
+               Pe malul stâng al Nistrului, o regiune industrială cu populație în mare parte rusofonă, mulți se temeau de pierderea
+               statutului și de o posibilă unire cu România.</p>
+
+            <p>În 1990, liderii locali au proclamat „Republica Moldovenească Nistreană”, nerecunoscută de Chișinău.
+               Au urmat blocări de drumuri, greve, ciocniri între susținătorii celor două tabere. Situația a devenit tot mai tensionată.</p>
+
+            <p>În 1992, confruntările au degenerat în război. Lupte intense au avut loc la Dubăsari, în satele de pe Nistru
+               și în zona orașului Bender. Sute de oameni au murit, mii au fost răniți, iar zeci de mii au devenit refugiați.
+               În conflict au intervenit și unități ale Armatei a 14‑a, rămase în regiune după perioada sovietică.</p>
+
+            <p>În iulie 1992 a fost semnat un acord de încetare a focului. A fost creată o zonă de securitate, iar de-a lungul Nistrului
+               au fost desfășurate forțe de menținere a păcii. Deși luptele s-au oprit, statutul regiunii rămâne nerezolvat până astăzi.</p>
+
+            <p>Transnistria funcționează de facto ca un teritoriu separat, cu propriile structuri de putere, în timp ce Republica Moldova
+               o consideră parte a teritoriului său suveran. Conflictul continuă să influențeze politica internă și externă a țării.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Conflictul din Transnistria a rezultat din tensiuni politice, lingvistice și sociale acumulate în anii destrămării URSS
+               și rămâne un dosar deschis al istoriei contemporane a Republicii Moldova.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="transnistria_conflict.html">Conflictul din Transnistria</a>
+            <a href="moldova_independence.html">Independența Republicii Moldova</a>
+            <a href="bessarabia_ussr.html">Basarabia și URSS</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inject = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+    inject("header", "../partials/header.html");
+    inject("footer", "../partials/header.html");
+})();
+</script>
+</body>
+</html>

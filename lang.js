@@ -332,7 +332,44 @@ document.addEventListener("click", function(e) {
     }
 });
 
+    
+    const SLOGANS = {
+        ru: [
+            "Молдова на линии времени мира",
+            "История мира через призму Молдовы",
+            "От Штефана чел Маре до наших дней",
+            "Хронология для школьников и подростков",
+            "Мир и Молдова на одном таймлайне"
+        ],
+        ro: [
+            "Moldova pe linia timpului lumii",
+            "Istoria lumii prin prisma Moldovei",
+            "De la Ștefan cel Mare până azi",
+            "Cronologie pentru elevi și adolescenți",
+            "Lumea și Moldova pe același timeline"
+        ]
+    };
+
+    function initSlogan() {
+        const ruNode = document.getElementById("subtitle-ru");
+        const roNode = document.getElementById("subtitle-ro");
+
+        if (!ruNode || !roNode) {
+            setTimeout(initSlogan, 80);
+            return;
+        }
+
+        const max = Math.min(SLOGANS.ru.length, SLOGANS.ro.length);
+        if (!max) return;
+
+        const idx = Math.floor(Math.random() * max);
+        ruNode.textContent = SLOGANS.ru[idx];
+        roNode.textContent = SLOGANS.ro[idx];
+    }
+
+
     document.addEventListener("DOMContentLoaded", () => {
+        initSlogan();
         renderTOC();
         initLanguage();
         initTocSearch();

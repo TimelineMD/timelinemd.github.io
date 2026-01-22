@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Formarea URSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Formarea URSS</h1>
+            <div class="article-dates">1922</div>
+            <p class="article-annotation">
+                Cum fostele teritorii ale Imperiului Rus s-au unit într-un nou stat sovietic după revoluție și războiul civil.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/ussr_creation.jpg" alt="Formarea URSS">
+            </figure>
+
+            <p><strong>Formarea Uniunii Republicilor Sovietice Socialiste</strong> a fost rezultatul direct al 
+                <a href="russian_civil_war.html">războiului civil din Rusia</a> și al prăbușirii vechiului imperiu. 
+                Pe ruinele lui au apărut republici cu propriile guverne și armate: RSFS Rusă, RSS Ucraineană, RSS Bielorusă, 
+                Federația Transcaucaziană.</p>
+
+            <p>Liderii bolșevici considerau că aceste republici trebuie să colaboreze strâns, altfel nu vor putea reface economia 
+                distrusă de război. În același timp, exista dezbaterea dacă totul trebuie condus strict de la Moscova sau dacă 
+                republicile păstrează un anumit grad de autonomie.</p>
+
+            <p>La 30 decembrie 1922 a fost semnat tratatul de formare a <strong>URSS</strong>. Pe hârtie, republicile erau egale și 
+                aveau drept de ieșire. În practică însă, deciziile importante erau luate de conducerea de partid de la centru.</p>
+
+            <p>Uniunea Sovietică a devenit un stat multinațional uriaș, în care trăiau zeci de popoare: ruși, ucraineni, bieloruși, 
+                popoarele Caucazului și Asiei Centrale. S-au deschis școli, fabrici, linii de cale ferată, orașe noi. Ritmul 
+                industrializării a fost foarte rapid.</p>
+
+            <p>În același timp, orice opoziție politică era interzisă, presa era controlată, iar represiunea împotriva adversarilor 
+                reali sau presupuşi a devenit un element al sistemului. Astfel, un stat prezentat ca „uniune liberă a popoarelor” 
+                s-a transformat treptat într-un regim puternic centralizat.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>URSS a apărut ca o uniune de republici după războiul civil, reunind multe popoare într-un stat puternic centralizat.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="ussr_creation.html">Formarea URSS</a>
+            <a href="russian_civil_war.html">Războiul civil din Rusia</a>
+            <a href="ww2.html">Al Doilea Război Mondial</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

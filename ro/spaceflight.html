@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Zborul omului în spațiu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Zborul omului în spațiu</h1>
+            <div class="article-dates">12 aprilie 1961</div>
+            <p class="article-annotation">
+                Cum Iuri Gagarin a devenit primul om pe orbită și de ce acest moment a fost important și pentru RSS Moldovenească.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/spaceflight.jpg" alt="Zborul omului în spațiu">
+            </figure>
+
+            <p><strong>Zborul omului în spațiu</strong> a fost unul dintre cele mai spectaculoase momente ale secolului XX. 
+                După <a href="ww2.html">Al Doilea Război Mondial</a>, URSS și SUA au intrat într-o <em>cursă spațială</em>, 
+                încercând să demonstreze cine are știința și tehnologia mai avansate.</p>
+
+            <p>La 12 aprilie 1961, cosmonautul sovietic Iuri Gagarin a decolat la bordul navei <strong>„Vostok-1”</strong>, a realizat 
+                un ocol complet al Pământului și s-a întors cu bine. Cuvintele lui „Poiehali!” au devenit celebre în toată lumea. 
+                Zborul a durat aproximativ 108 minute, dar a schimbat pentru totdeauna istoria explorării spațiului.</p>
+
+            <p>Programul spațial avea nevoie de tot felul de inovații: rachete puternice, costume speciale, sisteme de comunicație și chiar 
+                hrană adaptată pentru condițiile de imponderabilitate. În <strong>RSS Moldovenească</strong> se produceau tuburi cu alimente 
+                pentru cosmonauți – o contribuție discretă, dar reală, la explorarea spațiului. Iar <strong>Chișinăul</strong> este amintit 
+                ca unul dintre primele orașe care a dat numele lui Gagarin unei străzi; ulterior, străzi „Iuri Gagarin” au apărut în multe 
+                alte orașe din lume.</p>
+
+            <p>Zborul lui Gagarin a arătat că omul poate supraviețui în spațiu, poate comunica cu Pământul și se poate întoarce în siguranță. 
+                După acest succes au urmat noi misiuni, ieșiri în spațiul deschis și zboruri de durată.</p>
+
+            <p>Pentru tinerii acelor ani, cosmosul a devenit simbolul viitorului. Chiar și astăzi, pe 12 aprilie este sărbătorită 
+                <strong>Ziua cosmonauticii</strong>, iar imaginile Pământului văzut din spațiu ne amintesc cât de mică și totodată 
+                cât de prețioasă este planeta noastră.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Zborul lui Iuri Gagarin a deschis era zborurilor spațiale cu echipaj uman și a transformat explorarea cosmosului din vis în realitate.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="spaceflight.html">Zborul omului în spațiu</a>
+            <a href="ww2.html">Al Doilea Război Mondial</a>
+            <a href="cold_war.html">Războiul Rece</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

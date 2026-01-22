@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Aselenizarea</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Aselenizarea</h1>
+            <div class="article-dates">1969</div>
+            <p class="article-annotation">
+                Cum misiunea „Apollo 11” a devenit vârful cursei spațiale și primul pas al omului pe suprafața Lunii.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/moon_landing.jpg" alt="Aselenizarea">
+            </figure>
+
+            <p><strong>Luna</strong> este satelitul natural al Pământului, un corp ceresc care i-a fascinat pe oameni din Antichitate. 
+                Mult timp, ideea ca un om să pășească pe Lună a părut pură ficțiune. După succesul lui Gagarin, Statele Unite și-au propus 
+                să răspundă printr-un obiectiv și mai îndrăzneț: să trimită un echipaj pe Lună.</p>
+
+            <p>Programul <strong>Apollo</strong> a fost răspunsul american la competiția cu URSS în cadrul 
+                <a href="cold_war.html">Războiului Rece</a>. Au fost construite rachetele uriașe Saturn V, module de comandă, 
+                module lunare și sisteme de navigație extrem de complexe. Astronauții se antrenau ani la rând în condiții dure.</p>
+
+            <p>În iulie 1969, nava <strong>„Apollo 11”</strong> a decolat spre Lună cu Neil Armstrong, Buzz Aldrin și Michael Collins. 
+                La 20 iulie, modulul lunar a aselenizat în Marea Liniștii. Neil Armstrong a coborât primul pe suprafața Lunii și a rostit 
+                celebra frază: „Un pas mic pentru un om, un salt uriaș pentru omenire”. La scurt timp, i s-a alăturat Buzz Aldrin.</p>
+
+            <p>Astronauții au instalat un steag, au colectat mostre de rocă și au amplasat instrumente științifice. Între timp, Collins 
+                a rămas pe orbită, în modulul de comandă. Imaginile transmise pe Pământ au fost urmărite de milioane de oameni.</p>
+
+            <p>Au urmat și alte misiuni Apollo, în total șase aselenizări reușite. Rocile aduse de pe Lună sunt studiate și astăzi, 
+                oferind informații prețioase despre formarea Sistemului Solar.</p>
+
+            <p>Aselenizarea a demonstrat că omenirea poate atinge obiective aparent imposibile atunci când combină știința, tehnica și 
+                cooperarea a mii de specialiști.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Aselenizarea a fost momentul în care omul a pășit pentru prima dată pe un alt corp ceresc, schimbând pentru totdeauna 
+                felul în care ne imaginăm viitorul în spațiu.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="moon_landing.html">Aselenizarea</a>
+            <a href="spaceflight.html">Zborul omului în spațiu</a>
+            <a href="cold_war.html">Războiul Rece</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

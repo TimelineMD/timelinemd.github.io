@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Распад СССР</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Распад СССР</h1>
+            <div class="article-dates">конец 1980-х – 1991 год</div>
+            <p class="article-annotation">
+                Как крупнейшее социалистическое государство мира перестало существовать и появились независимые республики, в том числе Молдова.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/ussr_collapse.jpg" alt="Распад СССР">
+            </figure>
+
+            <p><strong>Распад СССР</strong> был не одним событием, а цепочкой кризисов, реформ и решений. К 1980-м годам экономика 
+                <a href="ussr_creation.html">Советского Союза</a> уже не справлялась с гонкой вооружений и затратами 
+                <a href="cold_war.html">холодной войны</a>. Магазины пустели, технологии отставали от Запада, люди были недовольны дефицитом и закрытостью.</p>
+
+            <p>В середине 1980-х к власти пришёл Михаил Горбачёв и объявил курс на <em>перестройку</em> и <em>гласность</em>. 
+                Перестройка означала попытку реформировать экономику, а гласность – больше свободы слова и обсуждения проблем. 
+                Впервые открыто заговорили о репрессиях, ошибках руководства, экологических катастрофах.</p>
+
+            <p>В союзных республиках усилились национальные движения. В Прибалтике, на Кавказе, в Молдавии люди выходили на митинги, 
+                требовали больше прав для местных языков и культур, а затем – и политической независимости. В МССР этот путь 
+                привёл к <a href="moldova_independence.html">Независимости Молдовы</a>.</p>
+
+            <p>В августе 1991 года часть советского руководства попыталась остановить изменения с помощью путча – свержения Горбачёва. 
+                Попытка провалилась, а авторитет центральной власти оказался подорван окончательно. Лидеры России, Украины и Беларуси 
+                подписали Беловежские соглашения о прекращении существования СССР и создании СНГ.</p>
+
+            <p>К концу 1991 года Союз Советских Социалистических Республик официально прекратил существование, а на его месте появилось 
+                пятнадцать независимых государств. Для одних людей это означало надежду на свободу и реформы, для других – потерю 
+                привычного мира и экономические трудности.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Распад СССР завершил эпоху советского проекта и открыл новую главу истории для стран Восточной Европы, Кавказа, Средней Азии и Молдовы.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Теги:</span>
+            <a href="ussr_collapse.html">Распад СССР</a>
+            <a href="ussr_creation.html">Образование СССР</a>
+            <a href="moldova_independence.html">Независимость Молдовы</a>
+            <a href="cold_war.html">Холодная война</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Independența Republicii Moldova</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Independența Republicii Moldova</h1>
+            <div class="article-dates">1991</div>
+            <p class="article-annotation">
+                Cum destrămarea URSS a dus la apariția unui stat moldovenesc independent și ce procese au pregătit acest moment.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/moldova_independence.jpg" alt="Declarația de independență a Republicii Moldova">
+            </figure>
+
+            <p><strong>Independența Republicii Moldova</strong> a fost declarată în 1991, pe fundalul crizei profunde din
+               <a href="ussr_collapse.html">Uniunea Sovietică</a>. Mișcarea spre desprindere a început însă încă din anii ’80.</p>
+
+            <p>Perestroika a adus mai multă libertate de exprimare, iar la Chișinău au avut loc mitinguri pentru statutul limbii,
+               revenirea la alfabetul latin și discutarea deschisă a trecutului, inclusiv a perioadei în care
+               <a href="bessarabia_ussr.html">Basarabia se afla în componența URSS</a>. În 1989 limba de stat a fost declarată
+               „limba moldovenească” (română), scrisă cu alfabet latin – un pas simbolic foarte important.</p>
+
+            <p>În 1991, după eșecul puciului de la Moscova, republicile unionale au început să-și proclame independența.
+               Parlamentul de la Chișinău a adoptat <strong>Declarația de Independență</strong>, care condamna pactul
+               Ribbentrop–Molotov, afirma dreptul la autodeterminare și anunța construcția unui stat democratic.</p>
+
+            <p>Noul stat și-a asumat mai multe obiective:</p>
+            <ul>
+                <li>formarea instituțiilor proprii de stat;</li>
+                <li>trecerea la economia de piață;</li>
+                <li>stabilirea relațiilor diplomatice și aderarea la organizații internaționale;</li>
+                <li>găsirea unui echilibru între diferite comunități lingvistice și culturale.</li>
+            </ul>
+
+            <p>În același timp, independența a scos la iveală tensiuni acumulate în societate. Pe malul stâng al Nistrului,
+               o parte a populației se temea de schimbări radicale și de o posibilă unire cu România. Aceste frici vor contribui
+               la izbucnirea <a href="transnistria_conflict.html">Conflictului din Transnistria</a>.</p>
+
+            <p>Chiar dacă anii ’90 au fost marcați de criză economică și instabilitate politică, independența a oferit Republicii Moldova
+               șansa de a-și decide singură direcția de dezvoltare.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Independența din 1991 a deschis capitolul statului moldovenesc modern, care își construiește instituțiile și politica externă
+               în funcție de propriile interese.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="moldova_independence.html">Independența Republicii Moldova</a>
+            <a href="bessarabia_ussr.html">Basarabia și URSS</a>
+            <a href="ussr_collapse.html">Destrămarea URSS</a>
+            <a href="transnistria_conflict.html">Conflictul din Transnistria</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inject = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+    inject("header", "../partials/header.html");
+    inject("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

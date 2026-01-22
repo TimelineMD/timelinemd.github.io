@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Războiul Rece</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_append.css">
+    <script defer src="../lang.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="article-layout">
+    <nav class="toc" id="toc"></nav>
+
+    <article class="article-main">
+        <header class="article-header">
+            <h1>Războiul Rece</h1>
+            <div class="article-dates">după 1945</div>
+            <p class="article-annotation">
+                Confruntarea politică și ideologică dintre URSS și SUA în a doua jumătate a secolului XX.
+            </p>
+        </header>
+
+        <section class="article-body">
+            <figure class="article-image-right">
+                <img src="../assets/images/cold_war.jpg" alt="Războiul Rece">
+            </figure>
+
+            <p><strong>Războiul Rece</strong> nu a fost un război clasic între două armate, ci o perioadă lungă de tensiune între 
+                <a href="ussr_creation.html">URSS</a> și Statele Unite după 
+                <a href="ww2.html">Al Doilea Război Mondial</a>. Cele două superputeri reprezentau sisteme diferite: comunismul și 
+                democrațiile occidentale.</p>
+
+            <p>Europa a fost împărțită în două zone de influență. În vest s-a format NATO, iar în est Pactul de la Varșovia. 
+                A început o <strong>cursă a înarmărilor</strong>, în special cu arme nucleare, care putea distruge planeta de mai multe ori.</p>
+
+            <p>Confruntarea s-a manifestat prin <em>războaie locale</em>, unde cele două blocuri sprijineau tabere diferite: Coreea, Vietnam, 
+                Afganistan și alte conflicte. O altă scenă importantă a fost <strong>cursa spațială</strong>: primul om în spațiu, 
+                apoi aselenizarea.</p>
+
+            <p>În 1962, în timpul <strong>crizei rachetelor din Cuba</strong>, lumea a fost foarte aproape de un război nuclear. 
+                Instalarea rachetelor sovietice pe insulă și reacția SUA au creat o situație critică, rezolvată doar prin negocieri 
+                intense.</p>
+
+            <p>Din anii 1970 au apărut acorduri de limitare a armelor strategice și o anumită destindere, dar rivalitatea a continuat. 
+                Abia reformele din URSS și căderea regimurilor comuniste în Europa de Est au schimbat definitiv situația.</p>
+
+            <p>Odată cu destrămarea URSS în 1991, Războiul Rece este în general considerat încheiat, iar lumea a intrat într-o 
+                nouă etapă, cu alte tipuri de provocări.</p>
+        </section>
+
+        <section class="article-summary">
+            <p>Războiul Rece a fost o perioadă în care frica de război nuclear și conflictul ideologic dintre Est și Vest au marcat 
+                politica globală.</p>
+        </section>
+
+        <section class="article-tags">
+            <span>Taguri:</span>
+            <a href="cold_war.html">Războiul Rece</a>
+            <a href="ww2.html">Al Doilea Război Mondial</a>
+            <a href="ussr_creation.html">Formarea URSS</a>
+        </section>
+    </article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function() {
+    const inj = (id, url) => fetch(url)
+        .then(r => r.text())
+        .then(t => { document.getElementById(id).innerHTML = t; });
+
+    inj("header", "../partials/header.html");
+    inj("footer", "../partials/footer.html");
+})();
+</script>
+</body>
+</html>

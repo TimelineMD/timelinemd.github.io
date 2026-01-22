@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-<meta charset="UTF-8">
-<title>Retragerea romanilor din Dacia</title>
+<head><meta charset="UTF-8"><title>Retragerea romană din Dacia</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../style.css">
-<script defer src="../lang.js"></script>
-</head>
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script></head>
 <body>
-<header class="site-header">
-  <div class="logo-title">
-    <h1>Cronologia istorică</h1>
-    <p class="subtitle">Moldova și lumea</p>
-  </div>
-  <div class="lang-switcher">
-    <a href="../ru/roman_withdrawal.html">RU</a><a href="../ro/roman_withdrawal.html">RO</a>
-  </div>
-</header>
-
+<div id="header"></div>
 <main class="article-layout">
-  <nav class="toc" id="toc"></nav>
-  <article class="article-main">
-    <header class="article-header">
-      <h1>Retragerea romanilor din Dacia</h1>
-      <div class="article-dates">271 d.Hr.</div>
-      <p class="article-annotation">Decizia Romei de a abandona provincia de la nord de Dunăre și urmările ei pentru regiune.</p>
-    </header>
-
-    <section class="article-body">
-<p><strong>Retragerea romanilor din Dacia</strong> a avut loc în anul 271 d.Hr., în timpul împăratului <em>Aurelian</em>. Imperiul Roman traversa o perioadă de criză profundă: revolte interne, presiunea crescândă a triburilor barbare și resurse militare limitate.</p>
-
-<p>Dacia, aflată la nord de Dunăre, era greu de apărat. Distanțele mari, relieful muntos și atacurile repetate făceau ca menținerea provinciei să fie costisitoare. În acest context, împăratul a decis să renunțe la controlul direct asupra regiunii.</p>
-
-<p>Armata și administrația romană au fost retrase la sud de fluviu, pe teritoriul Balcanilor. Acolo a fost organizată o nouă provincie — „Dacia Aureliană”, unde au fost strămutate unele comunități din fosta <a href="roman_dacia.html">Dacia Romană</a>.</p>
-
-<p>Totuși, influența romană nu a dispărut imediat. Limba latină, obiceiurile economice și elementele de drept au continuat să existe în rândul populației locale, amestecându-se treptat cu tradițiile popoarelor care au venit ulterior.</p>
-
-<p>Retragerea din Dacia se înscrie în contextul mai larg al <em>migrației popoarelor</em>, care a marcat trecerea de la lumea antică la Evul Mediu timpuriu. Regiunea a rămas un spațiu de întâlnire între moștenirea romană și noile realități politice și etnice.</p>
-    </section>
-
-    <section class="article-summary">
-      <p>Decizia Romei de a abandona provincia de la nord de Dunăre și urmările ei pentru regiune.</p>
-    </section>
-
-    <section class="article-tags">
-      <span>Taguri:</span> <a href="roman_dacia.html">Dacia Romană</a> <a href="roman_empire.html">Imperiul Roman</a> <a href="roman_withdrawal.html">Retragerea romanilor din Dacia</a>
-    </section>
-  </article>
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Retragerea romană din Dacia</h1>
+<div class="article-dates">271–275 гг.</div>
+<p class="article-annotation">De ce Roma a renunțat la provincia Dacia și ce moștenire a rămas.</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right"><img src="../assets/images/roman_withdrawal.jpg" alt="Retragerea romană din Dacia"></figure>
+<p>Până în secolul al III-lea d.Hr., Imperiul Roman trecea printr-o criză profundă: dificultăți economice, războaie la frontiere și presiunea triburilor migratoare. Dacia, aflată la nord de Dunăre, devenise dificil de apărat. Regiunea era atacată de goți, carpi și alte triburi, iar menținerea ei necesita resurse enorme.</p>
+<p>Împăratul Aurelian ia o decizie pragmatică — retrage administrația și legiunile la sud de Dunăre. Oficial, provincia este abandonată între anii 271–275. Totuși, influența romană nu dispare. Pe teritoriul fostei Dacii continuă să trăiască comunități romanizate, care folosesc limba latină.</p>
+<p>Aici apar forme timpurii ale latinei populare, care peste câteva secole se vor îmbina cu limbile slave ale triburilor venite ulterior. Acest proces va pune bazele formării limbii române și a limbii moldovenești.</p>
+</section>
+<section class="article-summary"><p>Retragerea romană nu a oprit romanizarea: limba latină a continuat să existe în regiune.</p></section>
+<section class="article-tags"><span>Etichete:</span><a href="roman_dacia.html">Dacia romană</a> <a href="roman_withdrawal.html">Retragerea romană din Dacia</a> <a href="great_migration.html">Marea migrație a popoarelor (sec. IV–VIII)</a></section>
+</article>
 </main>
+<div id="footer"></div>
 
-<footer class="site-footer">
-  <p>Проект в разработке.</p>
-</footer>
-</body>
-</html>
+<script>
+(function(){
+  const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
+})();
+</script>
+
+</body></html>

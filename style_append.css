@@ -164,3 +164,9 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
     width: 100%;
   }
 }
+
+.article-image-right figcaption {
+    text-align: center;
+    font-style: italic;
+}
+

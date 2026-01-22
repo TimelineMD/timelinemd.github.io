@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-<meta charset="UTF-8">
-<title>Dacia Romană</title>
+<head><meta charset="UTF-8"><title>Dacia romană</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../style.css">
-<script defer src="../lang.js"></script>
-</head>
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script></head>
 <body>
-<header class="site-header">
-  <div class="logo-title">
-    <h1>Cronologia istorică</h1>
-    <p class="subtitle">Moldova și lumea</p>
-  </div>
-  <div class="lang-switcher">
-    <a href="../ru/roman_dacia.html">RU</a><a href="../ro/roman_dacia.html">RO</a>
-  </div>
-</header>
-
+<div id="header"></div>
 <main class="article-layout">
-  <nav class="toc" id="toc"></nav>
-  <article class="article-main">
-    <header class="article-header">
-      <h1>Dacia Romană</h1>
-      <div class="article-dates">106–271 d.Hr.</div>
-      <p class="article-annotation">Perioada administrației romane și a influenței culturale în Dacia.</p>
-    </header>
-
-    <section class="article-body">
-<p><strong>Dacia Romană</strong> a fost o provincie a <a href="roman_empire.html">Imperiului Roman</a> între anii 106 și 271 d.Hr., creată după <a href="daco_roman_wars.html">războaiele daco-romane</a>. Ea reprezenta un punct strategic pe frontiera de la Dunăre.</p>
-
-<p>După cucerire, romanii au întemeiat orașe, au construit drumuri și fortificații. Veterani, meșteșugari și comercianți din diferite regiuni ale imperiului s-au stabilit aici, aducând cu ei limba latină și instituțiile romane.</p>
-
-<p>Economia provinciei se baza pe agricultură, creșterea animalelor și exploatarea minelor. Zăcămintele de aur și alte metale aveau o importanță deosebită, contribuind la finanțele Romei. Din acest motiv, Dacia era considerată prețioasă, chiar dacă era dificil de apărat.</p>
-
-<p>Populația locală a preluat treptat elemente din cultura romană, păstrând în același timp propriile tradiții. Această îmbinare a influențat evoluția ulterioară a regiunii și formarea identității sale.</p>
-
-<p>Chiar și după <a href="roman_withdrawal.html">retragerea romanilor din Dacia</a>, urmele stăpânirii romane au rămas vizibile: ruine de cetăți, drumuri și așezări care aminteau că aceste teritorii făcuseră parte dintr-un imperiu vast.</p>
-    </section>
-
-    <section class="article-summary">
-      <p>Perioada administrației romane și a influenței culturale în Dacia.</p>
-    </section>
-
-    <section class="article-tags">
-      <span>Taguri:</span> <a href="roman_empire.html">Imperiul Roman</a> <a href="daco_roman_wars.html">Războaiele daco-romane</a> <a href="roman_dacia.html">Dacia Romană</a> <a href="roman_withdrawal.html">Retragerea romanilor din Dacia</a>
-    </section>
-  </article>
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Dacia romană</h1>
+<div class="article-dates">106–271 гг. н.э.</div>
+<p class="article-annotation">Perioada în care Dacia devine provincie romană și intră în cultura Imperiului.</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right"><img src="../assets/images/roman_dacia.jpg" alt="Dacia romană"></figure>
+<p>După încheierea războaielor daco-romane, împăratul Traian transformă Dacia într-o provincie romană. Decizia era strategică: regiunea avea mine de aur, păduri bogate și terenuri fertile. Așezările lui Decebal sunt reorganizate în stil roman: străzi drepte, foruri, terme, amfiteatre și fortificații.</p>
+<p>În Dacia se stabilesc romani, veterani ai legiunilor, meșteșugari și comercianți. Limba latină devine limba administrației și a vieții urbane. Populația locală — descendenții geto-dacilor — adoptă treptat obiceiurile, religia și arhitectura romană. Această contopire culturală stă la baza romanizării regiunii.</p>
+<p>Romanii construiesc drumuri, legând Dacia de restul provinciilor. Comerțul se dezvoltă, iar meșteșugurile, inclusiv metalurgia, prosperă. Dacia devine un centru economic al Balcanilor, aflat la intersecția marilor rute comerciale.</p>
+</section>
+<section class="article-summary"><p>Dacia romană a devenit nucleul romanizării și a lăsat o moștenire culturală durabilă.</p></section>
+<section class="article-tags"><span>Etichete:</span><a href="roman_dacia.html">Dacia romană</a> <a href="roman_withdrawal.html">Retragerea romană din Dacia</a> <a href="great_migration.html">Marea migrație a popoarelor (sec. IV–VIII)</a></section>
+</article>
 </main>
+<div id="footer"></div>
 
-<footer class="site-footer">
-  <p>Проект в разработке.</p>
-</footer>
-</body>
-</html>
+<script>
+(function(){
+  const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
+})();
+</script>
+
+</body></html>

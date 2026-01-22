@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8">
-<title>Уход римлян из Дакии</title>
+<head><meta charset="UTF-8"><title>Уход римлян из Дакии</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../style.css">
-<script defer src="../lang.js"></script>
-</head>
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script></head>
 <body>
-<header class="site-header">
-  <div class="logo-title">
-    <h1>Исторический таймлайн</h1>
-    <p class="subtitle">Молдова и мир</p>
-  </div>
-  <div class="lang-switcher">
-    <a href="../ru/roman_withdrawal.html">RU</a><a href="../ro/roman_withdrawal.html">RO</a>
-  </div>
-</header>
-
+<div id="header"></div>
 <main class="article-layout">
-  <nav class="toc" id="toc"></nav>
-  <article class="article-main">
-    <header class="article-header">
-      <h1>Уход римлян из Дакии</h1>
-      <div class="article-dates">271 год н.э.</div>
-      <p class="article-annotation">Решение Рима оставить провинцию севернее Дуная и его последствия для региона.</p>
-    </header>
-
-    <section class="article-body">
-<p><strong>Уход римлян из Дакии</strong> произошёл в 271 году н.э. при императоре <em>Аврелиане</em>. К этому времени Римская империя переживала глубокий кризис: участились мятежи, усилилось давление варварских племён на границах, а ресурсы приходилось распределять между многими фронтами.</p>
-
-<p>Дакия, расположенная к северу от Дуная, была трудна для обороны. Длительные коммуникации, горный рельеф и постоянные атаки племён делали удержание провинции всё более затратным. В этих условиях император принял решение отказаться от прямого контроля над регионом.</p>
-
-<p>Римские войска и администрация были выведены на юг, в пределы Балканского полуострова. На другой стороне Дуная была создана новая провинция — так называемая «Дания Аврелиана», куда переселялась часть населения из оставленной <a href="roman_dacia.html">Римской Дакии</a>.</p>
-
-<p>Однако уход римлян не означал мгновенного исчезновения их влияния. Язык, хозяйственные навыки, элементы культуры и права продолжали жить среди местного населения и смешиваться с традициями новых пришельцев. Именно поэтому период римского владычества и последующий этап часто рассматривают вместе.</p>
-
-<p>Уход из Дакии стал частью более широких процессов, которые вскоре получат название <em>Великого переселения народов</em>. На смену римской администрации приходили новые силы, и регион вступал в эпоху раннего Средневековья, оставаясь при этом связующим мостом между античным миром и будущими государствами Восточной Европы.</p>
-    </section>
-
-    <section class="article-summary">
-      <p>Решение Рима оставить провинцию севернее Дуная и его последствия для региона.</p>
-    </section>
-
-    <section class="article-tags">
-      <span>Теги:</span> <a href="roman_dacia.html">Римская Дакия</a> <a href="roman_empire.html">Римская империя</a> <a href="roman_withdrawal.html">Уход римлян из Дакии</a>
-    </section>
-  </article>
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Уход римлян из Дакии</h1>
+<div class="article-dates">271–275 гг.</div>
+<p class="article-annotation">Почему Рим отказался от провинции Дакия и какое влияние это оставило.</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right"><img src="../assets/images/roman_withdrawal.jpg" alt="Уход римлян из Дакии"></figure>
+<p>К III веку н.э. Римская империя переживала тяжёлый кризис: экономические трудности, войны на всех границах и давление варварских племён. Дакия, находившаяся севернее Дуная, стала трудной для защиты. Регион подвергался нападениям готов, карпов и других племён, и удерживать его становилось всё дороже и сложнее.</p>
+<p>Император Аурелиан принял рациональное решение — эвакуировать администрацию и легионы на южный берег Дуная. Официально провинция была оставлена около 271–275 гг. н.э. Однако это не означает исчезновение римского влияния. На территории бывшей Дакии продолжали жить романизированные общины, использовавшие латинский язык.</p>
+<p>Именно здесь появились ранние формы народной латыни, которые спустя несколько веков смешаются со славянскими языками пришлых племён. Этот процесс заложит основу для формирования будущего молдавского и румынского языков.</p>
+</section>
+<section class="article-summary"><p>Уход римлян не прервал романизацию: латинский язык продолжил жить среди местного населения.</p></section>
+<section class="article-tags"><span>Теги:</span><a href="roman_dacia.html">Римская Дакия</a> <a href="roman_withdrawal.html">Уход римлян из Дакии</a> <a href="great_migration.html">Великое переселение народов (IV–VIII вв.)</a></section>
+</article>
 </main>
+<div id="footer"></div>
 
-<footer class="site-footer">
-  <p>Проект в разработке.</p>
-</footer>
-</body>
-</html>
+<script>
+(function(){
+  const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
+})();
+</script>
+
+</body></html>

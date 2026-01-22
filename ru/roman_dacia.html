@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8">
-<title>Римская Дакия</title>
+<head><meta charset="UTF-8"><title>Римская Дакия</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../style.css">
-<script defer src="../lang.js"></script>
-</head>
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script></head>
 <body>
-<header class="site-header">
-  <div class="logo-title">
-    <h1>Исторический таймлайн</h1>
-    <p class="subtitle">Молдова и мир</p>
-  </div>
-  <div class="lang-switcher">
-    <a href="../ru/roman_dacia.html">RU</a><a href="../ro/roman_dacia.html">RO</a>
-  </div>
-</header>
-
+<div id="header"></div>
 <main class="article-layout">
-  <nav class="toc" id="toc"></nav>
-  <article class="article-main">
-    <header class="article-header">
-      <h1>Римская Дакия</h1>
-      <div class="article-dates">106–271 годы н.э.</div>
-      <p class="article-annotation">Период римского управления и культурного влияния в Дакии.</p>
-    </header>
-
-    <section class="article-body">
-<p><strong>Римская Дакия</strong> — провинция Римской империи, существовавшая с 106 по 271 год н.э. Она была образована после <a href="daco_roman_wars.html">дако-римских войн</a> и стала важным опорным пунктом на дунайской границе.</p>
-
-<p>После завоевания Рим основал в Дакии новые города, дороги и крепости. В регион переселялись ветераны легионов, ремесленники и торговцы из разных частей империи. Это способствовало распространению латинского языка, римских законов и образа жизни.</p>
-
-<p>Экономика провинции опиралась на земледелие, скотоводство и горное дело. Особое значение имели месторождения золота и других металлов, которые усиливали финансовое положение Рима. Благодаря этому Дакия рассматривалась как ценная, хотя и трудная для обороны территория.</p>
-
-<p>Местное население постепенно перенимало элементы римской культуры, сохраняя при этом свои традиции. Такое смешение римских и дакских черт сыграло важную роль в дальнейшей истории региона и формировании его особой идентичности.</p>
-
-<p>Провинция существовала менее двух веков, но её наследие ощущалось и после <a href="roman_withdrawal.html">ухода римлян из Дакии</a>. Остатки дорог, крепостей и городов ещё долго напоминали о времени, когда эти земли были частью огромной Римской империи.</p>
-    </section>
-
-    <section class="article-summary">
-      <p>Период римского управления и культурного влияния в Дакии.</p>
-    </section>
-
-    <section class="article-tags">
-      <span>Теги:</span> <a href="roman_empire.html">Римская империя</a> <a href="daco_roman_wars.html">Дако-римские войны</a> <a href="roman_dacia.html">Римская Дакия</a> <a href="roman_withdrawal.html">Уход римлян из Дакии</a>
-    </section>
-  </article>
+<nav class="toc" id="toc"></nav>
+<article class="article-main">
+<header class="article-header">
+<h1>Римская Дакия</h1>
+<div class="article-dates">106–271 гг. н.э.</div>
+<p class="article-annotation">Период, когда Дакия стала римской провинцией и включилась в культуру Империи.</p>
+</header>
+<section class="article-body">
+<figure class="article-image-right"><img src="../assets/images/roman_dacia.jpg" alt="Римская Дакия"></figure>
+<p>После завершения дако-римских войн император Траян превратил Дакию в новую провинцию Рима. Это решение было стратегическим: регион обладал богатыми золотыми рудниками, лесами и земледельческими районами. Поселения Дечебала были перестроены согласно римским стандартам: прямые улицы, форуми, термы, амфитеатры и укрепления.</p>
+<p>К Дакии активно переселялись римляне, ветераны легионов, ремесленники и торговцы. Латинский язык стал языком администрации и городской жизни. Местное население — потомки гето-даков — постепенно перенимало римские обычаи, одежду, религию и архитектурные традиции. Этот культурный синтез лёг в основу будущей романизации региона.</p>
+<p>Римляне укрепили дороги, связав Дакию с остальными провинциями Империи. Торговля выросла, появились новые ремёсла, в том числе металлургия и каменное строительство. Дакия стала одним из экономических центров Балкан, где пересекались пути из Карпат к Дунаю.</p>
+</section>
+<section class="article-summary"><p>Римская Дакия стала центром романизации региона и оставила глубокий культурный след.</p></section>
+<section class="article-tags"><span>Теги:</span><a href="roman_dacia.html">Римская Дакия</a> <a href="roman_withdrawal.html">Уход римлян из Дакии</a> <a href="great_migration.html">Великое переселение народов (IV–VIII вв.)</a></section>
+</article>
 </main>
+<div id="footer"></div>
 
-<footer class="site-footer">
-  <p>Проект в разработке.</p>
-</footer>
-</body>
-</html>
+<script>
+(function(){
+  const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
+})();
+</script>
+
+</body></html>

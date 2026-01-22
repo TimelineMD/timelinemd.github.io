@@ -1,33 +1,66 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head><meta charset="UTF-8"><title>Creștinismul — religie oficială a Imperiului Roman</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="../style.css"><script defer src="../lang.js"></script></head>
+<head>
+<meta charset="UTF-8">
+<title>Creștinismul – religie oficială a Imperiului Roman</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style_append.css">
+<script defer src="../lang.js"></script>
+</head>
 <body>
-<header class="site-header"><div class="logo-title"><h1>Cronologia istorică</h1><p class="subtitle">Moldova și lumea</p></div>
-<div class="lang-switcher"><a href="../ru/christianity_official.html">RU</a><a href="../ro/christianity_official.html">RO</a></div></header>
+<div id="header"></div>
+<main class="article-layout">
+<nav class="toc" id="toc"></nav>
 
-<main class="article-layout"><nav class="toc" id="toc"></nav><article class="article-main">
+<article class="article-main">
 <header class="article-header">
-<h1>Creștinismul — religie oficială a Imperiului Roman</h1>
-<div class="article-dates">secolul IV d.Hr.</div>
-<p class="article-annotation">Cum o credință persecutată a ajuns religie de stat.</p>
+<h1>Creștinismul – religie oficială a Imperiului Roman</h1>
+<div class="article-dates">Secolul al IV-lea d.Hr.</div>
+<p class="article-annotation">De la mișcare persecutată la credință de stat: cum a ajuns creștinismul religia oficială a Imperiului Roman.</p>
 </header>
 
 <section class="article-body">
-<p>Creștinismul apare în secolul I d.Hr. în Iudeea (vezi <a href="birth_of_jesus.html">Nașterea lui Iisus</a>). Comunitățile timpurii se întâlneau în secret, uneori în case private, alteori în catacombe.</p>
+<figure class="article-image-right">
+<img src="../assets/images/christianity_official.jpg" alt="Simboluri creștine în Imperiul Roman">
+</figure>
 
-<p>Imperatorii romani îi considerau periculoși deoarece refuzau cultul împăratului. În anul 64 d.Hr., sub Nero, creștinii au fost acuzați de incendierea Romei și au urmat execuții brutale. De-a lungul secolelor I–III au existat mai multe valuri de persecuții: confiscări, torturi, execuții.</p>
+<p>În primele secole, creștinii erau considerați o sectă periculoasă. Ei refuzau să aducă jertfe împăratului și zeilor tradiționali, iar pentru autorități asta însemna lipsă de loialitate. Situația se schimbă însă în secolul al IV-lea, când împăratul <strong>Constantin cel Mare</strong> înțelege că noua religie are deja mulți adepți și poate deveni un factor de stabilitate.</p>
 
-<p>Schimbarea majoră vine în 313 d.Hr., când Constantin emite <strong>Edictul de la Milano</strong>, garantând libertate religioasă. La sfârșitul secolului al IV-lea, împăratul Teodosiu declară creștinismul <strong>religie oficială a Imperiului Roman</strong>.</p>
+<p>În anul 313, <strong>Edictul de la Milano</strong> le oferă creștinilor libertate de cult. Nu mai sunt persecutați, li se restituie bunuri, iar în marile orașe se construiesc <i>basilici</i> – primele biserici monumentale. Creștinismul nu este încă religia „obligatorie”, dar devine tot mai vizibil în spațiul public.</p>
 
-<p>Biserica devine astfel o forță politică și culturală, influențând educația și viața publică.</p>
+<p>Un rol important îl are și mama împăratului, <strong>Elena</strong>. Potrivit tradiției, ea călătorește la <strong>Ierusalim</strong>, unde caută <i>relicve creștine</i> – obiecte legate de viața și moartea lui Isus. Elenei i se atribuie descoperirea <strong>Crucii</strong> și a altor sfințenii, care devin puncte de pelerinaj și întăresc prestigiul familiei imperiale în ochii credincioșilor.</p>
+
+<p>Momentul decisiv vine în 380, când împăratul <strong>Teodosie I</strong> declară creștinismul niceean drept <strong>religie oficială</strong> a Imperiului. Cultele păgâne sunt treptat interzise, templele vechilor zei sunt închise sau transformate în biserici.</p>
+
+<p>Această decizie schimbă profund <a href="division_roman_empire.html">Imperiul Roman târziu</a>. Biserica primește pământuri și averi, episcopii devin actori politici, iar împăratul se prezintă ca apărător al „credinței adevărate”. Mai târziu, după prăbușirea părții de Apus, tocmai instituțiile creștine vor păstra multe elemente din cultura și organizarea romană.</p>
+
+<p>Transformarea creștinismului într-o religie de stat arată cât de strâns se pot împleti politica, credința și identitatea unei societăți întregi. Mai târziu, disputele dintre creștini vor duce la fenomene precum <a href="reformation.html">Reforma</a>.</p>
 </section>
 
-<section class="article-summary"><p>De la credință persecutată la religie oficială, creștinismul a remodelat profund societatea romană.</p></section>
+<section class="article-summary">
+<p>Devenind religie oficială, creștinismul a transformat Biserica într-o forță majoră în Imperiul Roman și a influențat pe termen lung istoria Europei.</p>
+</section>
 
-<section class="article-tags"><span>Taguri:</span>
-<a href="birth_of_jesus.html">Nașterea lui Iisus</a>
-<a href="christianity_official.html">Creștinismul — religie oficială</a>
-<a href="roman_empire.html">Imperiul Roman</a>
-</section></article></main>
-<footer class="site-footer"><p>Proiect în dezvoltare.</p></footer></body></html>
+<section class="article-tags">
+<span>Etichete:</span>
+<a href="christianity_official.html">Creștinism în Imperiul Roman</a>
+<a href="division_roman_empire.html">Împărțirea Imperiului Roman</a>
+<a href="reformation.html">Reforma</a>
+</section>
+
+</article>
+</main>
+
+<div id="footer"></div>
+
+<script>
+(function(){
+  const inj=(id,u)=>fetch(u).then(r=>r.text()).then(t=>document.getElementById(id).innerHTML=t);
+  inj("header","../partials/header.html");
+  inj("footer","../partials/footer.html");
+})();
+</script>
+
+</body>
+</html>

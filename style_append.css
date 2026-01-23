@@ -1,37 +1,89 @@
-/* Language-based visibility */
+/* Переключение видимости по языкам */
 html.lang-ru [data-lang="ro"] { display: none !important; }
 html.lang-ro [data-lang="ru"] { display: none !important; }
 
-/* Header / footer / hero image tweaks (if not already present) */
-.site-header{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:16px;
+/* Шапка с фоном и логотипом */
+.site-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  color: #f9fafb;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(135deg, rgba(15,23,42,0.90), rgba(15,23,42,0.80)),
+    url("/assets/images/napoleonic_wars.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.lang-switcher{
-  display:flex;
-  gap:8px;
-  align-items:center;
+/* Ссылка-логотип (флаг + текст) */
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
 }
 
-.lang-switcher button{
-  border:1px solid rgba(255,255,255,0.25);
-  background:transparent;
-  color:inherit;
-  padding:8px 10px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:700;
-  letter-spacing:0.3px;
+.logo-image {
+  width: 40px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(15,23,42,0.6);
 }
 
-.lang-switcher button.active{
-  background:rgba(255,255,255,0.14);
-  border-color:rgba(255,255,255,0.35);
+.logo-title h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
 }
 
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Переключатель языков */
+.lang-switcher {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.lang-switcher button {
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(15,23,42,0.25);
+  color: inherit;
+  padding: 6px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* Подсветка активного языка — по классу на <html> */
+html.lang-ru .lang-switcher button[data-set-lang="ru"],
+html.lang-ro .lang-switcher button[data-set-lang="ro"] {
+  background: #f9fafb;
+  color: #0f172a;
+  border-color: #f9fafb;
+}
+
+/* Hover */
+.lang-switcher button:hover {
+  background: rgba(249,250,251,0.12);
+}
+
+/* Подвал */
 .site-footer{
   margin-top:24px;
   padding:24px 16px;
@@ -63,6 +115,7 @@ html.lang-ro [data-lang="ru"] { display: none !important; }
   opacity:0.75;
 }
 
+/* Большая картинка на главной */
 .hero-image{
   width:100%;
   max-height:320px;
@@ -76,4 +129,44 @@ html.lang-ro [data-lang="ru"] { display: none !important; }
   margin-top:1.75rem;
 }
 
-.index-content h1 { text-align: center; }
+/* Картинка в статье справа */
+.article-image-right {
+  margin-bottom: 15px;
+}
+
+.article-image-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* ПК: картинка справа с обтеканием */
+@media (min-width: 900px) {
+  .article-image-right {
+    float: right;
+    max-width: 50%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Мобилка: картинка сверху */
+@media (max-width: 899px) {
+  .article-image-right {
+    float: none;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .article-image-right img {
+    width: 100%;
+  }
+}
+
+.article-image-right figcaption {
+    text-align: center;
+    font-style: italic;
+}
+

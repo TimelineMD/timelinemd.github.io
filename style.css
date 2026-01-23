@@ -76,12 +76,14 @@ a:hover {
     padding: 1rem;
     box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
     font-size: 0.95rem;
+	background-color: #f7f8fc;
 }
 
 .toc h2 {
     margin-top: 1rem;
     margin-bottom: 0.25rem;
     font-size: 1.05rem;
+	margin-top: 0;
 }
 
 .toc h3 {
@@ -104,6 +106,7 @@ a:hover {
     margin-bottom: 0.75rem;
     border-top: 1px solid #e5e7eb;
     padding-top: 0.75rem;
+	background-color: #eef1f7;
 }
 
 .toc-section:first-of-type {

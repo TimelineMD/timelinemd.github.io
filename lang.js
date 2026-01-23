@@ -402,13 +402,16 @@ function initTocScrollPersistence() {
 
     const KEY = "timeline_toc_scroll";
 
-    // восстановление позиции
+    // восстановление позиции (делаем после построения и раскладки TOC)
     if (window.innerWidth >= 900) {
         const saved = sessionStorage.getItem(KEY);
         if (saved !== null) {
             const val = parseInt(saved, 10);
             if (!Number.isNaN(val)) {
-                toc.scrollTop = val;
+                // ждём кадр, чтобы браузер успел посчитать высоту списка
+                setTimeout(() => {
+                    toc.scrollTop = val;
+                }, 0);
             }
         }
     }
@@ -424,10 +427,12 @@ function initTocScrollPersistence() {
 document.addEventListener("DOMContentLoaded", () => {
         ensureFavicons();
         initSlogan();
-        initTocScrollPersistence();
 
+        // сначала строим и настраиваем оглавление,
+        // а затем восстанавливаем его позицию прокрутки
         renderTOC();
         initLanguage();
         initTocSearch();
+        initTocScrollPersistence();
     });
 })();

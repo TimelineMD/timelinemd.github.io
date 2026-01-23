@@ -77,23 +77,14 @@ html.lang-ro [data-lang="ru"] { display: none !important; }
 }
 
 
-/* Sticky header */
+/* Sticky header on scroll */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* Background image under content */
-body {
-  background-image: url('assets/images/intro.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center top;
-}
-
-/* Index intro text: center title, justify paragraphs */
+/* Index intro: center title, justify text */
 .index-content h1 {
   text-align: center;
 }
@@ -102,7 +93,7 @@ body {
   text-align: justify;
 }
 
-/* Spacing for hero image under title */
+/* Extra spacing for hero image under the title */
 .index-hero-image {
   margin-top: 1rem;
 }

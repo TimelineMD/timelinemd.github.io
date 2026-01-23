@@ -81,13 +81,7 @@ html.lang-ro [data-lang="ru"] { display: none !important; }
 
 
 /* Global background image for the whole site */
-body {
-    background-color: #f7f7fa;
-    background-image: url("https://timelinemd.github.io/assets/images/intro.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-}
+body {}
 
 /* Hide TOC search label text */
 .toc-search label {
@@ -96,13 +90,19 @@ body {
 
 
 /* Scrolling global background with 20% opacity */
-body {
+body {}
+
+
+
+
+/* Global background on HTML (scrolling + 20% opacity) */
+html {
     position: relative;
     background: #f7f7fa;
     overflow-x: hidden;
 }
 
-body::before {
+html::before {
     content: "";
     position: absolute;
     inset: 0;

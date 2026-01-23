@@ -77,37 +77,3 @@ html.lang-ro [data-lang="ru"] { display: none !important; }
 }
 
 .index-content h1 { text-align: center; }
-
-
-
-/* Global background image for the whole site */
-body {}
-
-/* Hide TOC search label text */
-.toc-search label {
-    display: none !important;
-}
-
-
-/* Scrolling global background with 20% opacity */
-body {}
-
-
-
-
-/* Global background on HTML (scrolling + 20% opacity) */
-html {
-    position: relative;
-    background: #f7f7fa;
-    overflow-x: hidden;
-}
-
-html::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url("https://timelinemd.github.io/assets/images/intro.png") center top / cover no-repeat;
-    opacity: 0.2;
-    z-index: -1;
-    pointer-events: none;
-}

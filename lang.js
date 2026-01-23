@@ -333,43 +333,47 @@ document.addEventListener("click", function(e) {
 });
 
     
-    const SLOGANS = {
-        ru: [
-            "Молдова на линии времени мира",
-            "История мира через призму Молдовы",
-            "От Штефана чел Маре до наших дней",
-            "Хронология для школьников и подростков",
-            "Мир и Молдова на одном таймлайне"
-        ],
-        ro: [
-            "Moldova pe linia timpului lumii",
-            "Istoria lumii prin prisma Moldovei",
-            "De la Ștefan cel Mare până azi",
-            "Cronologie pentru elevi și adolescenți",
-            "Lumea și Moldova pe același timeline"
-        ]
-    };
+    function ensureFavicons() {
+        try {
+            const head = document.head;
+            if (!head) return;
 
-    function initSlogan() {
-        const ruNode = document.getElementById("subtitle-ru");
-        const roNode = document.getElementById("subtitle-ro");
+            // main favicon
+            let iconLink = head.querySelector('link[rel="icon"]');
+            if (!iconLink) {
+                iconLink = document.createElement("link");
+                iconLink.rel = "icon";
+                iconLink.type = "image/x-icon";
+                iconLink.href = "/favicon.ico";
+                head.appendChild(iconLink);
+            }
 
-        if (!ruNode || !roNode) {
-            setTimeout(initSlogan, 80);
-            return;
+            // png icon (for some browsers)
+            if (!head.querySelector('link[rel="icon"][type="image/png"]')) {
+                const pngIcon = document.createElement("link");
+                pngIcon.rel = "icon";
+                pngIcon.type = "image/png";
+                pngIcon.sizes = "192x192";
+                pngIcon.href = "/assets/images/flag-192.png";
+                head.appendChild(pngIcon);
+            }
+
+            // apple touch icon
+            if (!head.querySelector('link[rel="apple-touch-icon"]')) {
+                const appleIcon = document.createElement("link");
+                appleIcon.rel = "apple-touch-icon";
+                appleIcon.sizes = "180x180";
+                appleIcon.href = "/assets/images/flag-180.png";
+                head.appendChild(appleIcon);
+            }
+        } catch (e) {
+            // ignore
         }
-
-        const max = Math.min(SLOGANS.ru.length, SLOGANS.ro.length);
-        if (!max) return;
-
-        const idx = Math.floor(Math.random() * max);
-        ruNode.textContent = SLOGANS.ru[idx];
-        roNode.textContent = SLOGANS.ro[idx];
     }
 
 
     document.addEventListener("DOMContentLoaded", () => {
-        initSlogan();
+        ensureFavicons();
         renderTOC();
         initLanguage();
         initTocSearch();

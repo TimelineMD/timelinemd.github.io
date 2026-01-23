@@ -75,26 +75,3 @@ html.lang-ro [data-lang="ru"] { display: none !important; }
   max-width:980px;
   margin-top:1.75rem;
 }
-
-
-/* Sticky header on scroll */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-/* Index intro: center title, justify text */
-.index-content h1 {
-  text-align: center;
-}
-
-.index-content p {
-  text-align: justify;
-}
-
-/* Extra spacing for hero image under the title */
-.index-hero-image {
-  margin-top: 1rem;
-}
-

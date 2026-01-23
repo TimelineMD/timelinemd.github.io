@@ -333,106 +333,75 @@ document.addEventListener("click", function(e) {
 });
 
     
-function ensureFavicons() {
-    const head=document.head;
-    if(!head) return;
-    if(!head.querySelector('link[rel="icon"]')) {
-        const l=document.createElement('link');
-        l.rel='icon'; l.type='image/x-icon'; l.href='/favicon.ico';
-        head.appendChild(l);
-    }
-    if(!head.querySelector('link[rel="icon"][type="image/png"]')) {
-        const l=document.createElement('link');
-        l.rel='icon'; l.type='image/png'; l.sizes='192x192'; l.href='/assets/images/flag-192.png';
-        head.appendChild(l);
-    }
-    if(!head.querySelector('link[rel="apple-touch-icon"]')) {
-        const l=document.createElement('link');
-        l.rel='apple-touch-icon'; l.sizes='180x180'; l.href='/assets/images/flag-180.png';
-        head.appendChild(l);
-    }
-}
+    function ensureFavicons() {
+        try {
+            const head = document.head;
+            if (!head) return;
 
-
-const SLOGANS = {
-    ru: [
-        "Молдова на линии времени мира",
-        "История мира через призму Молдовы",
-        "От Штефана чел Маре до наших дней",
-        "Хронология для школьников и подростков",
-        "Мир и Молдова на одном таймлайне"
-    ],
-    ro: [
-        "Moldova pe linia timpului lumii",
-        "Istoria lumii prin prisma Moldovei",
-        "De la Ștefan cel Mare până azi",
-        "Cronologie pentru elevi și adolescenți",
-        "Lumea și Moldova pe același timeline"
-    ]
-};
-
-function initSlogan() {
-    const ruNode = document.getElementById("subtitle-ru");
-    const roNode = document.getElementById("subtitle-ro");
-    if (!ruNode || !roNode) { setTimeout(initSlogan, 80); return; }
-    let index = Math.floor(Math.random() * SLOGANS.ru.length);
-    function update() {
-        ruNode.style.opacity = 0;
-        roNode.style.opacity = 0;
-        setTimeout(() => {
-            index = (index + 1) % SLOGANS.ru.length;
-            ruNode.textContent = SLOGANS.ru[index];
-            roNode.textContent = SLOGANS.ro[index];
-            ruNode.style.opacity = 1;
-            roNode.style.opacity = 1;
-        }, 400);
-    }
-    ruNode.textContent = SLOGANS.ru[index];
-    roNode.textContent = SLOGANS.ro[index];
-    ruNode.style.transition = "opacity 0.4s ease";
-    roNode.style.transition = "opacity 0.4s ease";
-    setInterval(update, 5000);
-}
-
-
-
-function initTocScrollPersistence() {
-    const toc = document.getElementById("toc");
-    if (!toc) return;
-
-    const KEY = "timeline_toc_scroll";
-
-    // восстановление позиции (делаем после построения и раскладки TOC)
-    if (window.innerWidth >= 900) {
-        const saved = sessionStorage.getItem(KEY);
-        if (saved !== null) {
-            const val = parseInt(saved, 10);
-            if (!Number.isNaN(val)) {
-                // ждём кадр, чтобы браузер успел посчитать высоту списка
-                setTimeout(() => {
-                    toc.scrollTop = val;
-                }, 0);
+            // main favicon
+            let iconLink = head.querySelector('link[rel="icon"]');
+            if (!iconLink) {
+                iconLink = document.createElement("link");
+                iconLink.rel = "icon";
+                iconLink.type = "image/x-icon";
+                iconLink.href = "/favicon.ico";
+                head.appendChild(iconLink);
             }
+
+            // png icon (for some browsers)
+            if (!head.querySelector('link[rel="icon"][type="image/png"]')) {
+                const pngIcon = document.createElement("link");
+                pngIcon.rel = "icon";
+                pngIcon.type = "image/png";
+                pngIcon.sizes = "192x192";
+                pngIcon.href = "/assets/images/flag-192.png";
+                head.appendChild(pngIcon);
+            }
+
+            // apple touch icon
+            if (!head.querySelector('link[rel="apple-touch-icon"]')) {
+                const appleIcon = document.createElement("link");
+                appleIcon.rel = "apple-touch-icon";
+                appleIcon.sizes = "180x180";
+                appleIcon.href = "/assets/images/flag-180.png";
+                head.appendChild(appleIcon);
+            }
+        } catch (e) {
+            // ignore
         }
     }
 
-    toc.addEventListener("scroll", () => {
-        if (window.innerWidth >= 900) {
-            sessionStorage.setItem(KEY, String(toc.scrollTop));
-        }
-    });
-}
 
+    
+    function highlightActiveTocLink() {
+        const toc = document.getElementById("toc");
+        if (!toc) return;
+
+        const path = window.location.pathname || "";
+        const match = path.match(/\/(ru|ro)\/([^\/]+)\.html$/);
+        if (!match) return;
+
+        const pageLang = match[1]; // 'ru' or 'ro'
+        const slug = match[2];
+
+        // Снимаем прошлую подсветку, если вдруг была
+        toc.querySelectorAll("a.toc-active").forEach(a => a.classList.remove("toc-active"));
+
+        // Ищем ссылку, которая ведет на текущую статью
+        const selector = 'a[data-lang="' + pageLang + '"][href$="' + slug + '.html"]';
+        const link = toc.querySelector(selector);
+        if (link) {
+            link.classList.add("toc-active");
+            const li = link.closest("li");
+            if (li) li.classList.add("toc-active-item");
+        }
+    }
 
 document.addEventListener("DOMContentLoaded", () => {
         ensureFavicons();
-        initSlogan();
-
-        // сначала строим и настраиваем оглавление,
-        // а затем восстанавливаем его позицию прокрутки
         renderTOC();
         initLanguage();
+        highlightActiveTocLink();
         initTocSearch();
-        initTocScrollPersistence();
     });
 })();

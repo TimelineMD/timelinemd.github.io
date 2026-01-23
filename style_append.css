@@ -170,3 +170,42 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
     font-style: italic;
 }
 
+/* Центрируем заголовок на главной и выравниваем текст по ширине */
+.index-content h1 {
+  text-align: center;
+}
+
+.index-content p {
+  text-align: justify;
+}
+
+/* Фиксированная шапка при скролле */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Общий фон сайта из картинки intro.png */
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  background-color: #f7f7fa;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/images/intro.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  z-index: -1;
+  pointer-events: none;
+}

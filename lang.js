@@ -319,20 +319,15 @@
     }
 
     function startSloganRotation(lang) {
-        const stored = (typeof localStorage !== "undefined")
-            ? localStorage.getItem("timeline_lang")
-            : null;
-        const baseLang = (lang === "ru" || lang === "ro") ? lang : (stored || "ru");
-
-        setRandomSlogan(baseLang);
+        // default language fallback
+        const currentLang = (lang === "ru" || lang === "ro") ? lang : (localStorage.getItem("timeline_lang") || "ru");
+        setRandomSlogan(currentLang);
 
         if (sloganTimer) {
             clearInterval(sloganTimer);
         }
         sloganTimer = setInterval(() => {
-            const active = (typeof localStorage !== "undefined")
-                ? (localStorage.getItem("timeline_lang") || baseLang)
-                : baseLang;
+            const active = (localStorage.getItem("timeline_lang") || currentLang);
             setRandomSlogan(active);
         }, 5000); // каждые 5 секунд
     }
@@ -344,7 +339,8 @@
         try {
             const toc = document.querySelector(".toc");
             if (!toc || !window.sessionStorage) return;
-            sessionStorage.setItem(TOC_SCROLL_KEY, String(toc.scrollTop));
+            const path = window.location.pathname || "";
+            sessionStorage.setItem(TOC_SCROLL_KEY + path, String(toc.scrollTop));
         } catch (e) {
             // ignore
         }
@@ -356,14 +352,18 @@
             if (!toc || !window.sessionStorage) return;
             const path = window.location.pathname || "";
 
-            // На главной всегда показываем начало списка и сбрасываем сохранённое значение
+            // На главной всегда показываем начало списка
             if (path.endsWith("/") || path.endsWith("/index.html")) {
-                sessionStorage.removeItem(TOC_SCROLL_KEY);
+                Object.keys(sessionStorage).forEach(k => {
+                    if (k.indexOf(TOC_SCROLL_KEY) === 0) {
+                        sessionStorage.removeItem(k);
+                    }
+                });
                 toc.scrollTop = 0;
                 return;
             }
 
-            const stored = sessionStorage.getItem(TOC_SCROLL_KEY);
+            const stored = sessionStorage.getItem(TOC_SCROLL_KEY + path);
             if (stored !== null) {
                 const y = parseInt(stored, 10);
                 if (!isNaN(y)) toc.scrollTop = y;
@@ -488,10 +488,55 @@ document.addEventListener("click", function(e) {
         }
     }
 
+
+const SLOGANS = {
+    ru: [
+        "Молдова на линии времени мира",
+        "История мира через призму Молдовы",
+        "От Штефана чел Маре до наших дней",
+        "Хронология для школьников и подростков",
+        "Мир и Молдова на одном таймлайне"
+    ],
+    ro: [
+        "Moldova pe linia timpului lumii",
+        "Istoria lumii prin prisma Moldovei",
+        "De la Ștefan cel Mare până azi",
+        "Cronologie pentru elevi și adolescenți",
+        "Lumea și Moldova pe același timeline"
+    ]
+};
+
+function initSlogan() {
+    const ruNode = document.getElementById("subtitle-ru");
+    const roNode = document.getElementById("subtitle-ro");
+    if (!ruNode || !roNode) { setTimeout(initSlogan, 80); return; }
+
+    let index = Math.floor(Math.random() * SLOGANS.ru.length);
+
+    function update() {
+        ruNode.style.opacity = 0;
+        roNode.style.opacity = 0;
+        setTimeout(() => {
+            index = (index + 1) % SLOGANS.ru.length;
+            ruNode.textContent = SLOGANS.ru[index];
+            roNode.textContent = SLOGANS.ro[index];
+            ruNode.style.opacity = 1;
+            roNode.style.opacity = 1;
+        }, 400);
+    }
+
+    ruNode.textContent = SLOGANS.ru[index];
+    roNode.textContent = SLOGANS.ro[index];
+    ruNode.style.transition = "opacity 0.4s ease";
+    roNode.style.transition = "opacity 0.4s ease";
+    setInterval(update, 5000);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
         ensureFavicons();
         renderTOC();
         initLanguage();
+        initSlogan();
         highlightActiveTocLink();
         initTocSearch();
         restoreTocScroll();

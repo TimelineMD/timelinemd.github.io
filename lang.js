@@ -156,6 +156,8 @@
         }
     ];
 
+    const TOC_SCROLL_KEY = "timeline_toc_scroll";
+
     function getContext() {
         const path = window.location.pathname || "";
         if (path.indexOf("/ru/") !== -1) return "ruPage";
@@ -202,16 +204,16 @@
                     const hrefRu = makeHref(item.slug, "ru", context);
                     const hrefRo = makeHref(item.slug, "ro", context);
                     html += "<li>";
-                    html += '<a href="' + hrefRu + '" data-lang="ru">' + item.ru + "</a>";
-                    html += '<a href="' + hrefRo + '" data-lang="ro">' + item.ro + "</a>";
+                    html += '<a href="' + hrefRu + '" data-lang="ru" data-article-slug="' + item.slug + '">' + item.ru + "</a>";
+                    html += '<a href="' + hrefRo + '" data-lang="ro" data-article-slug="' + item.slug + '">' + item.ro + "</a>";
                     if (item.children && item.children.length) {
                         html += '<ul class="toc-sublist">';
                         item.children.forEach(child => {
                             const childHrefRu = makeHref(child.slug, "ru", context);
                             const childHrefRo = makeHref(child.slug, "ro", context);
                             html += "<li>";
-                            html += '<a href="' + childHrefRu + '" data-lang="ru">' + child.ru + "</a>";
-                            html += '<a href="' + childHrefRo + '" data-lang="ro">' + child.ro + "</a>";
+                            html += '<a href="' + childHrefRu + '" data-lang="ru" data-article-slug="' + child.slug + '">' + child.ru + "</a>";
+                            html += '<a href="' + childHrefRo + '" data-lang="ro" data-article-slug="' + child.slug + '">' + child.ro + "</a>";
                             html += "</li>";
                         });
                         html += "</ul>";
@@ -235,7 +237,8 @@
             localStorage.setItem("timeline_lang", lang);
         } catch (e) {}
 
-        document.querySelectorAll(".lang-switcher button").forEach(btn => {
+        const switcherButtons = document.querySelectorAll(".lang-switcher button");
+        switcherButtons.forEach(btn => {
             btn.classList.toggle("active", btn.dataset.setLang === lang);
         });
 
@@ -262,12 +265,6 @@
         }
 
         applyLanguage(initial);
-
-        document.querySelectorAll("[data-set-lang]").forEach(btn => {
-            btn.addEventListener("click", () => {
-                applyLanguage(btn.dataset.setLang);
-            });
-        });
     }
 
     function initTocSearch() {
@@ -294,47 +291,189 @@
         });
     }
 
+    // Global click delegation for language switcher
+    document.addEventListener("click", function(e) {
+        const btn = e.target && e.target.closest ? e.target.closest("[data-set-lang]") : null;
+        if (!btn) return;
+        const lang = btn.dataset ? btn.dataset.setLang : null;
+        if (lang !== "ru" && lang !== "ro") return;
 
-// Global click delegation for language switcher: works even if header is injected via fetch()
-document.addEventListener("click", function(e) {
-    var btn = e.target && e.target.closest ? e.target.closest("[data-set-lang]") : null;
-    if (!btn) return;
-    var lang = btn.dataset ? btn.dataset.setLang : null;
-    if (lang !== "ru" && lang !== "ro") return;
+        applyLanguage(lang);
 
-    // Apply UI language (TOC, placeholders, active state)
-    applyLanguage(lang);
+        // For article pages, also switch between /ru/... and /ro/... versions
+        try {
+            const path = window.location.pathname || "";
+            const context = getContext();
 
-    // For article pages, also switch between /ru/... and /ro/... versions
-    try {
-        var path = window.location.pathname || "";
-        var context = getContext();
+            if (context === "ruPage" || context === "roPage") {
+                const fromPrefix = (context === "ruPage") ? "/ru/" : "/ro/";
+                const toPrefix   = (context === "ruPage") ? "/ro/" : "/ru/";
 
-        if (context === "ruPage" || context === "roPage") {
-            var fromPrefix = (context === "ruPage") ? "/ru/" : "/ro/";
-            var toPrefix   = (context === "ruPage") ? "/ro/" : "/ru/";
+                if ((context === "ruPage" && lang === "ro") ||
+                    (context === "roPage" && lang === "ru")) {
 
-            // Only redirect if user really chooses another language
-            if ((context === "ruPage" && lang === "ro") ||
-                (context === "roPage" && lang === "ru")) {
-
-                var idx = path.indexOf(fromPrefix);
-                if (idx !== -1) {
-                    var rest = path.substring(idx + fromPrefix.length);
-                    var newPath = toPrefix + rest;
-                    window.location.pathname = newPath;
+                    const idx = path.indexOf(fromPrefix);
+                    if (idx !== -1) {
+                        const rest = path.substring(idx + fromPrefix.length);
+                        const newPath = toPrefix + rest;
+                        window.location.pathname = newPath;
+                    }
                 }
             }
+        } catch (e) {
+            // ignore
         }
-        // For root/index we do not redirect yet, to avoid 404 if ro/index.html is missing.
-    } catch (e) {
-        // ignore errors silently
+    });
+
+    function ensureFavicons() {
+        const head = document.head;
+        if (!head) return;
+
+        if (!head.querySelector('link[rel="icon"]')) {
+            const l = document.createElement('link');
+            l.rel = 'icon';
+            l.type = 'image/x-icon';
+            l.href = '/favicon.ico';
+            head.appendChild(l);
+        }
+        if (!head.querySelector('link[rel="icon"][type="image/png"]')) {
+            const l = document.createElement('link');
+            l.rel = 'icon';
+            l.type = 'image/png';
+            l.sizes = '192x192';
+            l.href = '/assets/images/flag-192.png';
+            head.appendChild(l);
+        }
+        if (!head.querySelector('link[rel="apple-touch-icon"]')) {
+            const l = document.createElement('link');
+            l.rel = 'apple-touch-icon';
+            l.sizes = '180x180';
+            l.href = '/assets/images/flag-180.png';
+            head.appendChild(l);
+        }
     }
-});
+
+    const SLOGANS = {
+        ru: [
+            "Молдова на линии времени мира",
+            "История мира через призму Молдовы",
+            "От Штефана чел Маре до наших дней",
+            "Хронология для школьников и подростков",
+            "Мир и Молдова на одном таймлайне"
+        ],
+        ro: [
+            "Moldova pe linia timpului lumii",
+            "Istoria lumii prin prisma Moldovei",
+            "De la Ștefan cel Mare până azi",
+            "Cronologie pentru elevi și adolescenți",
+            "Lumea și Moldova pe același timeline"
+        ]
+    };
+
+    function initSlogan() {
+        const ruNode = document.getElementById("subtitle-ru");
+        const roNode = document.getElementById("subtitle-ro");
+        if (!ruNode || !roNode) {
+            setTimeout(initSlogan, 80);
+            return;
+        }
+        let index = Math.floor(Math.random() * SLOGANS.ru.length);
+
+        function setTexts() {
+            ruNode.textContent = SLOGANS.ru[index];
+            roNode.textContent = SLOGANS.ro[index];
+        }
+
+        function update() {
+            ruNode.style.opacity = 0;
+            roNode.style.opacity = 0;
+            setTimeout(() => {
+                index = (index + 1) % SLOGANS.ru.length;
+                setTexts();
+                ruNode.style.opacity = 1;
+                roNode.style.opacity = 1;
+            }, 400);
+        }
+
+        ruNode.style.transition = "opacity 0.4s ease";
+        roNode.style.transition = "opacity 0.4s ease";
+        setTexts();
+        ruNode.style.opacity = 1;
+        roNode.style.opacity = 1;
+
+        setInterval(update, 5000); // 5 секунд
+    }
+
+    function restoreTocScroll() {
+        const toc = document.getElementById("toc");
+        if (!toc) return;
+        const context = getContext();
+
+        try {
+            if (context === "root") {
+                sessionStorage.removeItem(TOC_SCROLL_KEY);
+                toc.scrollTop = 0;
+                return;
+            }
+            const saved = sessionStorage.getItem(TOC_SCROLL_KEY);
+            if (saved !== null) {
+                const val = parseInt(saved, 10);
+                if (!isNaN(val)) toc.scrollTop = val;
+            }
+        } catch (e) {}
+    }
+
+    function initTocScrollPersistence() {
+        const toc = document.getElementById("toc");
+        if (!toc) return;
+
+        // Восстанавливаем позицию при загрузке (для всех страниц, кроме главной)
+        restoreTocScroll();
+
+        // Сохраняем позицию при клике по ссылке внутри TOC (только на десктопе)
+        toc.addEventListener("click", (e) => {
+            const link = e.target.closest("a");
+            if (!link) return;
+
+            if (window.matchMedia("(min-width: 900px)").matches) {
+                try {
+                    sessionStorage.setItem(TOC_SCROLL_KEY, String(toc.scrollTop));
+                } catch (err) {}
+            } else {
+                try {
+                    sessionStorage.removeItem(TOC_SCROLL_KEY);
+                } catch (err) {}
+            }
+        });
+    }
+
+    function highlightCurrentTocItem() {
+        const toc = document.getElementById("toc");
+        if (!toc) return;
+
+        const path = window.location.pathname || "";
+        const m = path.match(/\/(ru|ro)\/([^\/]+)\.html$/);
+        if (!m) return;
+
+        const slug = m[2];
+        const links = toc.querySelectorAll('[data-article-slug="' + slug + '"]');
+        if (!links.length) return;
+
+        links.forEach(link => {
+            link.classList.add("toc-current");
+            const li = link.closest("li");
+            if (li) li.classList.add("toc-current");
+        });
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
+        ensureFavicons();
+        initSlogan();
+
         renderTOC();
         initLanguage();
         initTocSearch();
+        initTocScrollPersistence();
+        highlightCurrentTocItem();
     });
 })();

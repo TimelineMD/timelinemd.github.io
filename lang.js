@@ -227,92 +227,7 @@
         container.innerHTML = html;
     }
 
-    
-    // --- Dynamic slogans under logo title ---
-    const SLOGANS = {
-        ru: [
-            "История мира и Молдовы на одной ленте",
-            "От пещер до космоса – на одной шкале",
-            "Помощник по истории для школьников и родителей",
-            "Хронология, которая наконец-то понятна",
-            "Смотри на Молдову в контексте истории мира"
-        ],
-        ro: [
-            "Lumea și Moldova pe aceeași axă a timpului",
-            "De la peșteră la cosmos – pe o singură linie",
-            "Ajutor la istorie pentru elevi și părinți",
-            "Cronologie spusă pe înțelesul tuturor",
-            "Vezi Moldova în contextul istoriei lumii"
-        ]
-    };
-
-    let sloganTimer = null;
-
-    function setRandomSlogan(lang) {
-        try {
-            const html = document.documentElement;
-            if (!lang) {
-                lang = html.classList.contains("lang-ro") ? "ro" : "ru";
-            }
-            const list = SLOGANS[lang];
-            if (!list || !list.length) return;
-
-            const index = Math.floor(Math.random() * list.length);
-            const slogan = list[index];
-
-            const container = document.querySelector(".logo-subtitle span[data-lang='" + lang + "']");
-            if (container) {
-                container.textContent = slogan;
-            }
-        } catch (e) {
-            // fail silently – слоганы не критичны
-        }
-    }
-
-    function startSloganRotation(lang) {
-        // Сразу показываем слоган при старте
-        setRandomSlogan(lang);
-
-        if (sloganTimer) {
-            clearInterval(sloganTimer);
-            sloganTimer = null;
-        }
-
-        sloganTimer = setInterval(() => {
-            const html = document.documentElement;
-            const currentLang = html.classList.contains("lang-ro") ? "ro" : "ru";
-            setRandomSlogan(currentLang);
-        }, 5000);
-    }
-
-    // --- Favicon helpers (для внутренних страниц) ---
-    function ensureFavicons() {
-        try {
-            const head = document.head || document.getElementsByTagName("head")[0];
-            if (!head) return;
-
-            // Если фавикон уже есть в разметке страницы – ничего не делаем
-            if (head.querySelector("link[rel='icon']")) return;
-
-            const defs = [
-                { rel: "icon", type: "image/x-icon", href: "/favicon_multi.ico" },
-                { rel: "icon", type: "image/png", sizes: "192x192", href: "/flag-192.png" },
-                { rel: "apple-touch-icon", sizes: "180x180", href: "/flag-180.png" }
-            ];
-
-            defs.forEach(def => {
-                const link = document.createElement("link");
-                Object.keys(def).forEach(k => {
-                    link.setAttribute(k, def[k]);
-                });
-                head.appendChild(link);
-            });
-        } catch (e) {
-            // тихо игнорируем – без фавикона можно жить
-        }
-    }
-
-function applyLanguage(lang) {
+    function applyLanguage(lang) {
         const html = document.documentElement;
         html.classList.remove("lang-ru", "lang-ro");
         html.classList.add("lang-" + lang);
@@ -330,9 +245,6 @@ function applyLanguage(lang) {
                 ? "Начните вводить название..."
                 : "Scrie titlul articolului...";
         }
-
-        // обновляем слоганы при смене языка
-        startSloganRotation(lang);
     }
 
     function initLanguage() {
@@ -420,8 +332,73 @@ document.addEventListener("click", function(e) {
     }
 });
 
-    document.addEventListener("DOMContentLoaded", () => {
+    
+function ensureFavicons() {
+    const head=document.head;
+    if(!head) return;
+    if(!head.querySelector('link[rel="icon"]')) {
+        const l=document.createElement('link');
+        l.rel='icon'; l.type='image/x-icon'; l.href='/favicon.ico';
+        head.appendChild(l);
+    }
+    if(!head.querySelector('link[rel="icon"][type="image/png"]')) {
+        const l=document.createElement('link');
+        l.rel='icon'; l.type='image/png'; l.sizes='192x192'; l.href='/assets/images/flag-192.png';
+        head.appendChild(l);
+    }
+    if(!head.querySelector('link[rel="apple-touch-icon"]')) {
+        const l=document.createElement('link');
+        l.rel='apple-touch-icon'; l.sizes='180x180'; l.href='/assets/images/flag-180.png';
+        head.appendChild(l);
+    }
+}
+
+
+const SLOGANS = {
+    ru: [
+        "Молдова на линии времени мира",
+        "История мира через призму Молдовы",
+        "От Штефана чел Маре до наших дней",
+        "Хронология для школьников и подростков",
+        "Мир и Молдова на одном таймлайне"
+    ],
+    ro: [
+        "Moldova pe linia timpului lumii",
+        "Istoria lumii prin prisma Moldovei",
+        "De la Ștefan cel Mare până azi",
+        "Cronologie pentru elevi și adolescenți",
+        "Lumea și Moldova pe același timeline"
+    ]
+};
+
+function initSlogan() {
+    const ruNode = document.getElementById("subtitle-ru");
+    const roNode = document.getElementById("subtitle-ro");
+    if (!ruNode || !roNode) { setTimeout(initSlogan, 80); return; }
+    let index = Math.floor(Math.random() * SLOGANS.ru.length);
+    function update() {
+        ruNode.style.opacity = 0;
+        roNode.style.opacity = 0;
+        setTimeout(() => {
+            index = (index + 1) % SLOGANS.ru.length;
+            ruNode.textContent = SLOGANS.ru[index];
+            roNode.textContent = SLOGANS.ro[index];
+            ruNode.style.opacity = 1;
+            roNode.style.opacity = 1;
+        }, 400);
+    }
+    ruNode.textContent = SLOGANS.ru[index];
+    roNode.textContent = SLOGANS.ro[index];
+    ruNode.style.transition = "opacity 0.4s ease";
+    roNode.style.transition = "opacity 0.4s ease";
+    setInterval(update, 6000);
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
         ensureFavicons();
+        initSlogan();
+
         renderTOC();
         initLanguage();
         initTocSearch();

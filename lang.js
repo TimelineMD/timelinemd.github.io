@@ -391,13 +391,40 @@ function initSlogan() {
     roNode.textContent = SLOGANS.ro[index];
     ruNode.style.transition = "opacity 0.4s ease";
     roNode.style.transition = "opacity 0.4s ease";
-    setInterval(update, 6000);
+    setInterval(update, 5000);
+}
+
+
+
+function initTocScrollPersistence() {
+    const toc = document.getElementById("toc");
+    if (!toc) return;
+
+    const KEY = "timeline_toc_scroll";
+
+    // восстановление позиции
+    if (window.innerWidth >= 900) {
+        const saved = sessionStorage.getItem(KEY);
+        if (saved !== null) {
+            const val = parseInt(saved, 10);
+            if (!Number.isNaN(val)) {
+                toc.scrollTop = val;
+            }
+        }
+    }
+
+    toc.addEventListener("scroll", () => {
+        if (window.innerWidth >= 900) {
+            sessionStorage.setItem(KEY, String(toc.scrollTop));
+        }
+    });
 }
 
 
 document.addEventListener("DOMContentLoaded", () => {
         ensureFavicons();
         initSlogan();
+        initTocScrollPersistence();
 
         renderTOC();
         initLanguage();

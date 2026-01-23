@@ -247,7 +247,57 @@
         }
     }
 
-    function initLanguage() {
+    
+    // --- Ротация слоганов в шапке ---
+
+    const SLOGANS = {
+        ru: [
+            "Молдова и мир на одной шкале",
+            "От даков до наших дней",
+            "История, которая запоминается",
+            "Учить историю — легко",
+            "Молдова на карте мира"
+        ],
+        ro: [
+            "Moldova și lumea pe aceeași axă",
+            "De la daci până azi",
+            "Istorie care se reține ușor",
+            "E simplu să înveți istoria",
+            "Moldova pe harta lumii"
+        ]
+    };
+
+    let sloganTimer = null;
+
+    function setRandomSlogan(langCode) {
+        const root = document.documentElement;
+        const lang = langCode || root.lang || "ru";
+        const span = document.querySelector('.subtitle span[data-lang="' + lang + '"]');
+        if (!span) return;
+
+        const list = SLOGANS[lang];
+        if (!list || !list.length) return;
+
+        const current = span.textContent.trim();
+        let pool = list;
+        if (list.length > 1 && current) {
+            const filtered = list.filter(s => s !== current);
+            if (filtered.length) pool = filtered;
+        }
+
+        const next = pool[Math.floor(Math.random() * pool.length)];
+        span.textContent = next;
+    }
+
+    function startSloganRotation(langCode) {
+        if (sloganTimer) {
+            clearInterval(sloganTimer);
+        }
+        setRandomSlogan(langCode);
+        sloganTimer = setInterval(() => setRandomSlogan(), 5000);
+    }
+
+function initLanguage() {
         const context = getContext();
         let initial = "ru";
         if (context === "ruPage") {
@@ -262,8 +312,15 @@
         }
 
         applyLanguage(initial);
-        // запускаем ротацию слоганов для стартового языка
         startSloganRotation(initial);
+
+        document.querySelectorAll("[data-set-lang]").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const lang = btn.dataset.setLang;
+                applyLanguage(lang);
+                startSloganRotation(lang);
+            });
+        });
     }
 
     function initTocSearch() {
@@ -290,210 +347,47 @@
         });
     }
 
-    // ---- SLOGAN ROTATION ----
-    const SLOGANS = {
-        ru: [
-            "Молдова и мир на одной линии времени",
-            "От первобытности до наших дней",
-            "История для школьников и родителей",
-            "Молдова в контексте истории человечества",
-            "Учить историю — легко и интересно"
-        ],
-        ro: [
-            "Moldova și lumea pe aceeași axă a timpului",
-            "De la preistorie până azi",
-            "Istorie pentru elevi și părinți",
-            "Moldova în contextul istoriei lumii",
-            "Istoria poate fi ușoară și interesantă"
-        ]
-    };
 
-    let sloganTimer = null;
-
-    function setRandomSlogan(lang) {
-        const el = document.getElementById("site-slogan");
-        if (!el || !SLOGANS[lang]) return;
-        const arr = SLOGANS[lang];
-        const next = arr[Math.floor(Math.random() * arr.length)];
-        el.textContent = next;
-    }
-
-    function startSloganRotation(lang) {
-        const stored = (typeof localStorage !== "undefined")
-            ? localStorage.getItem("timeline_lang")
-            : null;
-        const baseLang = (lang === "ru" || lang === "ro") ? lang : (stored || "ru");
-
-        setRandomSlogan(baseLang);
-
-        if (sloganTimer) {
-            clearInterval(sloganTimer);
-        }
-        sloganTimer = setInterval(() => {
-            const active = (typeof localStorage !== "undefined")
-                ? (localStorage.getItem("timeline_lang") || baseLang)
-                : baseLang;
-            setRandomSlogan(active);
-        }, 5000); // каждые 5 секунд
-    }
-
-    // ---- TOC SCROLL PERSISTENCE ----
-    const TOC_SCROLL_KEY = "timeline_toc_scroll";
-
-    function saveTocScroll() {
-        try {
-            const toc = document.querySelector(".toc");
-            if (!toc || !window.sessionStorage) return;
-            sessionStorage.setItem(TOC_SCROLL_KEY, String(toc.scrollTop));
-        } catch (e) {
-            // ignore
-        }
-    }
-
-    function restoreTocScroll() {
-        try {
-            const toc = document.querySelector(".toc");
-            if (!toc || !window.sessionStorage) return;
-            const path = window.location.pathname || "";
-
-            // На главной всегда показываем начало списка и сбрасываем сохранённое значение
-            if (path.endsWith("/") || path.endsWith("/index.html")) {
-                sessionStorage.removeItem(TOC_SCROLL_KEY);
-                toc.scrollTop = 0;
-                return;
-            }
-
-            const stored = sessionStorage.getItem(TOC_SCROLL_KEY);
-            if (stored !== null) {
-                const y = parseInt(stored, 10);
-                if (!isNaN(y)) toc.scrollTop = y;
-            }
-        } catch (e) {
-            // ignore
-        }
-    }
-
-
-// Global click delegation for language switcher & TOC scroll save
+// Global click delegation for language switcher: works even if header is injected via fetch()
 document.addEventListener("click", function(e) {
-    const target = e.target;
+    var btn = e.target && e.target.closest ? e.target.closest("[data-set-lang]") : null;
+    if (!btn) return;
+    var lang = btn.dataset ? btn.dataset.setLang : null;
+    if (lang !== "ru" && lang !== "ro") return;
 
-    // 1) Language switcher
-    const btn = target && target.closest ? target.closest("[data-set-lang]") : null;
-    if (btn) {
-        const lang = btn.dataset ? btn.dataset.setLang : null;
-        if (lang === "ru" || lang === "ro") {
-            // Apply UI language (TOC, placeholders, active state)
-            applyLanguage(lang);
-            // restart slogans for chosen language
-            startSloganRotation(lang);
+    // Apply UI language (TOC, placeholders, active state)
+    applyLanguage(lang);
 
-            // For article pages, also switch between /ru/... and /ro/... versions
-            try {
-                const path = window.location.pathname || "";
-                const context = getContext();
+    // For article pages, also switch between /ru/... and /ro/... versions
+    try {
+        var path = window.location.pathname || "";
+        var context = getContext();
 
-                if (context === "ruPage" || context === "roPage") {
-                    const fromPrefix = (context === "ruPage") ? "/ru/" : "/ro/";
-                    const toPrefix   = (context === "ruPage") ? "/ro/" : "/ru/";
+        if (context === "ruPage" || context === "roPage") {
+            var fromPrefix = (context === "ruPage") ? "/ru/" : "/ro/";
+            var toPrefix   = (context === "ruPage") ? "/ro/" : "/ru/";
 
-                    if ((context === "ruPage" && lang === "ro") ||
-                        (context === "roPage" && lang === "ru")) {
+            // Only redirect if user really chooses another language
+            if ((context === "ruPage" && lang === "ro") ||
+                (context === "roPage" && lang === "ru")) {
 
-                        const idx = path.indexOf(fromPrefix);
-                        if (idx !== -1) {
-                            const rest = path.substring(idx + fromPrefix.length);
-                            const newPath = toPrefix + rest;
-                            // перед переходом сохраним скролл TOC
-                            saveTocScroll();
-                            window.location.pathname = newPath;
-                        }
-                    }
+                var idx = path.indexOf(fromPrefix);
+                if (idx !== -1) {
+                    var rest = path.substring(idx + fromPrefix.length);
+                    var newPath = toPrefix + rest;
+                    window.location.pathname = newPath;
                 }
-                // For root/index we do not redirect yet, to avoid 404 if ro/index.html is missing.
-            } catch (e) {
-                // ignore errors silently
             }
         }
-    }
-
-    // 2) TOC links: сохраняем позицию скролла перед переходом
-    const tocLink = target && target.closest ? target.closest(".toc a[href]") : null;
-    if (tocLink) {
-        saveTocScroll();
+        // For root/index we do not redirect yet, to avoid 404 if ro/index.html is missing.
+    } catch (e) {
+        // ignore errors silently
     }
 });
-    
-    function ensureFavicons() {
-        try {
-            const head = document.head;
-            if (!head) return;
 
-            // main favicon
-            let iconLink = head.querySelector('link[rel="icon"]');
-            if (!iconLink) {
-                iconLink = document.createElement("link");
-                iconLink.rel = "icon";
-                iconLink.type = "image/x-icon";
-                iconLink.href = "/favicon.ico";
-                head.appendChild(iconLink);
-            }
-
-            // png icon (for some browsers)
-            if (!head.querySelector('link[rel="icon"][type="image/png"]')) {
-                const pngIcon = document.createElement("link");
-                pngIcon.rel = "icon";
-                pngIcon.type = "image/png";
-                pngIcon.sizes = "192x192";
-                pngIcon.href = "/assets/images/flag-192.png";
-                head.appendChild(pngIcon);
-            }
-
-            // apple touch icon
-            if (!head.querySelector('link[rel="apple-touch-icon"]')) {
-                const appleIcon = document.createElement("link");
-                appleIcon.rel = "apple-touch-icon";
-                appleIcon.sizes = "180x180";
-                appleIcon.href = "/assets/images/flag-180.png";
-                head.appendChild(appleIcon);
-            }
-        } catch (e) {
-            // ignore
-        }
-    }
-
-
-    
-    function highlightActiveTocLink() {
-        const toc = document.getElementById("toc");
-        if (!toc) return;
-
-        const path = window.location.pathname || "";
-        const match = path.match(/\/(ru|ro)\/([^\/]+)\.html$/);
-        if (!match) return;
-
-        const pageLang = match[1]; // 'ru' or 'ro'
-        const slug = match[2];
-
-        // Снимаем прошлую подсветку, если вдруг была
-        toc.querySelectorAll("a.toc-active").forEach(a => a.classList.remove("toc-active"));
-
-        // Ищем ссылку, которая ведет на текущую статью
-        const selector = 'a[data-lang="' + pageLang + '"][href$="' + slug + '.html"]';
-        const link = toc.querySelector(selector);
-        if (link) {
-            link.classList.add("toc-active");
-            const li = link.closest("li");
-            if (li) li.classList.add("toc-active-item");
-        }
-    }
-
-document.addEventListener("DOMContentLoaded", () => {
-        ensureFavicons();
+    document.addEventListener("DOMContentLoaded", () => {
         renderTOC();
         initLanguage();
-        highlightActiveTocLink();
         initTocSearch();
-        restoreTocScroll();
     });
 })();

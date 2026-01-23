@@ -1,126 +1,350 @@
-:root{
-  --bg:#f5f5f8;
-  --card:#ffffff;
-  --border:#dde1ea;
-  --text:#161827;
-  --muted:#6b7280;
-  --accent:#2563eb;
-  --accent-soft:#e0ecff;
-  --tag-bg:#eef2ff;
-  --tag-border:#c7d2fe;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background-color: #f7f7fa;
+    color: #111827;
 }
 
-.layout{
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
+a {
+    color: #2563eb;
+    text-decoration: none;
 }
 
-main{
-  padding:16px 12px 32px;
+a:hover {
+    text-decoration: underline;
 }
 
-.article-card{
-  max-width:960px;
-  margin:0 auto;
-  background:var(--card);
-  border-radius:18px;
-  border:1px solid var(--border);
-  box-shadow:0 6px 22px rgba(15,23,42,.08);
-  padding:18px 18px 20px;
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #111827;
+    color: #f9fafb;
 }
 
-.breadcrumbs{
-  font-size:13px;
-  color:var(--muted);
-  margin-bottom:10px;
-}
-.breadcrumbs a{
-  color:var(--muted);
-  text-decoration:none;
+.logo-title h1 {
+    margin: 0;
+    font-size: 1.4rem;
 }
 
-.article-period{
-  font-size:18px;
-  font-weight:700;
-  color:var(--accent);
-  margin-bottom:4px;
-}
-h1{
-  font-size:26px;
-  margin:0 0 6px;
+.subtitle {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    opacity: 0.85;
 }
 
-.article-body{
-  font-size:15px;
-  line-height:1.7;
-  color:var(--text);
-  text-align:justify;
+.lang-switcher button,
+.lang-switcher a {
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid #4b5563;
+    background: transparent;
+    color: #f9fafb;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-decoration: none;
 }
 
-.article-body img.hero{
-  width:100%;
-  border-radius:14px;
-  margin:0 0 12px;
+.lang-switcher button.active {
+    background: #f9fafb;
+    color: #111827;
 }
 
-.article-conclusion{
-  margin-top:18px;
-  padding:14px;
-  border-radius:14px;
-  border:1px solid rgba(37,99,235,.25);
-  background:var(--accent-soft);
-}
-.article-conclusion-title{
-  font-size:15px;
-  font-weight:700;
-  margin-bottom:6px;
+.layout {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.tags-block{
-  margin-top:14px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.tag{
-  font-size:13px;
-  padding:5px 10px;
-  border-radius:999px;
-  background:var(--tag-bg);
-  border:1px solid var(--tag-border);
-  color:#111827;
+/* TOC / меню */
+
+.toc {
+    background: #fff;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+    font-size: 0.95rem;
 }
 
-@media (min-width:900px){
-  .article-body img.hero{
-    float:right;
-    width:40%;
-    max-width:320px;
-    margin:4px 0 12px 16px;
-  }
+.toc h2 {
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
 }
 
+.toc h3 {
+    margin: 0.4rem 0 0.25rem;
+    font-size: 0.9rem;
+    color: #4b5563;
+}
 
-/* TOC active item highlight and epoch background */
+.toc ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0 0 0.3rem;
+}
+
+.toc li {
+    margin: 0.15rem 0;
+}
+
 .toc-section {
-    background-color: #f4f5fb;
-    border-radius: 18px;
+    margin-bottom: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 0.75rem;
 }
 
-.toc-active {
+.toc-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.toc-search {
+    margin-bottom: 0.75rem;
+}
+
+.toc-search label {
+    display: block;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.toc-search input {
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    font-size: 0.9rem;
+}
+
+/* Главный блок */
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.welcome-text p {
+    text-align: justify;
+    margin: 0 0 0.75rem;
+}
+
+.welcome-image img {
+    max-width: 100%;
+    display: block;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+}
+
+/* Статья */
+
+.article-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Порядок блоков в статье:
+   по умолчанию (мобайл) сначала статья, потом оглавление под ней.
+*/
+.article-layout .article-main {
+    order: 1;
+}
+
+.article-layout .toc {
+    order: 2;
+}
+
+
+.article-main {
+    background: #fff;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.article-header h1 {
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+}
+
+.article-dates {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.article-annotation {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.article-body p {
+    text-align: justify;
+    margin: 0 0 0.75rem;
+}
+
+.article-body ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0 0 0.75rem;
+}
+
+.article-summary {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid #2563eb;
+    background: #eff6ff;
+    border-radius: 0.5rem;
+    text-align: justify;
+}
+
+.article-tags {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.article-tags span {
+    font-weight: 600;
+}
+
+.article-tags a {
+    display: inline-block;
+    margin-right: 0.4rem;
+    margin-top: 0.25rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: #e5e7eb;
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: #111827;
+}
+
+.site-footer {
+    padding: 0.75rem 1.5rem 1.5rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Desktop layout */
+
+@media (min-width: 900px) {
+    .layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .toc {
+        flex: 0 0 280px;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        position: sticky;
+        top: 1rem;
+    }
+
+    .welcome {
+        flex: 1;
+    }
+
+    .article-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .article-layout .toc {
+        order: 1;
+    }
+
+    .article-layout .article-main {
+        order: 2;
+    }
+
+
+    .article-layout .toc {
+        flex: 0 0 280px;
+    }
+
+    .article-layout .article-main {
+        flex: 1;
+    }
+}
+
+/* Система языков */
+
+[data-lang] {
+    display: none;
+}
+
+html.lang-ru [data-lang="ru"],
+html.lang-ro [data-lang="ro"] {
+    display: initial;
+}
+
+
+/* Дополнительные стили для оглавления */
+
+.toc-section {
+    margin-bottom: 0.85rem;
+    padding: 0.75rem 0.75rem 0.6rem;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.toc-section + .toc-section {
+    margin-top: 0.5rem;
+}
+
+.toc-section h2 {
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
-.toc-active-item {
-    background-color: rgba(17, 24, 39, 0.06);
-    border-radius: 10px;
+.toc-section h3 {
+    margin: 0.35rem 0 0.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.toc ul {
+    margin: 0 0 0.2rem;
+}
+
+.toc-sublist {
+    list-style: circle;
+    padding-left: 1.1rem;
+    margin-top: 0.1rem;
+}
+
+.toc-sublist li {
+    margin: 0.1rem 0;
+}
+
+/* Заголовки с data-lang должны быть блочными, чтобы "Мир" не прилипал к эпохе */
+
+html.lang-ru h2[data-lang="ru"],
+html.lang-ru h3[data-lang="ru"],
+html.lang-ro h2[data-lang="ro"],
+html.lang-ro h3[data-lang="ro"] {
+    display: block;
 }

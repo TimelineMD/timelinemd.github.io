@@ -200,3 +200,20 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   border-radius: 10px;
   padding: 2px 4px;
 }
+
+/* Заголовок на главной — уменьшенный верхний отступ */
+.index-content h1 {
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Новый стиль слогана */
+.index-main-subtitle {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1.2rem;
+    opacity: 0.9;
+}

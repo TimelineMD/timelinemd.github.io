@@ -166,6 +166,12 @@
         var barImg = document.querySelector(".timeline-image");
         var zoomImg = document.querySelector(".timeline-zoom-image");
 
+        // если шапка ещё не подгрузилась, пробуем чуть позже
+        if (!barImg && !zoomImg) {
+            setTimeout(function () { updateTimelineImages(lang); }, 80);
+            return;
+        }
+
         if (barImg && !barImg.src.endsWith(src)) {
             barImg.src = src;
         }

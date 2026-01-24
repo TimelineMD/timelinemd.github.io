@@ -490,6 +490,40 @@
     }
 
 
+    function initTimelineSticky() {
+        const bar = document.querySelector(".timeline-bar");
+        if (!bar) {
+            // ждём, пока шапка с таймлайном подгрузится
+            setTimeout(initTimelineSticky, 80);
+            return;
+        }
+
+        // создаём плейсхолдер, чтобы не прыгал контент при фиксации
+        const placeholder = document.createElement("div");
+        placeholder.style.height = bar.offsetHeight + "px";
+        placeholder.style.display = "none";
+        bar.parentNode.insertBefore(placeholder, bar);
+
+        let isFixed = false;
+
+        window.addEventListener("scroll", () => {
+            const rect = bar.getBoundingClientRect();
+            const shouldFix = rect.top <= 0;
+
+            if (shouldFix && !isFixed) {
+                bar.classList.add("timeline-bar-fixed");
+                placeholder.style.display = "block";
+                isFixed = true;
+            } else if (!shouldFix && isFixed) {
+                bar.classList.remove("timeline-bar-fixed");
+                placeholder.style.display = "none";
+                isFixed = false;
+            }
+        });
+    }
+
+
+
     function initTimelineDragScroll() {
         const container = document.querySelector(".timeline-scroll");
         if (!container) {
@@ -575,6 +609,7 @@ function initTimelineZoom() {
     }
 
 document.addEventListener("DOMContentLoaded", () => {
+        initTimelineSticky();
         ensureFavicons();
         initSlogan();
 

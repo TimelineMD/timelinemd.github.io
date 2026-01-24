@@ -286,3 +286,12 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   top: 0;
   z-index: 30; /* выше основного контента, ниже оверлея зума */
 }
+
+/* Фиксированный режим таймлайна (fallback к JS-реализации) */
+.timeline-bar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+}

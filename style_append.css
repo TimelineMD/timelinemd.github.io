@@ -206,12 +206,13 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 .timeline-bar {
   background: #f3f4f6;
   border-bottom: 1px solid #e5e7eb;
-  padding: 0.4rem 0.75rem 0.6rem;
+  padding: 0.4rem 0 0.6rem;
 }
 
 .timeline-scroll {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   overflow-x: auto;
   overflow-y: hidden;
   cursor: grab;
@@ -235,15 +236,38 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   max-width: none;
 }
 
-/* Увеличиваем таймлайн в версии для ПК */
-@media (min-width: 900px) {
-  .timeline-image {
-    max-height: 280px; 
-  }
-}
-
 /* Состояние перетаскивания */
 .timeline-scroll.is-dragging {
   cursor: grabbing;
+}
+
+
+/* Оверлей для увеличенного таймлайна */
+.timeline-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.timeline-zoom-overlay.is-visible {
+  display: flex;
+}
+
+.timeline-zoom-inner {
+  max-width: 96vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border-radius: 12px;
+  background: #0b1120;
+}
+
+.timeline-zoom-image {
+  display: block;
+  max-width: none;
 }
 

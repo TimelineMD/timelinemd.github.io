@@ -185,8 +185,6 @@
         const context = getContext();
         let html = "";
         html += '<div class="toc-search">';
-        html += '<label for="toc-search-input" data-lang="ru">Поиск по оглавлению</label>';
-        html += '<label for="toc-search-input" data-lang="ro">Căutare în cuprins</label>';
         html += '<input type="text" id="toc-search-input" placeholder=""/>';
         html += "</div>";
 
@@ -482,17 +480,19 @@
             scrollLeft = container.scrollLeft;
         });
 
+        window.addEventListener("mouseup", () => {
+            if (!isDown) return;
+            isDown = false;
+            container.classList.remove("is-dragging");
+        });
+
         container.addEventListener("mouseleave", () => {
+            if (!isDown) return;
             isDown = false;
             container.classList.remove("is-dragging");
         });
 
-        container.addEventListener("mouseup", () => {
-            isDown = false;
-            container.classList.remove("is-dragging");
-        });
-
-        container.addEventListener("mousemove", (e) => {
+        window.addEventListener("mousemove", (e) => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - container.offsetLeft;
@@ -500,6 +500,32 @@
             container.scrollLeft = scrollLeft - walk;
         });
     }
+
+
+    function initTimelineZoom() {
+        const barImage = document.querySelector(".timeline-image");
+        const overlay = document.getElementById("timeline-zoom-overlay");
+        if (!barImage || !overlay) return;
+        const overlayImage = overlay.querySelector(".timeline-zoom-image");
+
+        barImage.addEventListener("click", () => {
+            if (overlayImage) {
+                overlayImage.src = barImage.src;
+            }
+            overlay.classList.add("is-visible");
+        });
+
+        overlay.addEventListener("click", () => {
+            overlay.classList.remove("is-visible");
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                overlay.classList.remove("is-visible");
+            }
+        });
+    }
+
 
     document.addEventListener("DOMContentLoaded", () => {
         ensureFavicons();
@@ -511,5 +537,6 @@
         initTocScrollPersistence();
         highlightCurrentTocItem();
         initTimelineDragScroll();
+        initTimelineZoom();
     });
 })();

@@ -504,17 +504,20 @@
         placeholder.style.display = "none";
         bar.parentNode.insertBefore(placeholder, bar);
 
+        // исходное положение таймлайна относительно документа
+        const initialOffsetTop = bar.getBoundingClientRect().top + window.scrollY;
+
         let isFixed = false;
 
         window.addEventListener("scroll", () => {
-            const rect = bar.getBoundingClientRect();
-            const shouldFix = rect.top <= 0;
+            const scrollY = window.scrollY || window.pageYOffset;
+            const shouldFix = scrollY >= initialOffsetTop;
 
             if (shouldFix && !isFixed) {
                 bar.classList.add("timeline-bar-fixed");
                 placeholder.style.display = "block";
                 isFixed = true;
-            } else if (!shouldFix && isFixed) {
+            } else if (!shouldFix && isFixed && scrollY < initialOffsetTop) {
                 bar.classList.remove("timeline-bar-fixed");
                 placeholder.style.display = "none";
                 isFixed = false;

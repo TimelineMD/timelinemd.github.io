@@ -2,7 +2,7 @@
 html.lang-ru [data-lang="ro"] { display: none !important; }
 html.lang-ro [data-lang="ru"] { display: none !important; }
 
-/* Шапка с фоном и логотипом */
+/* Шапка с фоном и  логотипом */
 .site-header {
   position: relative;
   display: flex;

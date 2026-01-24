@@ -229,6 +229,21 @@
         container.innerHTML = html;
     }
 
+
+    function updateTimelineImages(lang) {
+        var file = (lang === "ro") ? "timeline_ro.jpg" : "timeline.jpg";
+        var barImg = document.querySelector(".timeline-image");
+        var zoomImg = document.querySelector(".timeline-zoom-image");
+        var src = "/assets/images/" + file;
+
+        if (barImg && barImg.src.indexOf(src) === -1) {
+            barImg.src = src;
+        }
+        if (zoomImg && zoomImg.src.indexOf(src) === -1) {
+            zoomImg.src = src;
+        }
+    }
+
     function applyLanguage(lang) {
         const html = document.documentElement;
         html.classList.remove("lang-ru", "lang-ro");
@@ -241,6 +256,8 @@
         switcherButtons.forEach(btn => {
             btn.classList.toggle("active", btn.dataset.setLang === lang);
         });
+
+        updateTimelineImages(lang);
 
         const searchInput = document.getElementById("toc-search-input");
         if (searchInput) {

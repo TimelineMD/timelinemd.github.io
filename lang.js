@@ -469,7 +469,11 @@
 
     function initTimelineDragScroll() {
         const container = document.querySelector(".timeline-scroll");
-        if (!container) return;
+        if (!container) {
+            // шапка может подгружаться чуть позже через fetch — пробуем ещё раз
+            setTimeout(initTimelineDragScroll, 80);
+            return;
+        }
 
         const img = container.querySelector(".timeline-image");
         if (img) {
@@ -514,12 +518,14 @@
         });
     }
 
-
-
-    function initTimelineZoom() {
+function initTimelineZoom() {
         const barImage = document.querySelector(".timeline-image");
         const overlay = document.getElementById("timeline-zoom-overlay");
-        if (!barImage || !overlay) return;
+        if (!barImage || !overlay) {
+            // ждём, пока шапка с таймлайном подгрузится
+            setTimeout(initTimelineZoom, 80);
+            return;
+        }
         const overlayImage = overlay.querySelector(".timeline-zoom-image");
 
         barImage.addEventListener("click", () => {
@@ -545,9 +551,7 @@
         });
     }
 
-
-
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
         ensureFavicons();
         initSlogan();
 

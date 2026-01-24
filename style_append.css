@@ -170,3 +170,34 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
     font-style: italic;
 }
 
+/* Заголовок и подзаголовок на главной */
+.index-title {
+  text-align: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.index-subtitle {
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: #4b5563;
+}
+
+/* Текст на главной — по обеим краям */
+.index-content p {
+  text-align: justify;
+}
+
+/* Подсветка активного пункта оглавления */
+.toc li.toc-current {
+  background-color: rgba(17, 24, 39, 0.06);
+  border-radius: 10px;
+  padding: 2px 6px;
+}
+
+.toc li.toc-current > a {
+  font-weight: 700;
+}
+

@@ -280,11 +280,9 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   max-width: none;
 }
 
-/* ПК: таймлайн прилипает к верху экрана при скролле */
-@media (min-width: 900px) {
-  .timeline-bar {
-    position: sticky;
-    top: 0;
-    z-index: 30; /* выше контента, но ниже оверлея зума (9999) */
-  }
+/* Таймлайн прилипает к верху экрана при скролле (ПК + моб) */
+.timeline-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30; /* выше основного контента, ниже оверлея зума */
 }

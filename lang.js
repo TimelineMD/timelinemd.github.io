@@ -184,12 +184,7 @@
 
         const context = getContext();
         let html = "";
-        html += '<div class="toc-search">';
-        html += '<label for="toc-search-input" data-lang="ru">Поиск по оглавлению</label>';
-        html += '<label for="toc-search-input" data-lang="ro">Căutare în cuprins</label>';
-        html += '<input type="text" id="toc-search-input" placeholder=""/>';
-        html += "</div>";
-
+        
         TOC_DATA.forEach(section => {
             html += '<div class="toc-section">';
             html += '<h2 data-lang="ru">' + section.title.ru + "</h2>";

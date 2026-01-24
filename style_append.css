@@ -234,6 +234,8 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   max-height: 180px;
   height: auto;
   max-width: none;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 /* ПК: повыше таймлайн */

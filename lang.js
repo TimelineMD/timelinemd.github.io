@@ -471,11 +471,18 @@
         const container = document.querySelector(".timeline-scroll");
         if (!container) return;
 
+        const img = container.querySelector(".timeline-image");
+        if (img) {
+            img.draggable = false;
+        }
+
         let isDown = false;
         let startX = 0;
         let scrollLeft = 0;
 
         container.addEventListener("mousedown", (e) => {
+            if (e.button !== 0) return; // только левая кнопка
+            e.preventDefault();
             isDown = true;
             didDragTimeline = false;
             container.classList.add("is-dragging");

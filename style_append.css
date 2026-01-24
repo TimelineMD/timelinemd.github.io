@@ -231,9 +231,18 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 /* Картинка таймлайна — шире экрана */
 .timeline-image {
   display: block;
-  max-height: 140px;
+  max-height: 180px;
   height: auto;
   max-width: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* ПК: повыше таймлайн */
+@media (min-width: 900px) {
+  .timeline-image {
+    max-height: 280px;
+  }
 }
 
 /* Состояние перетаскивания */
@@ -271,20 +280,18 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   max-width: none;
 }
 
-/* Фиксированный режим таймлайна (используется JS-логикой initTimelineSticky) */
+/* Таймлайн прилипает к верху экрана при скролле (ПК + моб) */
+.timeline-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30; /* выше основного контента, ниже оверлея зума */
+}
+
+/* Фиксированный режим таймлайна (fallback к JS-реализации) */
 .timeline-bar-fixed {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 30;
-}
-
-/* Перетаскивание увеличенного таймлайна */
-.timeline-zoom-inner {
-  cursor: grab;
-}
-
-.timeline-zoom-inner.is-dragging {
-  cursor: grabbing;
 }

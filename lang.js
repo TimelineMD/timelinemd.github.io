@@ -160,6 +160,21 @@
 
     let didDragTimeline = false;
 
+    function updateTimelineImages(lang) {
+        var file = (lang === "ro") ? "timeline_ro.jpg" : "timeline.jpg";
+        var src = "/assets/images/" + file;
+        var barImg = document.querySelector(".timeline-image");
+        var zoomImg = document.querySelector(".timeline-zoom-image");
+
+        if (barImg && !barImg.src.endsWith(src)) {
+            barImg.src = src;
+        }
+        if (zoomImg && !zoomImg.src.endsWith(src)) {
+            zoomImg.src = src;
+        }
+    }
+
+
     function getContext() {
         const path = window.location.pathname || "";
         if (path.indexOf("/ru/") !== -1) return "ruPage";
@@ -227,21 +242,6 @@
         });
 
         container.innerHTML = html;
-    }
-
-
-    function updateTimelineImages(lang) {
-        var file = (lang === "ro") ? "timeline_ro.jpg" : "timeline.jpg";
-        var barImg = document.querySelector(".timeline-image");
-        var zoomImg = document.querySelector(".timeline-zoom-image");
-        var src = "/assets/images/" + file;
-
-        if (barImg && barImg.src.indexOf(src) === -1) {
-            barImg.src = src;
-        }
-        if (zoomImg && zoomImg.src.indexOf(src) === -1) {
-            zoomImg.src = src;
-        }
     }
 
     function applyLanguage(lang) {

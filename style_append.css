@@ -235,6 +235,13 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   max-width: none;
 }
 
+/* Увеличиваем таймлайн в версии для ПК */
+@media (min-width: 900px) {
+  .timeline-image {
+    max-height: 280px; 
+  }
+}
+
 /* Состояние перетаскивания */
 .timeline-scroll.is-dragging {
   cursor: grabbing;

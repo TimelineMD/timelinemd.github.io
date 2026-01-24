@@ -231,7 +231,7 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 /* Картинка таймлайна — шире экрана */
 .timeline-image {
   display: block;
-  max-height: 140px;
+  max-height: 280px;
   height: auto;
   max-width: none;
 }

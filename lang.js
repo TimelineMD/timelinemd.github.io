@@ -158,29 +158,6 @@
 
     const TOC_SCROLL_KEY = "timeline_toc_scroll";
 
-    let didDragTimeline = false;
-
-    function updateTimelineImages(lang) {
-        var file = (lang === "ro") ? "timeline_ro.jpg" : "timeline.jpg";
-        var src = "/assets/images/" + file;
-        var barImg = document.querySelector(".timeline-image");
-        var zoomImg = document.querySelector(".timeline-zoom-image");
-
-        // если шапка ещё не подгрузилась, пробуем чуть позже
-        if (!barImg && !zoomImg) {
-            setTimeout(function () { updateTimelineImages(lang); }, 80);
-            return;
-        }
-
-        if (barImg && !barImg.src.endsWith(src)) {
-            barImg.src = src;
-        }
-        if (zoomImg && !zoomImg.src.endsWith(src)) {
-            zoomImg.src = src;
-        }
-    }
-
-
     function getContext() {
         const path = window.location.pathname || "";
         if (path.indexOf("/ru/") !== -1) return "ruPage";
@@ -208,6 +185,8 @@
         const context = getContext();
         let html = "";
         html += '<div class="toc-search">';
+        html += '<label for="toc-search-input" data-lang="ru">Поиск по оглавлению</label>';
+        html += '<label for="toc-search-input" data-lang="ro">Căutare în cuprins</label>';
         html += '<input type="text" id="toc-search-input" placeholder=""/>';
         html += "</div>";
 
@@ -262,8 +241,6 @@
         switcherButtons.forEach(btn => {
             btn.classList.toggle("active", btn.dataset.setLang === lang);
         });
-
-        updateTimelineImages(lang);
 
         const searchInput = document.getElementById("toc-search-input");
         if (searchInput) {
@@ -489,116 +466,72 @@
         });
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+        ensureFavicons();
+        initSlogan();
 
-    function initTimelineSticky() {
-        const bar = document.querySelector(".timeline-bar");
-        if (!bar) {
-            // ждём, пока шапка с таймлайном подгрузится
-            setTimeout(initTimelineSticky, 80);
-            return;
-        }
-
-        // создаём плейсхолдер, чтобы не прыгал контент при фиксации
-        const placeholder = document.createElement("div");
-        placeholder.style.height = bar.offsetHeight + "px";
-        placeholder.style.display = "none";
-        bar.parentNode.insertBefore(placeholder, bar);
-
-        // исходное положение таймлайна относительно документа
-        const initialOffsetTop = bar.getBoundingClientRect().top + window.scrollY;
-
-        let isFixed = false;
-
-        window.addEventListener("scroll", () => {
-            const scrollY = window.scrollY || window.pageYOffset;
-            const shouldFix = scrollY >= initialOffsetTop;
-
-            if (shouldFix && !isFixed) {
-                bar.classList.add("timeline-bar-fixed");
-                placeholder.style.display = "block";
-                isFixed = true;
-            } else if (!shouldFix && isFixed && scrollY < initialOffsetTop) {
-                bar.classList.remove("timeline-bar-fixed");
-                placeholder.style.display = "none";
-                isFixed = false;
-            }
-        });
-    }
-
-
-
-    function initTimelineDragScroll() {
-        const container = document.querySelector(".timeline-scroll");
-        if (!container) {
-            // шапка может подгружаться чуть позже через fetch — пробуем ещё раз
-            setTimeout(initTimelineDragScroll, 80);
-            return;
-        }
-
-        const img = container.querySelector(".timeline-image");
-        if (img) {
-            img.draggable = false;
-        }
-
-        let isDown = false;
-        let startX = 0;
-        let scrollLeft = 0;
-
-        container.addEventListener("mousedown", (e) => {
-            if (e.button !== 0) return; // только левая кнопка
-            e.preventDefault();
-            isDown = true;
-            didDragTimeline = false;
-            container.classList.add("is-dragging");
-            startX = e.pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
-        });
-
-        window.addEventListener("mouseup", () => {
-            if (!isDown) return;
-            isDown = false;
-            container.classList.remove("is-dragging");
-        });
-
-        container.addEventListener("mouseleave", () => {
-            if (!isDown) return;
-            isDown = false;
-            container.classList.remove("is-dragging");
-        });
-
-        window.addEventListener("mousemove", (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - container.offsetLeft;
-            const walk = x - startX;
-            if (Math.abs(walk) > 3) {
-                didDragTimeline = true;
-            }
-            container.scrollLeft = scrollLeft - walk;
-        });
-    }
-
-function initTimelineZoom() {
+        renderTOC();
+        initLanguage();
+        initTocSearch();
+        initTocScrollPersistence();
+        highlightCurrentTocItem();
+    });
+})()function initTimelineZoom() {
         const barImage = document.querySelector(".timeline-image");
         const overlay = document.getElementById("timeline-zoom-overlay");
-        if (!barImage || !overlay) {
-            // ждём, пока шапка с таймлайном подгрузится
-            setTimeout(initTimelineZoom, 80);
-            return;
-        }
+        if (!barImage || !overlay) return;
+
         const overlayImage = overlay.querySelector(".timeline-zoom-image");
+        const zoomInner = overlay.querySelector(".timeline-zoom-inner");
 
         barImage.addEventListener("click", () => {
-            // если до этого было перетаскивание, не считаем это кликом для зума
-            if (didDragTimeline) {
-                didDragTimeline = false;
-                return;
-            }
             if (overlayImage) {
                 overlayImage.src = barImage.src;
             }
             overlay.classList.add("is-visible");
         });
+
+        // ПК: перетаскивание увеличенного таймлайна «ладонью»
+        if (zoomInner) {
+            let isDown = false;
+            let startX = 0;
+            let scrollLeft = 0;
+
+            zoomInner.addEventListener("mousedown", (e) => {
+                if (e.button !== 0) return; // только левая кнопка
+                isDown = true;
+                zoomInner.classList.add("is-dragging");
+                startX = e.pageX - zoomInner.offsetLeft;
+                scrollLeft = zoomInner.scrollLeft;
+                e.preventDefault();
+                e.stopPropagation(); // не даём оверлею воспринять это как клик для закрытия
+            });
+
+            window.addEventListener("mouseup", () => {
+                if (!isDown) return;
+                isDown = false;
+                zoomInner.classList.remove("is-dragging");
+            });
+
+            zoomInner.addEventListener("mouseleave", () => {
+                if (!isDown) return;
+                isDown = false;
+                zoomInner.classList.remove("is-dragging");
+            });
+
+            window.addEventListener("mousemove", (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - zoomInner.offsetLeft;
+                const walk = x - startX;
+                zoomInner.scrollLeft = scrollLeft - walk;
+            });
+
+            // клик по самой картинке/внутреннему блоку не должен закрывать оверлей
+            zoomInner.addEventListener("click", (e) => {
+                e.stopPropagation();
+            });
+        }
 
         overlay.addEventListener("click", () => {
             overlay.classList.remove("is-visible");
@@ -610,18 +543,4 @@ function initTimelineZoom() {
             }
         });
     }
-
-document.addEventListener("DOMContentLoaded", () => {
-        initTimelineSticky();
-        ensureFavicons();
-        initSlogan();
-
-        renderTOC();
-        initLanguage();
-        initTocSearch();
-        initTocScrollPersistence();
-        highlightCurrentTocItem();
-        initTimelineDragScroll();
-        initTimelineZoom();
-    });
-})();
+;

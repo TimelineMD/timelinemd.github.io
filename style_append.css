@@ -231,9 +231,16 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 /* Картинка таймлайна — шире экрана */
 .timeline-image {
   display: block;
-  max-height: 280px;
+  max-height: 180px;
   height: auto;
   max-width: none;
+}
+
+/* ПК: повыше таймлайн */
+@media (min-width: 900px) {
+  .timeline-image {
+    max-height: 280px;
+  }
 }
 
 /* Состояние перетаскивания */

@@ -158,6 +158,8 @@
 
     const TOC_SCROLL_KEY = "timeline_toc_scroll";
 
+    let didDragTimeline = false;
+
     function getContext() {
         const path = window.location.pathname || "";
         if (path.indexOf("/ru/") !== -1) return "ruPage";
@@ -475,6 +477,7 @@
 
         container.addEventListener("mousedown", (e) => {
             isDown = true;
+            didDragTimeline = false;
             container.classList.add("is-dragging");
             startX = e.pageX - container.offsetLeft;
             scrollLeft = container.scrollLeft;
@@ -497,9 +500,13 @@
             e.preventDefault();
             const x = e.pageX - container.offsetLeft;
             const walk = x - startX;
+            if (Math.abs(walk) > 3) {
+                didDragTimeline = true;
+            }
             container.scrollLeft = scrollLeft - walk;
         });
     }
+
 
 
     function initTimelineZoom() {
@@ -509,6 +516,11 @@
         const overlayImage = overlay.querySelector(".timeline-zoom-image");
 
         barImage.addEventListener("click", () => {
+            // если до этого было перетаскивание, не считаем это кликом для зума
+            if (didDragTimeline) {
+                didDragTimeline = false;
+                return;
+            }
             if (overlayImage) {
                 overlayImage.src = barImage.src;
             }
@@ -525,6 +537,7 @@
             }
         });
     }
+
 
 
     document.addEventListener("DOMContentLoaded", () => {

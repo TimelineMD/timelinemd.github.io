@@ -173,7 +173,7 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 /* Заголовок и подзаголовок на главной */
 .index-title {
   text-align: center;
-  margin-top: -0.25rem;
+  margin-top: 0.75rem;
   margin-bottom: 0.25rem;
 }
 
@@ -202,30 +202,41 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 }
 
 
-/* --- Заголовок главной страницы --- */
-.index-title {
-  text-align: center;
-  margin-top: 0.35rem;
-  margin-bottom: 0.25rem;
-  font-size: 1.8rem;
-  font-weight: 800;
+/* Горизонтальный таймлайн под шапкой */
+.timeline-bar {
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.4rem 0.75rem 0.6rem;
 }
 
-/* --- Подзаголовок главной страницы --- */
-.index-subtitle {
-  text-align: center;
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin: 0 0 1rem;
-  color: #4b5563;
+.timeline-scroll {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
 }
 
-/* --- Мобильная адаптация --- */
-@media (max-width: 899px) {
-  .index-title {
-    font-size: 1.9rem;
-  }
-  .index-subtitle {
-    font-size: 1rem;
-  }
+/* Скрываем стандартные скроллбары */
+.timeline-scroll::-webkit-scrollbar {
+  display: none;
 }
+.timeline-scroll {
+  scrollbar-width: none;
+}
+
+/* Картинка таймлайна — шире экрана */
+.timeline-image {
+  display: block;
+  max-height: 140px;
+  height: auto;
+  max-width: none;
+}
+
+/* Состояние перетаскивания */
+.timeline-scroll.is-dragging {
+  cursor: grabbing;
+}
+

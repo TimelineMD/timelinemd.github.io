@@ -185,8 +185,8 @@
         const context = getContext();
         let html = "";
         html += '<div class="toc-search">';
- //       html += '<label for="toc-search-input" data-lang="ru">Поиск по оглавлению</label>';
- //       html += '<label for="toc-search-input" data-lang="ro">Căutare în cuprins</label>';
+        html += '<label for="toc-search-input" data-lang="ru">Поиск по оглавлению</label>';
+        html += '<label for="toc-search-input" data-lang="ro">Căutare în cuprins</label>';
         html += '<input type="text" id="toc-search-input" placeholder=""/>';
         html += "</div>";
 
@@ -466,6 +466,41 @@
         });
     }
 
+
+    function initTimelineDragScroll() {
+        const container = document.querySelector(".timeline-scroll");
+        if (!container) return;
+
+        let isDown = false;
+        let startX = 0;
+        let scrollLeft = 0;
+
+        container.addEventListener("mousedown", (e) => {
+            isDown = true;
+            container.classList.add("is-dragging");
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener("mouseleave", () => {
+            isDown = false;
+            container.classList.remove("is-dragging");
+        });
+
+        container.addEventListener("mouseup", () => {
+            isDown = false;
+            container.classList.remove("is-dragging");
+        });
+
+        container.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = x - startX;
+            container.scrollLeft = scrollLeft - walk;
+        });
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         ensureFavicons();
         initSlogan();
@@ -475,5 +510,6 @@
         initTocSearch();
         initTocScrollPersistence();
         highlightCurrentTocItem();
+        initTimelineDragScroll();
     });
 })();

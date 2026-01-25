@@ -304,3 +304,17 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 .timeline-zoom-inner.is-dragging {
   cursor: grabbing;
 }
+
+
+/* --- Лёгкая «подсказка» — покачивание таймлайна --- */
+.timeline-scroll.hint-wiggle {
+    animation: wiggleTimeline 3.5s ease-in-out infinite;
+}
+
+@keyframes wiggleTimeline {
+    0%   { transform: translateX(0); }
+    3%   { transform: translateX(-12px); }
+    7%   { transform: translateX(12px); }
+    10%  { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}

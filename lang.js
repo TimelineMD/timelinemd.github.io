@@ -670,3 +670,29 @@ document.addEventListener("DOMContentLoaded", () => {
         initTimelineZoom();
     });
 })();
+
+
+/* ===== Анимация-подсказка таймлайна ===== */
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollEl = document.querySelector(".timeline-scroll");
+    if (!scrollEl) return;
+
+    if (localStorage.getItem("timelineHintDisabled") === "1") return;
+
+    scrollEl.classList.add("hint-wiggle");
+
+    function disableHint() {
+        scrollEl.classList.remove("hint-wiggle");
+        localStorage.setItem("timelineHintDisabled", "1");
+
+        scrollEl.removeEventListener("mousedown", disableHint);
+        scrollEl.removeEventListener("touchstart", disableHint);
+        scrollEl.removeEventListener("click", disableHint);
+        scrollEl.removeEventListener("wheel", disableHint);
+    }
+
+    scrollEl.addEventListener("mousedown", disableHint);
+    scrollEl.addEventListener("touchstart", disableHint);
+    scrollEl.addEventListener("click", disableHint);
+    scrollEl.addEventListener("wheel", disableHint);
+});

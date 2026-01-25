@@ -611,6 +611,60 @@ function initTimelineZoom() {
         });
     }
 
+
+    function scrollToTocSmooth() {
+        const toc = document.getElementById("toc");
+        if (!toc) return;
+
+        const rect = toc.getBoundingClientRect();
+        const target = rect.top + window.scrollY - 8;
+
+        window.scrollTo({
+            top: target,
+            behavior: "smooth"
+        });
+    }
+
+    function createTocJumpButton(kind) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "toc-jump-btn " + (kind === "index" ? "toc-jump-btn--index" : "toc-jump-btn--article");
+        btn.setAttribute("aria-label", "Go to table of contents");
+        btn.innerHTML = '<span class="toc-jump-icon" aria-hidden="true"></span>';
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            scrollToTocSmooth();
+        });
+        return btn;
+    }
+
+    function initTocJumpButtons() {
+        const toc = document.getElementById("toc");
+        if (!toc) return;
+
+        // Только для мобильных экранов
+        if (window.innerWidth > 768) {
+            return;
+        }
+
+        const context = getContext();
+
+        if (context === "root") {
+            const indexSections = document.querySelectorAll(".index-content");
+            indexSections.forEach(section => {
+                if (section.querySelector(".toc-jump-btn")) return;
+                const btn = createTocJumpButton("index");
+                section.appendChild(btn);
+            });
+        } else {
+            const header = document.querySelector(".article-header");
+            if (header && !header.querySelector(".toc-jump-btn")) {
+                const btn = createTocJumpButton("article");
+                header.appendChild(btn);
+            }
+        }
+    }
+
 document.addEventListener("DOMContentLoaded", () => {
         initTimelineSticky();
         ensureFavicons();
@@ -623,5 +677,6 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightCurrentTocItem();
         initTimelineDragScroll();
         initTimelineZoom();
+        initTocJumpButtons();
     });
-})();
+)();

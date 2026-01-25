@@ -612,16 +612,19 @@ function initTimelineZoom() {
     }
 
 
-    function scrollToTocSmooth() {
-        const toc = document.getElementById("toc");
-        if (!toc) return;
-
-        // Только для мобильных экранов
-        if (window.innerWidth > 768) {
-            return;
-        }
-
-        const rect = toc.getBoundingClientRect();
+    
+function scrollToTocSmooth() {
+    const toc = document.getElementById("toc");
+    if (!toc) return;
+    const first = toc.querySelector(".toc-search-input") || toc;
+    const rect = first.getBoundingClientRect();
+    const target = rect.top + window.scrollY - 12;
+    window.scrollTo({
+        top: target,
+        behavior: "smooth"
+    });
+}
+const rect = toc.getBoundingClientRect();
         const target = rect.top + window.scrollY - 8;
 
         window.scrollTo({

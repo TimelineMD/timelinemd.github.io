@@ -352,8 +352,8 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 
   .toc-jump-btn--index {
     position: absolute;
-    top: 0.25rem;
-    right: 0.5rem;
+    top: -0.75rem;
+    right: -0.5rem;
   }
 
   .article-header {
@@ -362,8 +362,8 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 
   .toc-jump-btn--article {
     position: absolute;
-    top: 0.4rem;
-    right: 0.5rem;
+    top: -0.75rem;
+    right: -0.5rem;
   }
 }
 

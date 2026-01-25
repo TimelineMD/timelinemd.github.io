@@ -443,3 +443,71 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
     gap: 6px;
   }
 }
+
+/* Кнопка-гамбургер для перехода к оглавлению (только мобайл) */
+.toc-jump-btn {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 2px solid #111827;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  z-index: 40;
+}
+
+.toc-jump-btn-inner {
+  width: 16px;
+  height: 12px;
+  position: relative;
+}
+
+.toc-jump-btn-inner span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: #111827;
+}
+
+.toc-jump-btn-inner span:nth-child(1) {
+  top: 0;
+}
+
+.toc-jump-btn-inner span:nth-child(2) {
+  top: 5px;
+}
+
+.toc-jump-btn-inner span:nth-child(3) {
+  top: 10px;
+}
+
+/* Размещение на главной (область приветствия) */
+.toc-jump-btn--index {
+  top: -0.75rem;
+  right: -0.5rem;
+}
+
+/* Размещение в статье (в шапке статьи) */
+.article-header {
+  position: relative;
+}
+
+.toc-jump-btn--article {
+  top: -0.75rem;
+  right: -0.5rem;
+}
+
+/* Показываем кнопку только на мобайле */
+@media (min-width: 900px) {
+  .toc-jump-btn {
+    display: none;
+  }
+}

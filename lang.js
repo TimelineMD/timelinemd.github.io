@@ -446,6 +446,63 @@
         } catch (e) {}
     }
 
+
+    function scrollToTocSearch() {
+        const searchInput = document.getElementById("toc-search-input");
+        const toc = document.getElementById("toc");
+        const target = searchInput || toc;
+        if (!target) return;
+
+        const rect = target.getBoundingClientRect();
+        const offset = 16; // небольшой отступ сверху
+        const y = rect.top + (window.scrollY || window.pageYOffset) - offset;
+
+        window.scrollTo({
+            top: y,
+            behavior: "smooth"
+        });
+    }
+
+    function initTocJumpButtons() {
+        const isMobile = window.matchMedia && window.matchMedia("(max-width: 899px)").matches;
+        if (!isMobile) return;
+
+        const context = getContext();
+
+        // Главная страница
+        if (context === "root") {
+            const indexSection = document.querySelector(".index-content[data-lang]");
+            if (indexSection) {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "toc-jump-btn toc-jump-btn--index";
+                btn.setAttribute("aria-label", "Открыть оглавление");
+                btn.innerHTML = '<div class="toc-jump-btn-inner"><span></span><span></span><span></span></div>';
+                indexSection.style.position = indexSection.style.position || "relative";
+                indexSection.insertBefore(btn, indexSection.firstChild);
+
+                btn.addEventListener("click", function () {
+                    scrollToTocSearch();
+                });
+            }
+        } else {
+            // Страницы статей
+            const header = document.querySelector(".article-header");
+            if (header) {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "toc-jump-btn toc-jump-btn--article";
+                btn.setAttribute("aria-label", "Deschide cuprinsul / Открыть оглавление");
+                btn.innerHTML = '<div class="toc-jump-btn-inner"><span></span><span></span><span></span></div>';
+                header.appendChild(btn);
+
+                btn.addEventListener("click", function () {
+                    scrollToTocSearch();
+                });
+            }
+        }
+    }
+
     function initTocScrollPersistence() {
         const toc = document.getElementById("toc");
         if (!toc) return;
@@ -769,6 +826,7 @@ document.addEventListener("DOMContentLoaded", () => {
         initTocSearch();
         initTocScrollPersistence();
         highlightCurrentTocItem();
+        initTocJumpButtons();
         initTimelineDragScroll();
         initTimelineZoom();
         setTimeout(()=>initTimelineHandHint(),3500);

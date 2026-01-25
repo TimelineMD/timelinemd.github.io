@@ -656,28 +656,25 @@ function initTimelineZoom() {
     }
 
 
+
 function initTimelineHandHint() {
     const container = document.querySelector(".timeline-scroll");
     if (!container) return;
 
     const STORAGE_KEY = "timelineHandHintShown_v1";
 
-    // Если уже показывали подсказку – выходим
+    // Если уже взаимодействовали — больше никогда не показываем
     try {
         if (window.localStorage && localStorage.getItem(STORAGE_KEY) === "1") {
             return;
         }
-    } catch (e) {
-        // localStorage может быть недоступен — тогда просто показываем 1 раз за сессию
-    }
+    } catch (e) {}
 
-    // Определяем тач/ПК
     const isTouch =
         ("ontouchstart" in window) ||
         (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
         (window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
 
-    // Создаём DOM подсказки
     const hint = document.createElement("div");
     hint.className =
         "timeline-hand-hint " +
@@ -695,59 +692,43 @@ function initTimelineHandHint() {
     container.appendChild(hint);
 
     let hidden = false;
-    const STORAGE_DELAY = 200;
 
-    function detachListeners() {
-        ["mousedown", "touchstart", "wheel"].forEach((evt) => {
-            container.removeEventListener(evt, onUserInteraction);
-        });
-        window.removeEventListener("keydown", onKeyDown);
-    }
-
-    function hideHint() {
+    function hideHint(auto=false) {
         if (hidden) return;
         hidden = true;
 
         hint.classList.add("timeline-hand-hint--hide");
+        setTimeout(() => { hint.remove(); }, 260);
 
-        // Убираем из DOM после анимации
-        setTimeout(() => {
-            if (hint.parentNode) {
-                hint.parentNode.removeChild(hint);
-            }
-        }, 260);
-
-        // Запоминаем, что показывали подсказку
-        try {
-            if (window.localStorage) {
-                setTimeout(() => {
-                    localStorage.setItem(STORAGE_KEY, "1");
-                }, STORAGE_DELAY);
-            }
-        } catch (e) {}
+        // Запоминаем только если взаимодействие (не auto-hide)
+        if (!auto) {
+            try { localStorage.setItem(STORAGE_KEY, "1"); } catch (e) {}
+        }
 
         detachListeners();
     }
 
-    function onUserInteraction() {
-        hideHint();
+    function detachListeners() {
+        ["mousedown","touchstart","wheel"].forEach(evt=>{
+            container.removeEventListener(evt,onUser);
+        });
+        window.removeEventListener("keydown", onKey);
     }
 
-    function onKeyDown(e) {
-        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-            hideHint();
-        }
+    function onUser() { hideHint(false); }
+    function onKey(e) {
+        if (e.key==="ArrowLeft"||e.key==="ArrowRight") hideHint(false);
     }
 
-    // Любое первое взаимодействие с таймлайном – гасим подсказку
-    ["mousedown", "touchstart", "wheel"].forEach((evt) => {
-        container.addEventListener(evt, onUserInteraction, { passive: true });
+    ["mousedown","touchstart","wheel"].forEach(evt=>{
+        container.addEventListener(evt,onUser,{passive:true});
     });
-    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("keydown",onKey);
 
-    // Авто-скрытие через ~2.2 секунды
-    setTimeout(hideHint, 2200);
+    // Auto-hide, но без записи флага
+    setTimeout(()=>hideHint(true),2200);
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
         initTimelineSticky();
@@ -761,6 +742,6 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightCurrentTocItem();
         initTimelineDragScroll();
         initTimelineZoom();
-    initTimelineHandHint();
+        setTimeout(()=>initTimelineHandHint(),3500);
     });
 })();

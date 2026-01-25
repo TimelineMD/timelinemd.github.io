@@ -448,22 +448,19 @@
 
 
     function scrollToTocSearch() {
-    const input = document.getElementById("toc-search-input");
-    if (!input) return;
+    const searchInput = document.getElementById("toc-search-input");
+    if (!searchInput) return;
 
-    // Шаг 1 — плавный скролл к центру
-    input.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+    const rect = searchInput.getBoundingClientRect();
+
+    // Скроллим так, чтобы поле поиска оказалось чуть ниже верхнего края экрана
+    const fixedOffset = 80; // пикселей сверху
+    const y = rect.top + (window.scrollY || window.pageYOffset) - fixedOffset;
+
+    window.scrollTo({
+        top: y,
+        behavior: "smooth"
     });
-
-    // Шаг 2 — докрутка вверх на 30% высоты экрана
-    setTimeout(() => {
-        window.scrollBy({
-            top: window.innerHeight * -0.30,
-            behavior: "smooth"
-        });
-    }, 400);
 }
 
 function initTocJumpButtons() {

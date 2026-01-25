@@ -656,6 +656,99 @@ function initTimelineZoom() {
     }
 
 
+function initTimelineHandHint() {
+    const container = document.querySelector(".timeline-scroll");
+    if (!container) return;
+
+    const STORAGE_KEY = "timelineHandHintShown_v1";
+
+    // Если уже показывали подсказку – выходим
+    try {
+        if (window.localStorage && localStorage.getItem(STORAGE_KEY) === "1") {
+            return;
+        }
+    } catch (e) {
+        // localStorage может быть недоступен — тогда просто показываем 1 раз за сессию
+    }
+
+    // Определяем тач/ПК
+    const isTouch =
+        ("ontouchstart" in window) ||
+        (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
+        (window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+
+    // Создаём DOM подсказки
+    const hint = document.createElement("div");
+    hint.className =
+        "timeline-hand-hint " +
+        (isTouch ? "timeline-hand-hint--mobile" : "timeline-hand-hint--desktop");
+
+    hint.innerHTML =
+        '<div class="timeline-hand-hint-bubble">' +
+          '<div class="timeline-hand-icon"></div>' +
+          '<div class="timeline-hand-arrows">' +
+            '<span class="arrow arrow-left">←</span>' +
+            '<span class="arrow arrow-right">→</span>' +
+          "</div>" +
+        "</div>";
+
+    container.appendChild(hint);
+
+    let hidden = false;
+    const STORAGE_DELAY = 200;
+
+    function detachListeners() {
+        ["mousedown", "touchstart", "wheel"].forEach((evt) => {
+            container.removeEventListener(evt, onUserInteraction);
+        });
+        window.removeEventListener("keydown", onKeyDown);
+    }
+
+    function hideHint() {
+        if (hidden) return;
+        hidden = true;
+
+        hint.classList.add("timeline-hand-hint--hide");
+
+        // Убираем из DOM после анимации
+        setTimeout(() => {
+            if (hint.parentNode) {
+                hint.parentNode.removeChild(hint);
+            }
+        }, 260);
+
+        // Запоминаем, что показывали подсказку
+        try {
+            if (window.localStorage) {
+                setTimeout(() => {
+                    localStorage.setItem(STORAGE_KEY, "1");
+                }, STORAGE_DELAY);
+            }
+        } catch (e) {}
+
+        detachListeners();
+    }
+
+    function onUserInteraction() {
+        hideHint();
+    }
+
+    function onKeyDown(e) {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+            hideHint();
+        }
+    }
+
+    // Любое первое взаимодействие с таймлайном – гасим подсказку
+    ["mousedown", "touchstart", "wheel"].forEach((evt) => {
+        container.addEventListener(evt, onUserInteraction, { passive: true });
+    });
+    window.addEventListener("keydown", onKeyDown);
+
+    // Авто-скрытие через ~2.2 секунды
+    setTimeout(hideHint, 2200);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
         initTimelineSticky();
         ensureFavicons();
@@ -668,5 +761,6 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightCurrentTocItem();
         initTimelineDragScroll();
         initTimelineZoom();
+    initTimelineHandHint();
     });
 })();

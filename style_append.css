@@ -304,3 +304,142 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 .timeline-zoom-inner.is-dragging {
   cursor: grabbing;
 }
+
+/* Подсказка с ладошкой/пальцем поверх таймлайна */
+.timeline-scroll {
+  position: relative; /* чтобы можно было позиционировать подсказку */
+}
+
+/* Общий контейнер подсказки */
+.timeline-hand-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+  animation: timelineHintFade 2.3s ease-out forwards;
+}
+
+.timeline-hand-hint-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  background: rgba(15, 23, 42, 0.82); /* тёмный полупрозрачный фон */
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.timeline-hand-icon {
+  font-size: 20px;
+  line-height: 1;
+  animation: timelineHandMove 1.3s ease-in-out 0.25s 1;
+}
+
+.timeline-hand-arrows {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.timeline-hand-arrows .arrow {
+  animation: timelineArrowPulse 1.3s ease-in-out 0.25s 1;
+}
+
+/* Разные иконки для ПК и мобайл */
+.timeline-hand-hint--desktop .timeline-hand-icon::before {
+  content: "✋";
+}
+
+.timeline-hand-hint--mobile .timeline-hand-icon::before {
+  content: "👆";
+}
+
+/* Состояние скрытия */
+.timeline-hand-hint--hide {
+  animation: timelineHintFadeOut 0.25s ease-out forwards;
+}
+
+/* Анимации */
+@keyframes timelineHintFade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes timelineHandMove {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(14px);
+  }
+  60% {
+    transform: translateX(-14px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes timelineArrowPulse {
+  0% {
+    transform: translateX(0);
+    opacity: 0.2;
+  }
+  30% {
+    transform: translateX(-4px);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+}
+
+@keyframes timelineHintFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .timeline-hand-hint-bubble {
+    padding: 5px 8px;
+    gap: 2px;
+  }
+
+  .timeline-hand-icon {
+    font-size: 18px;
+  }
+
+  .timeline-hand-arrows {
+    font-size: 12px;
+    gap: 6px;
+  }
+}

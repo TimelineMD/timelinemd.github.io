@@ -586,7 +586,9 @@ function initTimelineZoom() {
             setTimeout(initTimelineZoom, 80);
             return;
         }
+
         const overlayImage = overlay.querySelector(".timeline-zoom-image");
+        const zoomInner = overlay.querySelector(".timeline-zoom-inner");
 
         barImage.addEventListener("click", () => {
             // если до этого было перетаскивание, не считаем это кликом для зума
@@ -600,6 +602,48 @@ function initTimelineZoom() {
             overlay.classList.add("is-visible");
         });
 
+        // ПК: перетаскивание увеличенного таймлайна «ладонью»
+        if (zoomInner) {
+            let isDown = false;
+            let startX = 0;
+            let scrollLeft = 0;
+
+            zoomInner.addEventListener("mousedown", (e) => {
+                if (e.button !== 0) return; // только левая кнопка
+                isDown = true;
+                zoomInner.classList.add("is-dragging");
+                startX = e.pageX - zoomInner.offsetLeft;
+                scrollLeft = zoomInner.scrollLeft;
+                e.preventDefault();
+                e.stopPropagation(); // не даём оверлею воспринять это как клик для закрытия
+            });
+
+            window.addEventListener("mouseup", () => {
+                if (!isDown) return;
+                isDown = false;
+                zoomInner.classList.remove("is-dragging");
+            });
+
+            zoomInner.addEventListener("mouseleave", () => {
+                if (!isDown) return;
+                isDown = false;
+                zoomInner.classList.remove("is-dragging");
+            });
+
+            window.addEventListener("mousemove", (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - zoomInner.offsetLeft;
+                const walk = x - startX;
+                zoomInner.scrollLeft = scrollLeft - walk;
+            });
+
+            // клик внутри не должен закрывать оверлей
+            zoomInner.addEventListener("click", (e) => {
+                e.stopPropagation();
+            });
+        }
+
         overlay.addEventListener("click", () => {
             overlay.classList.remove("is-visible");
         });
@@ -611,57 +655,6 @@ function initTimelineZoom() {
         });
     }
 
-
-    function scrollToTocSmooth() {
-        const toc = document.getElementById("toc");
-        if (!toc) return;
-
-        const first = toc.querySelector(".toc-search-input") || toc;
-        const rect = first.getBoundingClientRect();
-        const target = rect.top + window.scrollY - 12;
-
-        window.scrollTo({
-            top: target,
-            behavior: "smooth"
-        });
-    }
-
-    function createTocJumpButton(kind) {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "toc-jump-btn " + (kind === "index" ? "toc-jump-btn--index" : "toc-jump-btn--article");
-        btn.setAttribute("aria-label", "К оглавлению / La cuprins");
-        btn.innerHTML = '<span class="toc-jump-icon" aria-hidden="true"></span>';
-
-        btn.addEventListener("click", function (e) {
-            e.preventDefault();
-            scrollToTocSmooth();
-        });
-
-        return btn;
-    }
-
-    function initTocJumpButtons() {
-        const toc = document.getElementById("toc");
-        if (!toc) return;
-
-        const context = getContext();
-
-        if (context === "root") {
-            const indexSections = document.querySelectorAll(".index-content");
-            indexSections.forEach(section => {
-                if (section.querySelector(".toc-jump-btn")) return;
-                const btn = createTocJumpButton("index");
-                section.appendChild(btn);
-            });
-        } else {
-            const header = document.querySelector(".article-header");
-            if (header && !header.querySelector(".toc-jump-btn")) {
-                const btn = createTocJumpButton("article");
-                header.appendChild(btn);
-            }
-        }
-    }
 
 document.addEventListener("DOMContentLoaded", () => {
         initTimelineSticky();
@@ -675,6 +668,5 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightCurrentTocItem();
         initTimelineDragScroll();
         initTimelineZoom();
-        initTocJumpButtons();
     });
 })();

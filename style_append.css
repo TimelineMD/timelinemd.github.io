@@ -241,7 +241,7 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 /* ПК: повыше таймлайн */
 @media (min-width: 900px) {
   .timeline-image {
-    max-height: 250px;
+    max-height: 280px;
   }
 }
 
@@ -296,71 +296,11 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   z-index: 30;
 }
 
-/* Кнопка перехода к оглавлению (гамбургер) — только мобильная версия */
-@media (max-width: 768px) {
-  .toc-jump-btn {
-    border: 1px solid rgba(15, 23, 42, 0.15);
-    background: #ffffff;
-    color: #111827;
-    border-radius: 999px;
-    width: 34px;
-    height: 34px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.10);
-  }
+/* Перетаскивание увеличенного таймлайна */
+.timeline-zoom-inner {
+  cursor: grab;
+}
 
-  .toc-jump-btn:hover {
-    background: #f3f4f6;
-  }
-
-  .toc-jump-icon {
-    position: relative;
-    width: 16px;
-    height: 2px;
-    background: #111827;
-    border-radius: 999px;
-  }
-
-  .toc-jump-icon::before,
-  .toc-jump-icon::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 16px;
-    height: 2px;
-    background: #111827;
-    border-radius: 999px;
-  }
-
-  .toc-jump-icon::before {
-    top: -5px;
-  }
-
-  .toc-jump-icon::after {
-    top: 5px;
-  }
-
-  .index-content {
-    position: relative;
-  }
-
-  .article-header {
-    position: relative;
-  }
-
-  .toc-jump-btn--index {
-    position: absolute;
-    top: -0.75rem;
-    right: -0.5rem;
-  }
-
-  .toc-jump-btn--article {
-    position: absolute;
-    top: -0.75rem;
-    right: -0.5rem;
-  }
+.timeline-zoom-inner.is-dragging {
+  cursor: grabbing;
 }

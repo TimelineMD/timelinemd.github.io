@@ -612,20 +612,13 @@ function initTimelineZoom() {
     }
 
 
-    
-function scrollToTocSmooth() {
-    const toc = document.getElementById("toc");
-    if (!toc) return;
-    const first = toc.querySelector(".toc-search-input") || toc;
-    const rect = first.getBoundingClientRect();
-    const target = rect.top + window.scrollY - 12;
-    window.scrollTo({
-        top: target,
-        behavior: "smooth"
-    });
-}
-const rect = toc.getBoundingClientRect();
-        const target = rect.top + window.scrollY - 8;
+    function scrollToTocSmooth() {
+        const toc = document.getElementById("toc");
+        if (!toc) return;
+
+        const first = toc.querySelector(".toc-search-input") || toc;
+        const rect = first.getBoundingClientRect();
+        const target = rect.top + window.scrollY - 12;
 
         window.scrollTo({
             top: target,
@@ -639,21 +632,18 @@ const rect = toc.getBoundingClientRect();
         btn.className = "toc-jump-btn " + (kind === "index" ? "toc-jump-btn--index" : "toc-jump-btn--article");
         btn.setAttribute("aria-label", "К оглавлению / La cuprins");
         btn.innerHTML = '<span class="toc-jump-icon" aria-hidden="true"></span>';
+
         btn.addEventListener("click", function (e) {
             e.preventDefault();
             scrollToTocSmooth();
         });
+
         return btn;
     }
 
     function initTocJumpButtons() {
         const toc = document.getElementById("toc");
         if (!toc) return;
-
-        // Только для мобильных экранов
-        if (window.innerWidth > 768) {
-            return;
-        }
 
         const context = getContext();
 

@@ -241,7 +241,7 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 /* ПК: повыше таймлайн */
 @media (min-width: 900px) {
   .timeline-image {
-    max-height: 250px;
+    max-height: 280px;
   }
 }
 
@@ -294,4 +294,13 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   left: 0;
   right: 0;
   z-index: 30;
+}
+
+/* Перетаскивание увеличенного таймлайна */
+.timeline-zoom-inner {
+  cursor: grab;
+}
+
+.timeline-zoom-inner.is-dragging {
+  cursor: grabbing;
 }

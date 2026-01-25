@@ -489,8 +489,9 @@
 
         // Главная страница (RU и RO)
         if (isIndexPage) {
-            const indexSection = document.querySelector(".index-content");
-            if (indexSection) {
+            const indexSections = document.querySelectorAll(".index-content");
+            indexSections.forEach(indexSection => {
+                if (!indexSection) return;
                 const btn = document.createElement("button");
                 btn.type = "button";
                 btn.className = "toc-jump-btn toc-jump-btn--index";
@@ -502,7 +503,7 @@
                 btn.addEventListener("click", function () {
                     scrollToTocSearch();
                 });
-            }
+            });
         } else {
             // Страницы статей
             const header = document.querySelector(".article-header");

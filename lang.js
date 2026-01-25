@@ -454,7 +454,7 @@
     const rect = searchInput.getBoundingClientRect();
 
     // Скроллим так, чтобы поле поиска оказалось чуть ниже верхнего края экрана
-    const fixedOffset = 80; // пикселей сверху
+    const fixedOffset = 160; // пикселей сверху
     const y = rect.top + (window.scrollY || window.pageYOffset) - fixedOffset;
 
     window.scrollTo({

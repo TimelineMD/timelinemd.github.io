@@ -457,10 +457,10 @@
         block: "center"
     });
 
-    // Шаг 2 — докрутка вниз ещё на 15% высоты экрана
+    // Шаг 2 — докрутка вверх на 30% высоты экрана
     setTimeout(() => {
         window.scrollBy({
-            top: window.innerHeight * 0.15,
+            top: window.innerHeight * -0.30,
             behavior: "smooth"
         });
     }, 400);

@@ -449,39 +449,38 @@
 
     function scrollToTocSearch() {
         const searchInput = document.getElementById("toc-search-input");
-        if (!searchInput) return;
-
-        const rect = searchInput.getBoundingClientRect();
-
-        // Учитываем высоту фиксированной шапки сайта, чтобы поле поиска не пряталось под ней
-        let headerOffset = 0;
-        const header = document.querySelector(".site-header");
-        if (header) {
-            const headerRect = header.getBoundingClientRect();
-            headerOffset = headerRect.height || 0;
+        if (searchInput) {
+            searchInput.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+            return;
         }
 
-        const extraOffset = 40; // чуть выше, чтобы поле поиска было явно в зоне видимости
-        const y =
-            rect.top +
-            (window.scrollY || window.pageYOffset) -
-            headerOffset -
-            extraOffset;
-
-        window.scrollTo({
-            top: y,
-            behavior: "smooth"
-        });
+        const toc = document.getElementById("toc");
+        if (toc) {
+            toc.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
     }
 
     function initTocJumpButtons() {
         const isMobile = window.matchMedia && window.matchMedia("(max-width: 899px)").matches;
         if (!isMobile) return;
 
-        const context = getContext();
+        const path = window.location.pathname || "";
+        const isIndexPage =
+            path === "/" ||
+            path === "/index.html" ||
+            path === "/ru/" ||
+            path === "/ro/" ||
+            path.endsWith("/ru/index.html") ||
+            path.endsWith("/ro/index.html");
 
-        // Главная страница
-        if (context === "root") {
+        // Главная страница (RU и RO)
+        if (isIndexPage) {
             const indexSection = document.querySelector(".index-content");
             if (indexSection) {
                 const btn = document.createElement("button");

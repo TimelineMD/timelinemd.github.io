@@ -471,13 +471,21 @@
         if (!isMobile) return;
 
         const path = window.location.pathname || "";
-        const isIndexPage =
+
+        // Определяем, что это главная страница (RU/RO) независимо от префикса (GitHub Pages и т.п.)
+        const isRootLike =
             path === "/" ||
-            path === "/index.html" ||
-            path === "/ru/" ||
-            path === "/ro/" ||
-            path.endsWith("/ru/index.html") ||
-            path.endsWith("/ro/index.html");
+            path.endsWith("/index.html");
+
+        const isRuIndex =
+            path.indexOf("/ru/") !== -1 &&
+            (path.endsWith("/ru/") || path.endsWith("/ru/index.html"));
+
+        const isRoIndex =
+            path.indexOf("/ro/") !== -1 &&
+            (path.endsWith("/ro/") || path.endsWith("/ro/index.html"));
+
+        const isIndexPage = isRootLike || isRuIndex || isRoIndex;
 
         // Главная страница (RU и RO)
         if (isIndexPage) {

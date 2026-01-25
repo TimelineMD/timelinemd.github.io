@@ -448,25 +448,25 @@
 
 
     function scrollToTocSearch() {
-        const searchInput = document.getElementById("toc-search-input");
-        if (searchInput) {
-            searchInput.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-            return;
-        }
+    const input = document.getElementById("toc-search-input");
+    if (!input) return;
 
-        const toc = document.getElementById("toc");
-        if (toc) {
-            toc.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
-    }
+    // Шаг 1 — плавный скролл к центру
+    input.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
 
-    function initTocJumpButtons() {
+    // Шаг 2 — докрутка вниз ещё на 15% высоты экрана
+    setTimeout(() => {
+        window.scrollBy({
+            top: window.innerHeight * 0.15,
+            behavior: "smooth"
+        });
+    }, 400);
+}
+
+function initTocJumpButtons() {
         const isMobile = window.matchMedia && window.matchMedia("(max-width: 899px)").matches;
         if (!isMobile) return;
 

@@ -461,7 +461,7 @@
             headerOffset = headerRect.height || 0;
         }
 
-        const extraOffset = 12; // небольшой запас
+        const extraOffset = 40; // чуть выше, чтобы поле поиска было явно в зоне видимости
         const y =
             rect.top +
             (window.scrollY || window.pageYOffset) -
@@ -482,7 +482,7 @@
 
         // Главная страница
         if (context === "root") {
-            const indexSection = document.querySelector(".index-content[data-lang]");
+            const indexSection = document.querySelector(".index-content");
             if (indexSection) {
                 const btn = document.createElement("button");
                 btn.type = "button";

@@ -296,7 +296,6 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   z-index: 30;
 }
 
-
 /* Кнопка перехода к оглавлению (только мобильная версия) */
 .toc-jump-btn {
   display: none;
@@ -313,11 +312,6 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.10);
 }
 
-.toc-jump-btn:hover {
-  background: #f3f4f6;
-}
-
-/* Иконка-«три полоски» */
 .toc-jump-icon {
   position: relative;
   width: 16px;
@@ -345,15 +339,13 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
   top: 5px;
 }
 
+/* Позиционирование на главной (рядом с "Добро пожаловать") */
+.index-content {
+  position: relative;
+}
+
+/* Только мобильная версия: показываем кнопку и позиционируем её */
 @media (max-width: 768px) {
-  .index-content {
-    position: relative;
-  }
-
-  .article-header {
-    position: relative;
-  }
-
   .toc-jump-btn {
     display: inline-flex;
   }
@@ -362,6 +354,10 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
     position: absolute;
     top: 0.25rem;
     right: 0.5rem;
+  }
+
+  .article-header {
+    position: relative;
   }
 
   .toc-jump-btn--article {

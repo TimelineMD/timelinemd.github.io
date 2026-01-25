@@ -241,7 +241,7 @@ html.lang-ro .lang-switcher button[data-set-lang="ro"] {
 /* ПК: повыше таймлайн */
 @media (min-width: 900px) {
   .timeline-image {
-    max-height: 240px;
+    max-height: 250px;
   }
 }
 

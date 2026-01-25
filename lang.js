@@ -586,9 +586,7 @@ function initTimelineZoom() {
             setTimeout(initTimelineZoom, 80);
             return;
         }
-
         const overlayImage = overlay.querySelector(".timeline-zoom-image");
-        const zoomInner = overlay.querySelector(".timeline-zoom-inner");
 
         barImage.addEventListener("click", () => {
             // если до этого было перетаскивание, не считаем это кликом для зума
@@ -602,48 +600,6 @@ function initTimelineZoom() {
             overlay.classList.add("is-visible");
         });
 
-        // ПК: перетаскивание увеличенного таймлайна «ладонью»
-        if (zoomInner) {
-            let isDown = false;
-            let startX = 0;
-            let scrollLeft = 0;
-
-            zoomInner.addEventListener("mousedown", (e) => {
-                if (e.button !== 0) return; // только левая кнопка
-                isDown = true;
-                zoomInner.classList.add("is-dragging");
-                startX = e.pageX - zoomInner.offsetLeft;
-                scrollLeft = zoomInner.scrollLeft;
-                e.preventDefault();
-                e.stopPropagation(); // не даём оверлею воспринять это как клик для закрытия
-            });
-
-            window.addEventListener("mouseup", () => {
-                if (!isDown) return;
-                isDown = false;
-                zoomInner.classList.remove("is-dragging");
-            });
-
-            zoomInner.addEventListener("mouseleave", () => {
-                if (!isDown) return;
-                isDown = false;
-                zoomInner.classList.remove("is-dragging");
-            });
-
-            window.addEventListener("mousemove", (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - zoomInner.offsetLeft;
-                const walk = x - startX;
-                zoomInner.scrollLeft = scrollLeft - walk;
-            });
-
-            // клик внутри не должен закрывать оверлей
-            zoomInner.addEventListener("click", (e) => {
-                e.stopPropagation();
-            });
-        }
-
         overlay.addEventListener("click", () => {
             overlay.classList.remove("is-visible");
         });
@@ -654,7 +610,6 @@ function initTimelineZoom() {
             }
         });
     }
-
 
 document.addEventListener("DOMContentLoaded", () => {
         initTimelineSticky();
@@ -670,29 +625,3 @@ document.addEventListener("DOMContentLoaded", () => {
         initTimelineZoom();
     });
 })();
-
-
-/* ===== Анимация-подсказка таймлайна ===== */
-document.addEventListener("DOMContentLoaded", function () {
-    const scrollEl = document.querySelector(".timeline-scroll");
-    if (!scrollEl) return;
-
-    if (localStorage.getItem("timelineHintDisabled") === "1") return;
-
-    scrollEl.classList.add("hint-wiggle");
-
-    function disableHint() {
-        scrollEl.classList.remove("hint-wiggle");
-        localStorage.setItem("timelineHintDisabled", "1");
-
-        scrollEl.removeEventListener("mousedown", disableHint);
-        scrollEl.removeEventListener("touchstart", disableHint);
-        scrollEl.removeEventListener("click", disableHint);
-        scrollEl.removeEventListener("wheel", disableHint);
-    }
-
-    scrollEl.addEventListener("mousedown", disableHint);
-    scrollEl.addEventListener("touchstart", disableHint);
-    scrollEl.addEventListener("click", disableHint);
-    scrollEl.addEventListener("wheel", disableHint);
-});

@@ -452,8 +452,21 @@
         if (!searchInput) return;
 
         const rect = searchInput.getBoundingClientRect();
-        const offset = 12; // небольшой отступ сверху
-        const y = rect.top + (window.scrollY || window.pageYOffset) - offset;
+
+        // Учитываем высоту фиксированной шапки сайта, чтобы поле поиска не пряталось под ней
+        let headerOffset = 0;
+        const header = document.querySelector(".site-header");
+        if (header) {
+            const headerRect = header.getBoundingClientRect();
+            headerOffset = headerRect.height || 0;
+        }
+
+        const extraOffset = 12; // небольшой запас
+        const y =
+            rect.top +
+            (window.scrollY || window.pageYOffset) -
+            headerOffset -
+            extraOffset;
 
         window.scrollTo({
             top: y,

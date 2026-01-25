@@ -449,12 +449,10 @@
 
     function scrollToTocSearch() {
         const searchInput = document.getElementById("toc-search-input");
-        const toc = document.getElementById("toc");
-        const target = searchInput || toc;
-        if (!target) return;
+        if (!searchInput) return;
 
-        const rect = target.getBoundingClientRect();
-        const offset = 16; // небольшой отступ сверху
+        const rect = searchInput.getBoundingClientRect();
+        const offset = 12; // небольшой отступ сверху
         const y = rect.top + (window.scrollY || window.pageYOffset) - offset;
 
         window.scrollTo({

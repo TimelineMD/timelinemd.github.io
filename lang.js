@@ -663,18 +663,29 @@ function initTimelineHandHint() {
 
     const STORAGE_KEY = "timelineHandHintShown_v1";
 
-    // Если уже взаимодействовали — больше никогда не показываем
+    // Если уже показывали подсказку – выходим
     try {
         if (window.localStorage && localStorage.getItem(STORAGE_KEY) === "1") {
             return;
         }
-    } catch (e) {}
+    } catch (e) {
+        // localStorage может быть недоступен — тогда просто показываем 1 раз за сессию
+    }
 
-    const isTouch =
+    // Определяем тач/ПК + подстрахуемся по ширине экрана
+    const isTouchDevice =
         ("ontouchstart" in window) ||
-        (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
-        (window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+        (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
 
+    const isCoarsePointer =
+        window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+
+    const isNarrowLayout =
+        window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+
+    const isTouch = !!(isTouchDevice || isCoarsePointer || isNarrowLayout);
+
+    // Создаём DOM подсказки
     const hint = document.createElement("div");
     hint.className =
         "timeline-hand-hint " +
@@ -691,42 +702,60 @@ function initTimelineHandHint() {
 
     container.appendChild(hint);
 
-    let hidden = false;
+    let savedToStorage = false;
 
-    function hideHint(auto=false) {
-        if (hidden) return;
-        hidden = true;
+    function saveOnceAndDisable() {
+        if (savedToStorage) return;
+        savedToStorage = true;
 
-        hint.classList.add("timeline-hand-hint--hide");
-        setTimeout(() => { hint.remove(); }, 260);
-
-        // Запоминаем только если взаимодействие (не auto-hide)
-        if (!auto) {
-            try { localStorage.setItem(STORAGE_KEY, "1"); } catch (e) {}
-        }
-
-        detachListeners();
+        try {
+            if (window.localStorage) {
+                localStorage.setItem(STORAGE_KEY, "1");
+            }
+        } catch (e) {}
     }
 
     function detachListeners() {
-        ["mousedown","touchstart","wheel"].forEach(evt=>{
-            container.removeEventListener(evt,onUser);
+        ["mousedown", "touchstart", "wheel"].forEach((evt) => {
+            container.removeEventListener(evt, onUserInteraction);
         });
-        window.removeEventListener("keydown", onKey);
+        window.removeEventListener("keydown", onKeyDown);
     }
 
-    function onUser() { hideHint(false); }
-    function onKey(e) {
-        if (e.key==="ArrowLeft"||e.key==="ArrowRight") hideHint(false);
+    function hideVisual() {
+        // Добавляем класс для fade-out анимации и потом удаляем из DOM
+        hint.classList.add("timeline-hand-hint--hide");
+        setTimeout(() => {
+            if (hint.parentNode) {
+                hint.parentNode.removeChild(hint);
+            }
+        }, 260);
     }
 
-    ["mousedown","touchstart","wheel"].forEach(evt=>{
-        container.addEventListener(evt,onUser,{passive:true});
+    function onUserInteraction() {
+        // Реальное взаимодействие: запоминаем навсегда и убираем подсказку
+        saveOnceAndDisable();
+        detachListeners();
+        hideVisual();
+    }
+
+    function onKeyDown(e) {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+            saveOnceAndDisable();
+            detachListeners();
+            hideVisual();
+        }
+    }
+
+    // Любое первое взаимодействие с таймлайном – гасим подсказку и больше не показываем
+    ["mousedown", "touchstart", "wheel"].forEach((evt) => {
+        container.addEventListener(evt, onUserInteraction, { passive: true });
     });
-    window.addEventListener("keydown",onKey);
+    window.addEventListener("keydown", onKeyDown);
 
-    // Auto-hide, но без записи флага
-    setTimeout(()=>hideHint(true),2200);
+    // Авто-скрытие через ~2.2 секунды БЕЗ записи в localStorage
+    // (если пользователь так и не взаимодействовал, при следующем визите подсказка снова появится)
+    setTimeout(hideVisual, 2200);
 }
 
 

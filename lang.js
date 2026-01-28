@@ -88,6 +88,7 @@
                         { slug: "mongol_invasion_europe", ru: "Монгольское нашествие на Европу", ro: "Invazia mongolă în Europa" },
                         { slug: "golden_horde_influence", ru: "Влияние Золотой Орды", ro: "Influența Hoardei de Aur" },
                         { slug: "moldavian_principality_foundation", ru: "Основание Молдавского княжества", ro: "Întemeierea Principatului Moldovei" },
+						{ slug: "chisinau_foundation", ru: "Основание Кишинёва", ro: "Întemeierea Chișinăului" },
                         { slug: "stefan_cel_mare_blossom", ru: "Расцвет при Штефане чел Маре", ro: "Apogeul sub Ștefan cel Mare" }
                     ]
                 }
@@ -109,7 +110,10 @@
                         { slug: "french_revolution", ru: "Французская революция", ro: "Revoluția Franceză" },
                         { slug: "napoleonic_wars", ru: "Наполеоновские войны", ro: "Războaiele napoleoniene" },
                         { slug: "europe_revolutions", ru: "Революции в Европе", ro: "Revoluțiile din Europa" },
-                        { slug: "colonial_empires", ru: "Колониальные империи", ro: "Imperiile coloniale" }
+                        { slug: "colonial_empires", ru: "Колониальные империи", ro: "Imperiile coloniale" },
+						{ slug: "olympics_modern", ru: "Первые современные Олимпийские игры", ro: "Primele Jocuri Olimpice moderne" },
+						{ slug: "first_flight", ru: "Первый полёт", ro: "Primul zbor" },
+						{ slug: "titanic_sinking", ru: "Гибель «Титаника»", ro: "Scufundarea „Titanicului”" }
                     ]
                 },
                 {
@@ -139,7 +143,8 @@
                         { slug: "cold_war", ru: "Холодная война", ro: "Războiul Rece" },
                         { slug: "spaceflight", ru: "Полёт человека в космос", ro: "Zborul omului în spațiu" },
                         { slug: "moon_landing", ru: "Высадка человека на Луну", ro: "Aselenizarea" },
-                        { slug: "ussr_collapse", ru: "Распад СССР", ro: "Prăbușirea URSS" }
+                        { slug: "ussr_collapse", ru: "Распад СССР", ro: "Prăbușirea URSS" },
+						{ slug: "iphone_appearance", ru: "Появление iPhone", ro: "Apariția iPhone-ului" },
                     ]
                 },
                 {
